@@ -1,13 +1,15 @@
 body {
   margin: 0;
   font-family: "Lato", sans-serif;
-	background-color: #C0C0C0;
+	background-color: #f1f1f1;
 }
 
 .intro {
 	text-align: center;
 }
-
+*{
+	padding: 0px;
+}
 hr{
 	position: relative;
   top: 20px;
@@ -18,19 +20,22 @@ hr{
 }
 /* The side navigation menu */
 .sidebar {
-  width: 250px;
-  background-color: #f1f1f1;
+  width: 300px;
+  background-color: #C0C0C0;
   position: fixed;
   height: 100%;
   overflow: auto;
+	padding-top: 50px;
+	text-align: center;
+
 }
 
 /* Sidebar links */
 .sidebar a {
   display: block;
   color: black;
-  padding: 3px;
   text-decoration: none;
+	padding: 2px;
 }
 /* Active/current link */
 .sidebar a.active {
@@ -43,7 +48,7 @@ hr{
   color: white;
 }
 div.content {
-  margin-left: 250px;
+  margin-left: 300px;
   padding: 1px 16px;
   height: 1000px;
 }
