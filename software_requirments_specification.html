@@ -97,38 +97,23 @@
 		    </span>
 
 		    <span id="External_Interface_Requirements">
-		      <h2>3. External Interface Requirements</h2>
-
-		      <h3>3.1 User Interfaces</h3>
-		      <p>Describe the logical characteristics of each interface between the software product and the users. This may include sample screen images, any GUI standards or product family style guides that are to be followed, screen layout constraints,
-		        standard buttons and functions (e.g., help) that will appear on every screen, keyboard shortcuts, error message display standards, and so on. Define the software components for which a user interface is needed. Details of the user interface
-		        design should be documented in a separate user interface specification.</p>
-
-		      <h3>3.2 Hardware Interfaces</h3>
-		      <p>Describe the logical and physical characteristics of each interface between the software product and the hardware components of the system. This may include the supported device types, the nature of the data and control interactions between
-		        the software and the hardware, and communication protocols to be used.</p>
-
-		      <h3>3.3 Software Interfaces</h3>
-		      <p>Describe the connections between this product and other specific software components (name and version), including databases, operating systems, tools, libraries, and integrated commercial components. Identify the data items or messages
-		        coming into the system and going out and describe the purpose of each. Describe the services needed and the nature of communications. Refer to documents that describe detailed application programming interface protocols. Identify data that
-		        will be shared across software components. If the data sharing mechanism must be implemented in a specific way (for example, use of a global data area in a multitasking operating system), specify this as an implementation constraint.</p>
-
-		      <h3>3.3 Software Interfaces</h3>
-		      <p>Describe the connections between this product and other specific software components (name and version), including databases, operating systems, tools, libraries, and integrated commercial components. Identify the data items or messages
-		        coming into the system and going out and describe the purpose of each. Describe the services needed and the nature of communications. Refer to documents that describe detailed application programming interface protocols. Identify data that
-		        will be shared across software components. If the data sharing mechanism must be implemented in a specific way (for example, use of a global data area in a multitasking operating system), specify this as an implementation constraint.</p>
-
-		      <h3>3.4 Communications Interfaces</h3>
-		      <p>Describe the requirements associated with any communications functions required by this product, including e-mail, web browser, network server communications protocols, electronic forms, and so on. Define any pertinent message formatting.
-		        Identify any communication standards that will be used, such as FTP or HTTP. Specify any communication security or encryption issues, data transfer rates, and synchronization mechanisms.</p>
+		      <h1 style="text-align: center;">3. External Interface Requirements</h1>
+<h2 style="text-align: center;">3.1 User Interfaces</h2>
+<p style="text-align: center;">When a user enter the website for the first time, the system will respond with a login page prompting the user to login, sign up or sign in with a federated identity. Upon logging in, the user will be directed to the home page where the user will have the option to join a class as a student or create a class as a teacher. If the user wants to join a class, he/she will have insert a code provided by the teacher. He will also have to upload a photo of himself/herself after joining. If the user wants to form a class, he/she will have to name the classroom and generate a code with the help of the system. Furthermore, the user can view reading info of the students after creating a class. The user interface will be further elaborated in the SDS.&nbsp;</p>
+<h2 style="text-align: center;">3.2 Hardware Interfaces</h2>
+<p style="text-align: center;">The system is compatible with any device supporting web browsers and that has an active internet connection. Alongside the web-platform the system will most likely have an android application which will support all android devices. Moreover, for the system to allow the teachers to monitor student&rsquo;s reading activity all devices should have a front camera and allow access to the system.</p>
+<h2 style="text-align: center;">3.3 Software Interfaces</h2>
+<p style="text-align: center;">The system will work on any operating system supporting web browsers since it will be hosted on a web server. Moreover, the system will also have an android application supporting android version 8 and above. The system will use Python along with the Django framework as backend tools. For the frontend, we will use HTML, CSS &amp; Bootstrap. Besides, some APIs will be used for federated identity service, face detection, face recognition and face tracking of the students which will be finalized later.</p>
+<h2 style="text-align: center;">3.4 Communications Interfaces</h2>
+<p style="text-align: center;">The system will use a number of communication services. Both our hosted website and android application will be connected to a common database for data communication. Moreover, we will be using the HTTPS protocol for secure transmission over the internet. Apart from that, we will use a number of APIs for providing us with federated identity, face detection, face recognition and face tracking services.</p>
 		    </span>
 
 		    <span id="System_Features">
-<h1>4. System Features</h1>
-<p>This section includes all the main features of the system depicted with the help of use case diagram. All the use cases have been expanded and explained in details.</p>
+<h1 style="text-align: center;">4. System Features</h1>
+<p style="text-align: center;">This section includes all the main features of the system depicted with the help of use case diagram. All the use cases have been expanded and explained in details.</p>
 <p style="text-align: center;"><img src="My Reading Room.png" alt="" width="600" height="600" /></p>
 <p style="text-align: center;"><strong>Figure </strong><strong>1</strong><strong>: Use-case Diagram of the System</strong></p>
-<h2>4.1 Log In</h2>
+<h2 style="text-align: center;">4.1 Log In</h2>
 <table>
 <tbody>
 <tr style="height: 30.6667px;">
@@ -165,41 +150,41 @@
 </tr>
 </tbody>
 </table>
-<p>&nbsp;</p>
-<table width="965">
+<p style="text-align: center;">&nbsp;</p>
+<table>
 <tbody>
 <tr style="height: 30px;">
-<td style="height: 30px;" colspan="2" width="965">
+<td style="height: 30px; width: 553px;" colspan="2">
 <p><strong>Typical Course of Events</strong></p>
 </td>
 </tr>
-<tr style="height: 30px;">
-<td style="height: 30px;" width="482">
+<tr style="height: 30.6667px;">
+<td style="height: 30.6667px; width: 281.333px;">
 <p><strong>Actor Actions</strong></p>
 </td>
-<td style="height: 30px;" width="482">
+<td style="height: 30.6667px; width: 271.667px;">
 <p><strong>System Responses</strong></p>
 </td>
 </tr>
-<tr style="height: 30.3333px;">
-<td style="height: 30.3333px;" width="482">
+<tr style="height: 30px;">
+<td style="height: 30px; width: 281.333px;">
 <p>1. Actor goes to www.sitename.com</p>
 </td>
-<td style="height: 30.3333px;" width="482">
+<td style="height: 30px; width: 271.667px;">
 <p>2. System responds with login page.</p>
 </td>
 </tr>
 <tr style="height: 30px;">
-<td style="height: 30px;" width="482">
+<td style="height: 30px; width: 281.333px;">
 <p>3. Actor enters username, password.</p>
 </td>
-<td style="height: 30px;" width="482">
+<td style="height: 30px; width: 271.667px;">
 <p>4. System verifies credentials and redirects to site homepage.</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>&nbsp;</p>
+<p style="text-align: center;">&nbsp;</p>
 <table>
 <tbody>
 <tr>
@@ -214,7 +199,7 @@
 </tr>
 </tbody>
 </table>
-<h2>4.2 Log Out</h2>
+<h2 style="text-align: center;">4.2 Log Out</h2>
 <table>
 <tbody>
 <tr style="height: 30.6667px;">
@@ -251,33 +236,33 @@
 </tr>
 </tbody>
 </table>
-<p>&nbsp;</p>
-<table width="965">
+<p style="text-align: center;">&nbsp;</p>
+<table>
 <tbody>
 <tr>
-<td colspan="2" width="965">
+<td style="width: 556.333px;" colspan="2">
 <p><strong>Typical Course of Events</strong></p>
 </td>
 </tr>
 <tr>
-<td width="482">
+<td style="width: 280px;">
 <p><strong>Actor Actions</strong></p>
 </td>
-<td width="482">
+<td style="width: 276.333px;">
 <p><strong>System Responses</strong></p>
 </td>
 </tr>
 <tr>
-<td width="482">
+<td style="width: 280px;">
 <p>1. Actor clicks the &lsquo;log out&rsquo; button.</p>
 </td>
-<td width="482">
+<td style="width: 276.333px;">
 <p>2. System redirects to login page.</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>&nbsp;</p>
+<p style="text-align: center;">&nbsp;</p>
 <table>
 <tbody>
 <tr>
@@ -292,7 +277,7 @@
 </tr>
 </tbody>
 </table>
-<h2>4.3 Sign-Up</h2>
+<h2 style="text-align: center;">4.3 Sign-Up</h2>
 <table>
 <tbody>
 <tr>
@@ -329,41 +314,41 @@
 </tr>
 </tbody>
 </table>
-<p>&nbsp;</p>
-<table width="965">
+<p style="text-align: center;">&nbsp;</p>
+<table>
 <tbody>
-<tr>
-<td colspan="2" width="965">
+<tr style="height: 30px;">
+<td style="width: 552px; height: 30px;" colspan="2">
 <p><strong>Typical Course of Events</strong></p>
 </td>
 </tr>
-<tr>
-<td width="482">
+<tr style="height: 30px;">
+<td style="width: 277px; height: 30px;">
 <p><strong>Actor Actions</strong></p>
 </td>
-<td width="482">
+<td style="width: 275px; height: 30px;">
 <p><strong>System Responses</strong></p>
 </td>
 </tr>
-<tr>
-<td width="482">
+<tr style="height: 30px;">
+<td style="width: 277px; height: 30px;">
 <p>1. The actor clicks on the &lsquo;sign-up&rsquo; button.</p>
 </td>
-<td width="482">
+<td style="width: 275px; height: 30px;">
 <p>2. The system responds with sign-up page.</p>
 </td>
 </tr>
-<tr>
-<td width="482">
+<tr style="height: 70px;">
+<td style="width: 277px; height: 70px;">
 <p>3. The actor enters username, password &amp; email.</p>
 </td>
-<td width="482">
+<td style="width: 275px; height: 70px;">
 <p>4. The system validates the credentials and creates an account for the actor redirecting to the login page.</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>&nbsp;</p>
+<p style="text-align: center;">&nbsp;</p>
 <table>
 <tbody>
 <tr>
@@ -379,7 +364,7 @@
 </tr>
 </tbody>
 </table>
-<h2>4.4 Sign-In With</h2>
+<h2 style="text-align: center;">4.4 Sign-In With</h2>
 <table>
 <tbody>
 <tr>
@@ -416,8 +401,8 @@
 </tr>
 </tbody>
 </table>
-<p>&nbsp;</p>
-<table width="965">
+<p style="text-align: center;">&nbsp;</p>
+<table>
 <tbody>
 <tr>
 <td colspan="2" width="965">
@@ -450,7 +435,7 @@
 </tr>
 </tbody>
 </table>
-<p>&nbsp;</p>
+<p style="text-align: center;">&nbsp;</p>
 <table>
 <tbody>
 <tr>
@@ -465,7 +450,7 @@
 </tr>
 </tbody>
 </table>
-<h2>4.5 Form Class</h2>
+<h2 style="text-align: center;">4.5 Form Class</h2>
 <table>
 <tbody>
 <tr>
@@ -502,8 +487,8 @@
 </tr>
 </tbody>
 </table>
-<p>&nbsp;</p>
-<table width="965">
+<p style="text-align: center;">&nbsp;</p>
+<table>
 <tbody>
 <tr>
 <td colspan="2" width="965">
@@ -536,22 +521,22 @@
 </tr>
 </tbody>
 </table>
-<p>&nbsp;</p>
+<p style="text-align: center;">&nbsp;</p>
 <table>
 <tbody>
-<tr>
-<td width="964">
+<tr style="height: 30.6667px;">
+<td style="height: 30.6667px;" width="964">
 <p><strong>Alternate Course of Events</strong></p>
 </td>
 </tr>
-<tr>
-<td width="964">
+<tr style="height: 30px;">
+<td style="height: 30px;" width="964">
 <p>N/A</p>
 </td>
 </tr>
 </tbody>
 </table>
-<h2>4.6 Join Class</h2>
+<h2 style="text-align: center;">4.6 Join Class</h2>
 <table>
 <tbody>
 <tr>
@@ -588,49 +573,49 @@
 </tr>
 </tbody>
 </table>
-<p>&nbsp;</p>
-<table width="965">
+<p style="text-align: center;">&nbsp;</p>
+<table>
 <tbody>
-<tr>
-<td colspan="2" width="965">
+<tr style="height: 30.3333px;">
+<td style="height: 30.3333px;" colspan="2" width="965">
 <p><strong>Typical Course of Events</strong></p>
 </td>
 </tr>
-<tr>
-<td width="482">
+<tr style="height: 30px;">
+<td style="height: 30px;" width="482">
 <p><strong>Actor Actions</strong></p>
 </td>
-<td width="482">
+<td style="height: 30px;" width="482">
 <p><strong>System Responses</strong></p>
 </td>
 </tr>
-<tr>
-<td width="482">
+<tr style="height: 30px;">
+<td style="height: 30px;" width="482">
 <p>1. The student clicks the &lsquo;join a class&rsquo; button.</p>
 </td>
-<td width="482">
+<td style="height: 30px;" width="482">
 <p>2. The system responds with a join classroom page.</p>
 </td>
 </tr>
-<tr>
-<td width="482">
+<tr style="height: 50px;">
+<td style="height: 50px;" width="482">
 <p>3. The student enters the classroom code provided by the teacher and clicks the &lsquo;join class&rsquo; button</p>
 </td>
-<td width="482">
+<td style="height: 50px;" width="482">
 <p>4. The system verifies the code and redirects to the classroom page where the student is prompted to upload his/her passport size photo.</p>
 </td>
 </tr>
-<tr>
-<td width="482">
+<tr style="height: 50px;">
+<td style="height: 50px;" width="482">
 <p>5. The student selects his/her photo from the local directory and clicks the &lsquo;upload&rsquo; button.</p>
 </td>
-<td width="482">
+<td style="height: 50px;" width="482">
 <p>6. The system uploads the photo and shows that the upload is successful.</p>
 </td>
 </tr>
 </tbody>
 </table>
-<p>&nbsp;</p>
+<p style="text-align: center;">&nbsp;</p>
 <table>
 <tbody>
 <tr>
@@ -646,7 +631,7 @@
 </tr>
 </tbody>
 </table>
-<h2>4.7 Provide Reading Materials</h2>
+<h2 style="text-align: center;">4.7 Provide Reading Materials</h2>
 <table>
 <tbody>
 <tr>
@@ -683,8 +668,8 @@
 </tr>
 </tbody>
 </table>
-<p>&nbsp;</p>
-<table width="965">
+<p style="text-align: center;">&nbsp;</p>
+<table>
 <tbody>
 <tr>
 <td colspan="2" width="965">
@@ -717,22 +702,22 @@
 </tr>
 </tbody>
 </table>
-<p>&nbsp;</p>
+<p style="text-align: center;">&nbsp;</p>
 <table>
 <tbody>
-<tr>
-<td width="964">
+<tr style="height: 30px;">
+<td style="height: 30px;" width="964">
 <p><strong>Alternate Course of Events</strong></p>
 </td>
 </tr>
-<tr>
-<td width="964">
+<tr style="height: 30.3333px;">
+<td style="height: 30.3333px;" width="964">
 <p>N/A</p>
 </td>
 </tr>
 </tbody>
 </table>
-<h2>4.8 Read Reading Materials</h2>
+<h2 style="text-align: center;">4.8 Read Reading Materials</h2>
 <table>
 <tbody>
 <tr>
@@ -769,8 +754,8 @@
 </tr>
 </tbody>
 </table>
-<p>&nbsp;</p>
-<table width="965">
+<p style="text-align: center;">&nbsp;</p>
+<table>
 <tbody>
 <tr>
 <td colspan="2" width="965">
@@ -795,7 +780,7 @@
 </tr>
 </tbody>
 </table>
-<p>&nbsp;</p>
+<p style="text-align: center;">&nbsp;</p>
 <table>
 <tbody>
 <tr>
@@ -811,7 +796,7 @@
 </tr>
 </tbody>
 </table>
-<h2>4.9 View Reading Info</h2>
+<h2 style="text-align: center;">4.9 View Reading Info</h2>
 <table>
 <tbody>
 <tr>
@@ -848,8 +833,8 @@
 </tr>
 </tbody>
 </table>
-<p>&nbsp;</p>
-<table width="965">
+<p style="text-align: center;">&nbsp;</p>
+<table>
 <tbody>
 <tr>
 <td colspan="2" width="965">
@@ -882,7 +867,7 @@
 </tr>
 </tbody>
 </table>
-<p>&nbsp;</p>
+<p style="text-align: center;">&nbsp;</p>
 <table>
 <tbody>
 <tr>
@@ -897,7 +882,7 @@
 </tr>
 </tbody>
 </table>
-<h2>4.10 Detect Face of Students</h2>
+<h2 style="text-align: center;">4.10 Detect Face of Students</h2>
 <table>
 <tbody>
 <tr>
@@ -934,8 +919,8 @@
 </tr>
 </tbody>
 </table>
-<p>&nbsp;</p>
-<table width="965">
+<p style="text-align: center;">&nbsp;</p>
+<table>
 <tbody>
 <tr>
 <td colspan="2" width="965">
@@ -960,7 +945,7 @@
 </tr>
 </tbody>
 </table>
-<p>&nbsp;</p>
+<p style="text-align: center;">&nbsp;</p>
 <table>
 <tbody>
 <tr>
@@ -975,7 +960,7 @@
 </tr>
 </tbody>
 </table>
-<h2>4.11 Time Spent by Students</h2>
+<h2 style="text-align: center;">4.11 Time Spent by Students</h2>
 <table>
 <tbody>
 <tr>
@@ -1012,8 +997,8 @@
 </tr>
 </tbody>
 </table>
-<p>&nbsp;</p>
-<table width="965">
+<p style="text-align: center;">&nbsp;</p>
+<table>
 <tbody>
 <tr>
 <td colspan="2" width="965">
@@ -1046,7 +1031,7 @@
 </tr>
 </tbody>
 </table>
-<p>&nbsp;</p>
+<p style="text-align: center;">&nbsp;</p>
 <table>
 <tbody>
 <tr>
@@ -1062,7 +1047,7 @@
 </tr>
 </tbody>
 </table>
-<h2>4.12 Graph Analysis of Time Spent</h2>
+<h2 style="text-align: center;">4.12 Graph Analysis of Time Spent</h2>
 <table>
 <tbody>
 <tr>
@@ -1099,8 +1084,8 @@
 </tr>
 </tbody>
 </table>
-<p>&nbsp;</p>
-<table width="965">
+<p style="text-align: center;">&nbsp;</p>
+<table>
 <tbody>
 <tr>
 <td colspan="2" width="965">
@@ -1125,7 +1110,7 @@
 </tr>
 </tbody>
 </table>
-<p>&nbsp;</p>
+<p style="text-align: center;">&nbsp;</p>
 <table>
 <tbody>
 <tr>
@@ -1140,7 +1125,7 @@
 </tr>
 </tbody>
 </table>
-		    </span>
+	    </span>
 
 		    <span id="Other_Nonfunctional_Requirements">
 		      <h2>5. Other Nonfunctional Requirements</h2>
