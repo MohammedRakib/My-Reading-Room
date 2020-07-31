@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">-->
@@ -11,1174 +12,1198 @@
 
 <body>
   <!--TOC-->
-		<div class="sidebar">
-   	 		<ul><h3>Table of Contents</h3></ul><br>
-    		<ul><a href="#Introduction"><h4>Introduction</h4></a></ul>
-    		<ul><a href="#Overall_Description"><h4>Overall Description</h4></a></ul>
-    		<ul><a href="#External_Interface_Requirements"><h4>External Interface Requirements</h4></a></ul>
-    		<ul><a href="#System_Features"><h4>System Features</h4></a></ul>
-    		<ul><a href="#Other_Nonfunctional_Requirements"><h4>Other Nonfunctional Requirements</h4></a></ul>
-    		<ul><a href="#Other_Requirements"><h4>Other Requirements</h4></a></ul>
-    		<ul><a href="#Appendix_A"><h4>Appendix A: Glossary</h4></a></ul>
-    		<ul><a href="#Appendix_B"><h4>Appendix B: Analysis Models</h4></a></ul>
-        <ul><a href="#Appendix_C"><h4>Appendix C: To Be Determined List</h4></a></ul>
+  <div class="sidebar">
+    <ul>
+      <h3>Table of Contents</h3>
+    </ul><br>
+    <ul><a href="#Introduction">
+        <h4>Introduction</h4>
+      </a></ul>
+    <ul><a href="#Overall_Description">
+        <h4>Overall Description</h4>
+      </a></ul>
+    <ul><a href="#External_Interface_Requirements">
+        <h4>External Interface Requirements</h4>
+      </a></ul>
+    <ul><a href="#System_Features">
+        <h4>System Features</h4>
+      </a></ul>
+    <ul><a href="#Other_Nonfunctional_Requirements">
+        <h4>Other Nonfunctional Requirements</h4>
+      </a></ul>
+    <ul><a href="#Other_Requirements">
+        <h4>Other Requirements</h4>
+      </a></ul>
+    <ul><a href="#Appendix_A">
+        <h4>Appendix A: Glossary</h4>
+      </a></ul>
+    <ul><a href="#Appendix_B">
+        <h4>Appendix B: Analysis Models</h4>
+      </a></ul>
+    <ul><a href="#Appendix_C">
+        <h4>Appendix C: To Be Determined List</h4>
+      </a></ul>
 
-	  	</div>
+  </div>
 
-	<!--Page Content-->
-		<div class="content">
-			<div class="intro">
-				<h1> Software Requirements Specification</h1>
-				<h4>for</h4>
-				<h1>Reading Room</h1>
-				<h5>Version 1.0 approved</h5>
-				<b>Sanaulla Haq - 1721380042 || Ismail Hossain - 1722018042 || Mohammed Rakib - 1731176042</b>
-				<hr>
-			</div>
+  <!--Page Content-->
+  <div class="content">
+    <div class="intro">
+      <h1> Software Requirements Specification</h1>
+      <h4>for</h4>
+      <h1>Reading Room</h1>
+      <h5>Version 1.0 approved</h5>
+      <b>Sanaulla Haq - 1721380042 || Ismail Hossain - 1722018042 || Mohammed Rakib - 1731176042</b>
+      <hr>
+    </div>
 
-		    <span id="Introduction">
-		      <h2>1. Introduction</h2>
+    <span id="Introduction">
+      <h1>1. Introduction</h1>
+      <h2>1.1 Purpose</h2>
+      <p>Identify the product whose software requirements are specified in this document, including the revision or release number. Describe the scope of the product that is covered by this SRS, particularly if this SRS describes only part of the
+        system or a single subsystem</p>
+      <h2>1.2 Document Conventions</h2>
+      <p>Describe any standards or typographical conventions that were followed when writing this SRS, such as fonts or highlighting that have special significance. For example, state whether priorities for higher-level requirements are assumed to be
+        inherited by detailed requirements, or whether every requirement statement is to have its own priority.</p>
+      <h2>1.3 Intended Audience and Reading Suggestions</h2>
+      <p>Describe the different types of reader that the document is intended for, such as developers, project managers, marketing staff, users, testers, and documentation writers. Describe what the rest of this SRS contains and how it is organized.
+        Suggest a sequence for reading the document, beginning with the overview sections and proceeding through the sections that are most pertinent to each reader type.</p>
+      <h2>1.4 Product Scope</h2>
+      <p>Provide a short description of the software being specified and its purpose, including relevant benefits, objectives, and goals. Relate the software to corporate goals or business strategies. If a separate vision and scope document is
+        available, refer to it rather than duplicating its contents here.</p>
+      <h2>1.5 References</h2>
+      <p>List any other documents or Web addresses to which this SRS refers. These may include user interface style guides, contracts, standards, system requirements specifications, use case documents, or a vision and scope document. Provide enough
+        information so that the reader could access a copy of each reference, including title, author, version number, date, and source or location.</p>
+    </span><br>
 
-		      <h3>1.1 Purpose </h3>
-		      <p>Identify the product whose software requirements are specified in this document, including the revision or release number. Describe the scope of the product that is covered by this SRS, particularly if this SRS describes only part of the
-		        system or a single subsystem</p>
+    <span id="Overall_Description">
+      <h1>2. Overall Description</h1>
+      <h2>2.1 Product Perspective</h2>
+      <p>Since the rapid spread of COVID-19, online learning has become an inevitable part and parcel of daily life. As such, this product will provide the teachers with the means to give reading materials to their students and monitor
+        student&rsquo;s reading activity. The product helps the teachers by identifying if the student is reading the contents or not through face recognition. Besides, the product also allows teachers to track the time spent by each student reading
+        the study materials. As a result, the teacher can understand which topics were difficult to grasp and give more emphasis on them.</p>
+      <h2>2.2 Product Functions</h2>
+      <p>The major functions of the product are stated below:</p>
+      <ul>
+        <li>Teachers can form classrooms.</li>
+        <li>Students can join classrooms.</li>
+        <li>Teachers can provide reading materials.</li>
+        <li>Students can view the reading materials.</li>
+        <li>Teachers can view the reading info of the student.</li>
+        <li>Both the teacher and the student has to log in or sign up first to perform any of the mentioned functions above.</li>
+      </ul>
+      <h2>2.3 User Classes and Characteristics</h2>
+      <p><em>The system generally will be used by two user classes-namely Student and Teacher.</em></p>
+      <h3>2.3.1 Student</h3>
+      <p><em>Students will use this product to read the study materials provided by the teacher. Students will be able to join classrooms under a particular teacher and study the reading materials uploaded by the teacher. </em></p>
+      <h3>2.3.2 Teacher</h3>
+      <p><em>Teachers will use this product to create classes and upload study materials. Teachers will also be able to monitor a student&rsquo;s reading activity. This product is useful for teachers that want to track students reading activity and
+          find out the topics which are hard for the students.</em></p>
+      <h2>2.4 Operating Environment</h2>
+      <p>This product will work on any device supporting web browsers like Chrome, Mozilla Firefox, Microsoft Edge etc. Moreover, the product will also have an android application for android devices with android version 8 or higher.</p>
+      <h2>2.5 Design and Implementation Constraints</h2>
+      <p><em>Since both the android application and the web-version will be sharing a database, the wait-times of the users might increase if there is a queue of incoming requests. Besides, a constant internet connection must be ensured to run the
+          product correctly. Moreover, several other constraints may arise while building the product.</em></p>
+      <h2>2.6 User Documentation</h2>
+      <p><em>Upon completion of the development stage, a user manual will be provided with the product to help users understand how to use the product.</em></p>
+      <h2>2.7 Assumptions and Dependencies</h2>
+      <p><em>The system will depend on a number of APIs to perform various tasks. For federated identity service, the system will use an authentication API. For face detection, face recognition and face tracking, the system will call various APIs to
+          integrate the functions successfully. If any of the APIs are unavailable or don&rsquo;t provide the necessary support, then the system will fail to implement the features. Besides, the system also requires users to have a fully functional
+          front camera and a stable internet connection to operate without any issues.</em></p>
+    </span><br>
 
-		      <h3>1.2 Document Conventions</h3>
-		      <p>Describe any standards or typographical conventions that were followed when writing this SRS, such as fonts or highlighting that have special significance. For example, state whether priorities for higher-level requirements are assumed to be
-		        inherited by detailed requirements, or whether every requirement statement is to have its own priority.</p>
+    <span id="External_Interface_Requirements">
+      <h1>3. External Interface Requirements</h1>
+      <h2>3.1 User Interfaces</h2>
+      <p>When a user enter the website for the first time, the system will respond with a login page prompting the user to login, sign up or sign in with a federated identity. Upon logging in, the user will be directed to the home page where the user
+        will have the option to join a class as a student or create a class as a teacher. If the user wants to join a class, he/she will have insert a code provided by the teacher. He will also have to upload a photo of himself/herself after joining.
+        If the user wants to form a class, he/she will have to name the classroom and generate a code with the help of the system. Furthermore, the user can view reading info of the students after creating a class. The user interface will be further
+        elaborated in the SDS.&nbsp;</p>
+      <h2>3.2 Hardware Interfaces</h2>
+      <p>The system is compatible with any device supporting web browsers and that has an active internet connection. Alongside the web-platform the system will most likely have an android application which will support all android devices. Moreover,
+        for the system to allow the teachers to monitor student&rsquo;s reading activity all devices should have a front camera and allow access to the system.</p>
+      <h2>3.3 Software Interfaces</h2>
+      <p>The system will work on any operating system supporting web browsers since it will be hosted on a web server. Moreover, the system will also have an android application supporting android version 8 and above. The system will use Python along
+        with the Django framework as backend tools. For the frontend, we will use HTML, CSS &amp; Bootstrap. Besides, some APIs will be used for federated identity service, face detection, face recognition and face tracking of the students which will
+        be finalized later.</p>
+      <h2>3.4 Communications Interfaces</h2>
+      <p>The system will use a number of communication services. Both our hosted website and android application will be connected to a common database for data communication. Moreover, we will be using the HTTPS protocol for secure transmission over
+        the internet. Apart from that, we will use a number of APIs for providing us with federated identity, face detection, face recognition and face tracking services.</p>
+    </span><br>
 
-		      <h3>1.3 Intended Audience and Reading Suggestions</h3>
-		      <p>Describe the different types of reader that the document is intended for, such as developers, project managers, marketing staff, users, testers, and documentation writers. Describe what the rest of this SRS contains and how it is organized.
-		        Suggest a sequence for reading the document, beginning with the overview sections and proceeding through the sections that are most pertinent to each reader type.</p>
+    <span id="System_Features">
+      <h1>4. System Features</h1>
+      <p>This section includes all the main features of the system depicted with the help of use case diagram. All the use cases have been expanded and explained in details.</p>
+      <p style="text-align: center;"><img src="My Reading Room.png" alt="" width="600" height="600" /></p>
+      <p style="text-align: center;"><strong>Figure 1: Use-case Diagram of the System</strong></p>
+      <h2>4.1 Log In</h2>
+      <table>
+        <tbody>
+          <tr style="height: 30.6667px;">
+            <td style="height: 30.6667px;" width="482">
+              <p><strong>Use Case Name:</strong></p>
+            </td>
+            <td style="height: 30.6667px;" width="482">
+              <p>Log In</p>
+            </td>
+          </tr>
+          <tr style="height: 30px;">
+            <td style="height: 30px;" width="482">
+              <p><strong>Use Case Type:</strong></p>
+            </td>
+            <td style="height: 30px;" width="482">
+              <p>Secondary</p>
+            </td>
+          </tr>
+          <tr style="height: 30px;">
+            <td style="height: 30px;" width="482">
+              <p><strong>Actor(s):</strong></p>
+            </td>
+            <td style="height: 30px;" width="482">
+              <p>Teacher, Student</p>
+            </td>
+          </tr>
+          <tr style="height: 50px;">
+            <td style="height: 50px;" width="482">
+              <p><strong>Brief Description:</strong></p>
+            </td>
+            <td style="height: 50px;" width="482">
+              <p>Actors have to provide a username &amp; password to log in to the system.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>&nbsp;</p>
+      <table>
+        <tbody>
+          <tr style="height: 30px;">
+            <td style="height: 30px; width: 553px;" colspan="2">
+              <p><strong>Typical Course of Events</strong></p>
+            </td>
+          </tr>
+          <tr style="height: 30.6667px;">
+            <td style="height: 30.6667px; width: 281.333px;">
+              <p><strong>Actor Actions</strong></p>
+            </td>
+            <td style="height: 30.6667px; width: 271.667px;">
+              <p><strong>System Responses</strong></p>
+            </td>
+          </tr>
+          <tr style="height: 30px;">
+            <td style="height: 30px; width: 281.333px;">
+              <p>1. Actor goes to www.sitename.com</p>
+            </td>
+            <td style="height: 30px; width: 271.667px;">
+              <p>2. System responds with login page.</p>
+            </td>
+          </tr>
+          <tr style="height: 30px;">
+            <td style="height: 30px; width: 281.333px;">
+              <p>3. Actor enters username, password.</p>
+            </td>
+            <td style="height: 30px; width: 271.667px;">
+              <p>4. System verifies credentials and redirects to site homepage.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>&nbsp;</p>
+      <table>
+        <tbody>
+          <tr>
+            <td width="964">
+              <p><strong>Alternate Course of Events</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="964">
+              <p>4.1 If actor enters wrong credentials or keeps any field blank, system prompts the actor to reenter credentials or sign-up first.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>4.2 Log Out</h2>
+      <table>
+        <tbody>
+          <tr style="height: 30.6667px;">
+            <td style="height: 30.6667px;" width="482">
+              <p><strong>Use Case Name:</strong></p>
+            </td>
+            <td style="height: 30.6667px;" width="482">
+              <p>Log Out</p>
+            </td>
+          </tr>
+          <tr style="height: 30px;">
+            <td style="height: 30px;" width="482">
+              <p><strong>Use Case Type:</strong></p>
+            </td>
+            <td style="height: 30px;" width="482">
+              <p>Secondary</p>
+            </td>
+          </tr>
+          <tr style="height: 30px;">
+            <td style="height: 30px;" width="482">
+              <p><strong>Actor(s):</strong></p>
+            </td>
+            <td style="height: 30px;" width="482">
+              <p>Teacher, Student</p>
+            </td>
+          </tr>
+          <tr style="height: 90px;">
+            <td style="height: 90px;" width="482">
+              <p><strong>Brief Description:</strong></p>
+            </td>
+            <td style="height: 90px;" width="482">
+              <p>After completing the desired task, an actor can log out of the system. This use case can be initiated only if the actor is logged in already.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>&nbsp;</p>
+      <table>
+        <tbody>
+          <tr>
+            <td style="width: 556.333px;" colspan="2">
+              <p><strong>Typical Course of Events</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td style="width: 280px;">
+              <p><strong>Actor Actions</strong></p>
+            </td>
+            <td style="width: 276.333px;">
+              <p><strong>System Responses</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td style="width: 280px;">
+              <p>1. Actor clicks the &lsquo;log out&rsquo; button.</p>
+            </td>
+            <td style="width: 276.333px;">
+              <p>2. System redirects to login page.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>&nbsp;</p>
+      <table>
+        <tbody>
+          <tr>
+            <td width="964">
+              <p><strong>Alternate Course of Events</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="964">
+              <p>N/A</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>4.3 Sign-Up</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td width="482">
+              <p><strong>Use Case Name:</strong></p>
+            </td>
+            <td width="482">
+              <p>Sign-Up</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Use Case Type:</strong></p>
+            </td>
+            <td width="482">
+              <p>Secondary</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Actor(s):</strong></p>
+            </td>
+            <td width="482">
+              <p>Teacher, Student</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Brief Description:</strong></p>
+            </td>
+            <td width="482">
+              <p>Actor can create an account by providing his email, username &amp; password. This use case can be initiated if the actor is in login page.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>&nbsp;</p>
+      <table>
+        <tbody>
+          <tr style="height: 30px;">
+            <td style="width: 552px; height: 30px;" colspan="2">
+              <p><strong>Typical Course of Events</strong></p>
+            </td>
+          </tr>
+          <tr style="height: 30px;">
+            <td style="width: 277px; height: 30px;">
+              <p><strong>Actor Actions</strong></p>
+            </td>
+            <td style="width: 275px; height: 30px;">
+              <p><strong>System Responses</strong></p>
+            </td>
+          </tr>
+          <tr style="height: 30px;">
+            <td style="width: 277px; height: 30px;">
+              <p>1. The actor clicks on the &lsquo;sign-up&rsquo; button.</p>
+            </td>
+            <td style="width: 275px; height: 30px;">
+              <p>2. The system responds with sign-up page.</p>
+            </td>
+          </tr>
+          <tr style="height: 70px;">
+            <td style="width: 277px; height: 70px;">
+              <p>3. The actor enters username, password &amp; email.</p>
+            </td>
+            <td style="width: 275px; height: 70px;">
+              <p>4. The system validates the credentials and creates an account for the actor redirecting to the login page.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>&nbsp;</p>
+      <table>
+        <tbody>
+          <tr>
+            <td width="964">
+              <p><strong>Alternate Course of Events</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="964">
+              <p>4.1 If user enters invalid formats of username, password or email, the system prompts the actor to reenter that particular field again.</p>
+              <p>4.2 The system also prompts the actor to reenter, if the actor&rsquo;s input matches with an already existing username or email.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>4.4 Sign-In With</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td width="482">
+              <p><strong>Use Case Name:</strong></p>
+            </td>
+            <td width="482">
+              <p>Sign-In With</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Use Case Type:</strong></p>
+            </td>
+            <td width="482">
+              <p>Secondary</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Actor(s):</strong></p>
+            </td>
+            <td width="482">
+              <p>Teacher, Student</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Brief Description:</strong></p>
+            </td>
+            <td width="482">
+              <p>Actor can sign-in with a federated identity instead of creating an account. This use case can be initiated if the actor is in login page.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>&nbsp;</p>
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="2" width="965">
+              <p><strong>Typical Course of Events</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Actor Actions</strong></p>
+            </td>
+            <td width="482">
+              <p><strong>System Responses</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p>1. Actor clicks the &lsquo;sign-in with&rsquo; button.</p>
+            </td>
+            <td width="482">
+              <p>2. System responds with the authenticating API of the federated identity.</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p>3. Actor enters username &amp; password</p>
+            </td>
+            <td width="482">
+              <p>4. API verifies credentials and allows the system to redirect to the system homepage.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>&nbsp;</p>
+      <table>
+        <tbody>
+          <tr>
+            <td width="964">
+              <p><strong>Alternate Course of Events</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="964">
+              <p>4.1 If the credentials are incorrect or actor keeps any field blank, the API of the federated identity prompts the actor to reenter credentials.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>4.5 Form Class</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td width="482">
+              <p><strong>Use Case Name:</strong></p>
+            </td>
+            <td width="482">
+              <p>Form Class</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Use Case Type:</strong></p>
+            </td>
+            <td width="482">
+              <p>Primary</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Actor(s):</strong></p>
+            </td>
+            <td width="482">
+              <p>Teacher</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Brief Description:</strong></p>
+            </td>
+            <td width="482">
+              <p>Teacher can form a class by generating a code which can then be provided to the students to join the class. This use case can be initiated if the actor is in homepage.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>&nbsp;</p>
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="2" width="965">
+              <p><strong>Typical Course of Events</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Actor Actions</strong></p>
+            </td>
+            <td width="482">
+              <p><strong>System Responses</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p>1. The teacher clicks the &lsquo;form a class&rsquo; button.</p>
+            </td>
+            <td width="482">
+              <p>2. The system responds with a create classroom page.</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p>3. The teacher enters class name and clicks the &lsquo;create classroom&rsquo; button</p>
+            </td>
+            <td width="482">
+              <p>4. The system generates a unique code and creates a classroom with the classroom name provided.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>&nbsp;</p>
+      <table>
+        <tbody>
+          <tr style="height: 30.6667px;">
+            <td style="height: 30.6667px;" width="964">
+              <p><strong>Alternate Course of Events</strong></p>
+            </td>
+          </tr>
+          <tr style="height: 30px;">
+            <td style="height: 30px;" width="964">
+              <p>N/A</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>4.6 Join Class</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td width="482">
+              <p><strong>Use Case Name:</strong></p>
+            </td>
+            <td width="482">
+              <p>Join Class</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Use Case Type:</strong></p>
+            </td>
+            <td width="482">
+              <p>Primary</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Actor(s):</strong></p>
+            </td>
+            <td width="482">
+              <p>Student</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Brief Description:</strong></p>
+            </td>
+            <td width="482">
+              <p>Student can join a class by inputting the code given by the teacher via any means which is outside the system. This use case can be initiated if the student is in homepage.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>&nbsp;</p>
+      <table>
+        <tbody>
+          <tr style="height: 30.3333px;">
+            <td style="height: 30.3333px;" colspan="2" width="965">
+              <p><strong>Typical Course of Events</strong></p>
+            </td>
+          </tr>
+          <tr style="height: 30px;">
+            <td style="height: 30px;" width="482">
+              <p><strong>Actor Actions</strong></p>
+            </td>
+            <td style="height: 30px;" width="482">
+              <p><strong>System Responses</strong></p>
+            </td>
+          </tr>
+          <tr style="height: 30px;">
+            <td style="height: 30px;" width="482">
+              <p>1. The student clicks the &lsquo;join a class&rsquo; button.</p>
+            </td>
+            <td style="height: 30px;" width="482">
+              <p>2. The system responds with a join classroom page.</p>
+            </td>
+          </tr>
+          <tr style="height: 50px;">
+            <td style="height: 50px;" width="482">
+              <p>3. The student enters the classroom code provided by the teacher and clicks the &lsquo;join class&rsquo; button</p>
+            </td>
+            <td style="height: 50px;" width="482">
+              <p>4. The system verifies the code and redirects to the classroom page where the student is prompted to upload his/her passport size photo.</p>
+            </td>
+          </tr>
+          <tr style="height: 50px;">
+            <td style="height: 50px;" width="482">
+              <p>5. The student selects his/her photo from the local directory and clicks the &lsquo;upload&rsquo; button.</p>
+            </td>
+            <td style="height: 50px;" width="482">
+              <p>6. The system uploads the photo and shows that the upload is successful.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>&nbsp;</p>
+      <table>
+        <tbody>
+          <tr>
+            <td width="964">
+              <p><strong>Alternate Course of Events</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="964">
+              <p>4.1 If the student enters an invalid code, the system prompts the student to reenter the classroom code.</p>
+              <p>6.1 If the system fails to recognize a face in the photo uploaded, it would prompt the student to upload another photo with a face in it.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>4.7 Provide Reading Materials</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td width="482">
+              <p><strong>Use Case Name:</strong></p>
+            </td>
+            <td width="482">
+              <p>Providing Reading Materials</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Use Case Type:</strong></p>
+            </td>
+            <td width="482">
+              <p>Primary</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Actor(s):</strong></p>
+            </td>
+            <td width="482">
+              <p>Teacher</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Brief Description:</strong></p>
+            </td>
+            <td width="482">
+              <p>After creating classroom, only teacher can provide reading materials by uploading it from his/her local directory to the system. This use case can be initiated if the teacher is in a classroom created by the teacher.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>&nbsp;</p>
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="2" width="965">
+              <p><strong>Typical Course of Events</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Actor Actions</strong></p>
+            </td>
+            <td width="482">
+              <p><strong>System Responses</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p>1. Teacher clicks &lsquo;provide reading materials&rsquo; button.</p>
+            </td>
+            <td width="482">
+              <p>2. The system responds with a window allowing the teacher to browse his/her local directory and select any file.</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p>3. Teacher selects his/her desired file and clicks the upload button.</p>
+            </td>
+            <td width="482">
+              <p>4. The system uploads the file and shows that the upload is successful.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>&nbsp;</p>
+      <table>
+        <tbody>
+          <tr style="height: 30px;">
+            <td style="height: 30px;" width="964">
+              <p><strong>Alternate Course of Events</strong></p>
+            </td>
+          </tr>
+          <tr style="height: 30.3333px;">
+            <td style="height: 30.3333px;" width="964">
+              <p>N/A</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>4.8 Read Reading Materials</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td width="482">
+              <p><strong>Use Case Name:</strong></p>
+            </td>
+            <td width="482">
+              <p>Read Reading Materials</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Use Case Type:</strong></p>
+            </td>
+            <td width="482">
+              <p>Primary</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Actor(s):</strong></p>
+            </td>
+            <td width="482">
+              <p>Student</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Brief Description:</strong></p>
+            </td>
+            <td width="482">
+              <p>After joining a classroom, the student can view any reading materials provided by the teacher. This use case can be initiated if the student is in a classroom joined by the student.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>&nbsp;</p>
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="2" width="965">
+              <p><strong>Typical Course of Events</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Actor Actions</strong></p>
+            </td>
+            <td width="482">
+              <p><strong>System Responses</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p>1. Student clicks the file provided by the teacher.</p>
+            </td>
+            <td width="482">
+              <p>2. The system responds by opening the file and allowing the student to view and scroll through the file. At the same time, the system turns on the camera of the device and starts using the face recognition and tracking APIs for
+                recognizing face and tracking student&rsquo;s eye and reading time on the document.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>&nbsp;</p>
+      <table>
+        <tbody>
+          <tr>
+            <td width="964">
+              <p><strong>Alternate Course of Events</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="964">
+              <p>2.1 If the access to the camera is denied by the student, the system prompts the student to grant access or he/she can&rsquo;t view the file.</p>
+              <p>2.2 If the system fails to detect camera on the device, then it would allow the student to view the file without showing any further prompts.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>4.9 View Reading Info</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td width="482">
+              <p><strong>Use Case Name:</strong></p>
+            </td>
+            <td width="482">
+              <p>View Reading Info</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Use Case Type:</strong></p>
+            </td>
+            <td width="482">
+              <p>Secondary</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Actor(s):</strong></p>
+            </td>
+            <td width="482">
+              <p>Teacher</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Brief Description:</strong></p>
+            </td>
+            <td width="482">
+              <p>Teacher is provided with a list of options to monitor student&rsquo;s activity on the reading materials uploaded. This use case can be initiated if the teacher is in a classroom.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>&nbsp;</p>
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="2" width="965">
+              <p><strong>Typical Course of Events</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Actor Actions</strong></p>
+            </td>
+            <td width="482">
+              <p><strong>System Responses</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p>1. Teacher clicks the &lsquo;view reading info&rsquo; button in the classroom.</p>
+            </td>
+            <td width="482">
+              <p>2. System responds with the view reading info page where there is a list of names of all the reading materials uploaded.</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p>3. Teacher clicks the name of a particular reading material to view its reading info.</p>
+            </td>
+            <td width="482">
+              <p>4. System responds with a student reading info page where there are three options which are: detecting face of students, time spent by the students &amp; graph analysis of time spent.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>&nbsp;</p>
+      <table>
+        <tbody>
+          <tr>
+            <td width="964">
+              <p><strong>Alternate Course of Events</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="964">
+              <p>N/A</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>4.10 Detect Face of Students</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td width="482">
+              <p><strong>Use Case Name:</strong></p>
+            </td>
+            <td width="482">
+              <p>Detect Face of Students</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Use Case Type:</strong></p>
+            </td>
+            <td width="482">
+              <p>Primary</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Actor(s):</strong></p>
+            </td>
+            <td width="482">
+              <p>Teacher</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Brief Description:</strong></p>
+            </td>
+            <td width="482">
+              <p>Displays the name of all students and states whether or not the photo of the student provided while joining the class matches with the photo captured while reading the study materials. . This use case can be initiated if the teacher
+                is in the student reading info page.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>&nbsp;</p>
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="2" width="965">
+              <p><strong>Typical Course of Events</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Actor Actions</strong></p>
+            </td>
+            <td width="482">
+              <p><strong>System Responses</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p>1. Teacher clicks the &lsquo;detect face of the students&rsquo; button.</p>
+            </td>
+            <td width="482">
+              <p>2. The system responds with a list of all the students which states whether or not their faces while reading study materials matched with the photo provided while joining the class.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>&nbsp;</p>
+      <table>
+        <tbody>
+          <tr>
+            <td width="964">
+              <p><strong>Alternate Course of Events</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="964">
+              <p>2.1 If the student doesn&rsquo;t provide any photo while joining the class, then the system will show that no photo was found.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>4.11 Time Spent by Students</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td width="482">
+              <p><strong>Use Case Name:</strong></p>
+            </td>
+            <td width="482">
+              <p>Time Spent by Students</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Use Case Type:</strong></p>
+            </td>
+            <td width="482">
+              <p>Primary</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Actor(s):</strong></p>
+            </td>
+            <td width="482">
+              <p>Teacher</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Brief Description:</strong></p>
+            </td>
+            <td width="482">
+              <p>Shows the total time spent by the student reading the study materials. It also shows the page by page reading time of the students. This use case can be initiated if the teacher is in the student reading info page.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>&nbsp;</p>
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="2" width="965">
+              <p><strong>Typical Course of Events</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Actor Actions</strong></p>
+            </td>
+            <td width="482">
+              <p><strong>System Responses</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p>1. Teacher clicks the &lsquo;time spent by students&rsquo; button.</p>
+            </td>
+            <td width="482">
+              <p>2. The system responds by showing a list of all the students along with the total time spent by each of them reading the study material.</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p>3. The teacher clicks on a particular student.</p>
+            </td>
+            <td width="482">
+              <p>4. The system responds with the page by page reading time of the student.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>&nbsp;</p>
+      <table>
+        <tbody>
+          <tr>
+            <td width="964">
+              <p><strong>Alternate Course of Events</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="964">
+              <p>2.1 If the device used by the student doesn&rsquo;t have any camera, it would show that no camera was detected by the system.</p>
+              <p>4.1 Here also, if no camera was detected on the device, then the system would display no camera was detected by the system.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>4.12 Graph Analysis of Time Spent</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td width="482">
+              <p><strong>Use Case Name:</strong></p>
+            </td>
+            <td width="482">
+              <p>Graph Analysis of Time Spent</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Use Case Type:</strong></p>
+            </td>
+            <td width="482">
+              <p>Primary</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Actor(s):</strong></p>
+            </td>
+            <td width="482">
+              <p>Teacher</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Brief Description:</strong></p>
+            </td>
+            <td width="482">
+              <p>Shows various graphs depicting the time spent by different students on a particular reading material. This use case can be initiated if the teacher is in the student reading info page.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>&nbsp;</p>
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="2" width="965">
+              <p><strong>Typical Course of Events</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p><strong>Actor Actions</strong></p>
+            </td>
+            <td width="482">
+              <p><strong>System Responses</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="482">
+              <p>1. Teacher clicks the &lsquo;graph analysis of time spent&rsquo; button</p>
+            </td>
+            <td width="482">
+              <p>2. The system responds with various graphs showing the diverse time-periods of each student reading the study material.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>&nbsp;</p>
+      <table>
+        <tbody>
+          <tr>
+            <td width="964">
+              <p><strong>Alternate Course of Events</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="964">
+              <p>N/A</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </span><br>
 
-		      <h3>1.4 Product Scope</h3>
-		      <p>Provide a short description of the software being specified and its purpose, including relevant benefits, objectives, and goals. Relate the software to corporate goals or business strategies. If a separate vision and scope document is
-		        available, refer to it rather than duplicating its contents here.</p>
+    <span id="Other_Nonfunctional_Requirements">
+      <h1>5. Other Nonfunctional Requirements</h1>
 
-		      <h3>1.5 References</h3>
-		      <p>List any other documents or Web addresses to which this SRS refers. These may include user interface style guides, contracts, standards, system requirements specifications, use case documents, or a vision and scope document. Provide enough
-		        information so that the reader could access a copy of each reference, including title, author, version number, date, and source or location.</p>
-		    </span>
+      <h2>5.1 Performance Requirements</h2>
+      <p>If there are performance requirements for the product under various circumstances, state them here and explain their rationale, to help the developers understand the intent and make suitable design choices. Specify the timing relationships
+        for real time systems. Make such requirements as specific as possible. You may need to state performance requirements for individual functional requirements or features.</p>
 
-		    <span id="Overall_Description">
-		      <h2>2. Overall Description</h2>
+      <h2>5.2 Safety Requirements</h2>
+      <p>Specify any requirements regarding security or privacy issues surrounding use of the
+        product or protection of the data used or created by the product. Define any
+        user identity authentication requirements. Refer to any external policies or
+        regulations containing security issues that affect the product. Define any
+        security or privacy certifications that must be satisfied.</p>
+      <h2>5.3 Security Requirements</h2>
+      <p>Specify any requirements regarding security or privacy issues surrounding use of the product or protection of the data used or created by the product. Define any user identity authentication requirements. Refer to any external policies or
+        regulations containing security issues that affect the product. Define any security or privacy certifications that must be satisfied.</p>
 
-		      <h3>2.1 Product Perspective</h3>
-		      <p>Describe the context and origin of the product being specified in this SRS. For example, state whether this product is a follow-on member of a product family, a replacement for certain existing systems, or a new, self-contained product. If
-		        the SRS defines a component of a larger system, relate the requirements of the larger system to the functionality of this software and identify interfaces between the two. A simple diagram that shows the major components of the overall
-		        system, subsystem interconnections, and external interfaces can be helpful.</p>
+      <h2>5.4 Software Quality Attributes</h2>
+      <p>Specify any additional quality characteristics for the product that will be important to either the customers or the developers. Some to consider are: adaptability, availability, correctness, flexibility, interoperability, maintainability,
+        portability, reliability, reusability, robustness, testability, and usability. Write these to be specific, quantitative, and verifiable when possible. At the least, clarify the relative preferences for various attributes, such as ease of use
+        over ease of learning.</p>
 
-		      <h3>2.2 Product Functions</h3>
-		      <p>Summarize the major functions the product must perform or must let the user perform. Details will be provided in Section 3, so only a high level summary (such as a bullet list) is needed here. Organize the functions to make them
-		        understandable to any reader of the SRS. A picture of the major groups of related requirements and how they relate, such as a top level data flow diagram or object class diagram, is often effective</p>
+      <h2>5.5 Business Rules</h2>
+      <p>List any operating principles about the product, such as which individuals or roles can perform which functions under specific circumstances. These are not functional requirements in themselves, but they may imply certain functional
+        requirements to enforce the rules.</p>
+    </span><br>
 
-		      <h3>2.3 User Classes and Characteristics</h3>
-		      <p>Identify the various user classes that you anticipate will use this product. User classes may be differentiated based on frequency of use, subset of product functions used, technical expertise, security or privilege levels, educational
-		        level, or experience. Describe the pertinent characteristics of each user class. Certain requirements may pertain only to certain user classes. Distinguish the most important user classes for this product from those who are less important to
-		        satisfy.</p>
+    <span id="Other_Requirements">
+      <h1>6. Other Requirements</h1>
+      <p>Define any other requirements not covered elsewhere in the SRS. This might include database requirements, internationalization requirements, legal requirements, reuse objectives for the project, and so on. Add any new sections that are
+        pertinent to the project.</p>
+    </span>
 
-		      <h3>2.4 Operating Environment</h3>
-		      <p>Describe any items or issues that will limit the options available to the developers. These might include: corporate or regulatory policies; hardware limitations (timing requirements, memory requirements); interfaces to other applications;
-		        specific technologies, tools, and databases to be used; parallel operations; language requirements; communications protocols; security considerations; design conventions or programming standards (for example, if the customer’s organization
-		        will be responsible for maintaining the delivered software)</p>
+    <span id="Appendix_A">
+      <h2>Appendix A: Glossary</h2>
+      <p>Define all the terms necessary to properly interpret the SRS, including acronyms and abbreviations. You may wish to build a separate glossary that spans multiple projects or the entire organization, and just include terms specific to a
+        single project in each SRS.</p>
+    </span>
 
-		      <h3>2.5 Design and Implementation Constraints</h3>
-		      <p>Describe any items or issues that will limit the options available to the developers. These might include: corporate or regulatory policies; hardware limitations (timing requirements, memory requirements); interfaces to other applications;
-		        specific technologies, tools, and databases to be used; parallel operations; language requirements; communications protocols; security considerations; design conventions or programming standards (for example, if the customer’s organization
-		        will be responsible for maintaining the delivered software).</p>
+    <span id="Appendix_B">
+      <h2>Appendix B: Analysis Models</h2>
+      <p>Optionally, include any pertinent analysis models, such as data flow diagrams, class diagrams, state-transition diagrams, or entity-relationship diagrams.</p>
+    </span>
+    <span id="Appendix_C">
+      <h2>Appendix C: To Be Determined List</h2>
+      <p>Collect a numbered list of the TBD (to be determined) references that remain in the SRS so they can be tracked to closure.></p>
+    </span><br>
 
-		      <h3>2.6 User Documentation</h3>
-		      <p>List the user documentation components (such as user manuals, on-line help, and tutorials) that will be delivered along with the software. Identify any known user documentation delivery formats or standards.</p>
+  </div>
 
-		      <h3>2.7 Assumptions and Dependencies</h3>
-		      <p>List any assumed factors (as opposed to known facts) that could affect the requirements stated in the SRS. These could include third-party or commercial components that you plan to use, issues around the development or operating environment,
-		        or constraints. The project could be affected if these assumptions are incorrect, are not shared, or change. Also identify any dependencies the project has on external factors, such as software components that you intend to reuse from another
-		        project, unless they are already documented elsewhere (for example, in the vision and scope document or the project plan).</p>
-		    </span>
-
-		    <span id="External_Interface_Requirements">
-		      <h1 style="text-align: center;">3. External Interface Requirements</h1>
-<h2 style="text-align: center;">3.1 User Interfaces</h2>
-<p style="text-align: center;">When a user enter the website for the first time, the system will respond with a login page prompting the user to login, sign up or sign in with a federated identity. Upon logging in, the user will be directed to the home page where the user will have the option to join a class as a student or create a class as a teacher. If the user wants to join a class, he/she will have insert a code provided by the teacher. He will also have to upload a photo of himself/herself after joining. If the user wants to form a class, he/she will have to name the classroom and generate a code with the help of the system. Furthermore, the user can view reading info of the students after creating a class. The user interface will be further elaborated in the SDS.&nbsp;</p>
-<h2 style="text-align: center;">3.2 Hardware Interfaces</h2>
-<p style="text-align: center;">The system is compatible with any device supporting web browsers and that has an active internet connection. Alongside the web-platform the system will most likely have an android application which will support all android devices. Moreover, for the system to allow the teachers to monitor student&rsquo;s reading activity all devices should have a front camera and allow access to the system.</p>
-<h2 style="text-align: center;">3.3 Software Interfaces</h2>
-<p style="text-align: center;">The system will work on any operating system supporting web browsers since it will be hosted on a web server. Moreover, the system will also have an android application supporting android version 8 and above. The system will use Python along with the Django framework as backend tools. For the frontend, we will use HTML, CSS &amp; Bootstrap. Besides, some APIs will be used for federated identity service, face detection, face recognition and face tracking of the students which will be finalized later.</p>
-<h2 style="text-align: center;">3.4 Communications Interfaces</h2>
-<p style="text-align: center;">The system will use a number of communication services. Both our hosted website and android application will be connected to a common database for data communication. Moreover, we will be using the HTTPS protocol for secure transmission over the internet. Apart from that, we will use a number of APIs for providing us with federated identity, face detection, face recognition and face tracking services.</p>
-		    </span>
-
-		    <span id="System_Features">
-<h1 style="text-align: center;">4. System Features</h1>
-<p style="text-align: center;">This section includes all the main features of the system depicted with the help of use case diagram. All the use cases have been expanded and explained in details.</p>
-<p style="text-align: center;"><img src="My Reading Room.png" alt="" width="600" height="600" /></p>
-<p style="text-align: center;"><strong>Figure </strong><strong>1</strong><strong>: Use-case Diagram of the System</strong></p>
-<h2 style="text-align: center;">4.1 Log In</h2>
-<table>
-<tbody>
-<tr style="height: 30.6667px;">
-<td style="height: 30.6667px;" width="482">
-<p><strong>Use Case Name:</strong></p>
-</td>
-<td style="height: 30.6667px;" width="482">
-<p>Log In</p>
-</td>
-</tr>
-<tr style="height: 30px;">
-<td style="height: 30px;" width="482">
-<p><strong>Use Case Type:</strong></p>
-</td>
-<td style="height: 30px;" width="482">
-<p>Secondary</p>
-</td>
-</tr>
-<tr style="height: 30px;">
-<td style="height: 30px;" width="482">
-<p><strong>Actor(s):</strong></p>
-</td>
-<td style="height: 30px;" width="482">
-<p>Teacher, Student</p>
-</td>
-</tr>
-<tr style="height: 50px;">
-<td style="height: 50px;" width="482">
-<p><strong>Brief Description:</strong></p>
-</td>
-<td style="height: 50px;" width="482">
-<p>Actors have to provide a username &amp; password to log in to the system.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p style="text-align: center;">&nbsp;</p>
-<table>
-<tbody>
-<tr style="height: 30px;">
-<td style="height: 30px; width: 553px;" colspan="2">
-<p><strong>Typical Course of Events</strong></p>
-</td>
-</tr>
-<tr style="height: 30.6667px;">
-<td style="height: 30.6667px; width: 281.333px;">
-<p><strong>Actor Actions</strong></p>
-</td>
-<td style="height: 30.6667px; width: 271.667px;">
-<p><strong>System Responses</strong></p>
-</td>
-</tr>
-<tr style="height: 30px;">
-<td style="height: 30px; width: 281.333px;">
-<p>1. Actor goes to www.sitename.com</p>
-</td>
-<td style="height: 30px; width: 271.667px;">
-<p>2. System responds with login page.</p>
-</td>
-</tr>
-<tr style="height: 30px;">
-<td style="height: 30px; width: 281.333px;">
-<p>3. Actor enters username, password.</p>
-</td>
-<td style="height: 30px; width: 271.667px;">
-<p>4. System verifies credentials and redirects to site homepage.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p style="text-align: center;">&nbsp;</p>
-<table>
-<tbody>
-<tr>
-<td width="964">
-<p><strong>Alternate Course of Events</strong></p>
-</td>
-</tr>
-<tr>
-<td width="964">
-<p>4.1 If actor enters wrong credentials or keeps any field blank, system prompts the actor to reenter credentials or sign-up first.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h2 style="text-align: center;">4.2 Log Out</h2>
-<table>
-<tbody>
-<tr style="height: 30.6667px;">
-<td style="height: 30.6667px;" width="482">
-<p><strong>Use Case Name:</strong></p>
-</td>
-<td style="height: 30.6667px;" width="482">
-<p>Log Out</p>
-</td>
-</tr>
-<tr style="height: 30px;">
-<td style="height: 30px;" width="482">
-<p><strong>Use Case Type:</strong></p>
-</td>
-<td style="height: 30px;" width="482">
-<p>Secondary</p>
-</td>
-</tr>
-<tr style="height: 30px;">
-<td style="height: 30px;" width="482">
-<p><strong>Actor(s):</strong></p>
-</td>
-<td style="height: 30px;" width="482">
-<p>Teacher, Student</p>
-</td>
-</tr>
-<tr style="height: 90px;">
-<td style="height: 90px;" width="482">
-<p><strong>Brief Description:</strong></p>
-</td>
-<td style="height: 90px;" width="482">
-<p>After completing the desired task, an actor can log out of the system. This use case can be initiated only if the actor is logged in already.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p style="text-align: center;">&nbsp;</p>
-<table>
-<tbody>
-<tr>
-<td style="width: 556.333px;" colspan="2">
-<p><strong>Typical Course of Events</strong></p>
-</td>
-</tr>
-<tr>
-<td style="width: 280px;">
-<p><strong>Actor Actions</strong></p>
-</td>
-<td style="width: 276.333px;">
-<p><strong>System Responses</strong></p>
-</td>
-</tr>
-<tr>
-<td style="width: 280px;">
-<p>1. Actor clicks the &lsquo;log out&rsquo; button.</p>
-</td>
-<td style="width: 276.333px;">
-<p>2. System redirects to login page.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p style="text-align: center;">&nbsp;</p>
-<table>
-<tbody>
-<tr>
-<td width="964">
-<p><strong>Alternate Course of Events</strong></p>
-</td>
-</tr>
-<tr>
-<td width="964">
-<p>N/A</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h2 style="text-align: center;">4.3 Sign-Up</h2>
-<table>
-<tbody>
-<tr>
-<td width="482">
-<p><strong>Use Case Name:</strong></p>
-</td>
-<td width="482">
-<p>Sign-Up</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Use Case Type:</strong></p>
-</td>
-<td width="482">
-<p>Secondary</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Actor(s):</strong></p>
-</td>
-<td width="482">
-<p>Teacher, Student</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Brief Description:</strong></p>
-</td>
-<td width="482">
-<p>Actor can create an account by providing his email, username &amp; password. This use case can be initiated if the actor is in login page.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p style="text-align: center;">&nbsp;</p>
-<table>
-<tbody>
-<tr style="height: 30px;">
-<td style="width: 552px; height: 30px;" colspan="2">
-<p><strong>Typical Course of Events</strong></p>
-</td>
-</tr>
-<tr style="height: 30px;">
-<td style="width: 277px; height: 30px;">
-<p><strong>Actor Actions</strong></p>
-</td>
-<td style="width: 275px; height: 30px;">
-<p><strong>System Responses</strong></p>
-</td>
-</tr>
-<tr style="height: 30px;">
-<td style="width: 277px; height: 30px;">
-<p>1. The actor clicks on the &lsquo;sign-up&rsquo; button.</p>
-</td>
-<td style="width: 275px; height: 30px;">
-<p>2. The system responds with sign-up page.</p>
-</td>
-</tr>
-<tr style="height: 70px;">
-<td style="width: 277px; height: 70px;">
-<p>3. The actor enters username, password &amp; email.</p>
-</td>
-<td style="width: 275px; height: 70px;">
-<p>4. The system validates the credentials and creates an account for the actor redirecting to the login page.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p style="text-align: center;">&nbsp;</p>
-<table>
-<tbody>
-<tr>
-<td width="964">
-<p><strong>Alternate Course of Events</strong></p>
-</td>
-</tr>
-<tr>
-<td width="964">
-<p>4.1 If user enters invalid formats of username, password or email, the system prompts the actor to reenter that particular field again.</p>
-<p>4.2 The system also prompts the actor to reenter, if the actor&rsquo;s input matches with an already existing username or email.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h2 style="text-align: center;">4.4 Sign-In With</h2>
-<table>
-<tbody>
-<tr>
-<td width="482">
-<p><strong>Use Case Name:</strong></p>
-</td>
-<td width="482">
-<p>Sign-In With</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Use Case Type:</strong></p>
-</td>
-<td width="482">
-<p>Secondary</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Actor(s):</strong></p>
-</td>
-<td width="482">
-<p>Teacher, Student</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Brief Description:</strong></p>
-</td>
-<td width="482">
-<p>Actor can sign-in with a federated identity instead of creating an account. This use case can be initiated if the actor is in login page.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p style="text-align: center;">&nbsp;</p>
-<table>
-<tbody>
-<tr>
-<td colspan="2" width="965">
-<p><strong>Typical Course of Events</strong></p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Actor Actions</strong></p>
-</td>
-<td width="482">
-<p><strong>System Responses</strong></p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p>1. Actor clicks the &lsquo;sign-in with&rsquo; button.</p>
-</td>
-<td width="482">
-<p>2. System responds with the authenticating API of the federated identity.</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p>3. Actor enters username &amp; password</p>
-</td>
-<td width="482">
-<p>4. API verifies credentials and allows the system to redirect to the system homepage.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p style="text-align: center;">&nbsp;</p>
-<table>
-<tbody>
-<tr>
-<td width="964">
-<p><strong>Alternate Course of Events</strong></p>
-</td>
-</tr>
-<tr>
-<td width="964">
-<p>4.1 If the credentials are incorrect or actor keeps any field blank, the API of the federated identity prompts the actor to reenter credentials.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h2 style="text-align: center;">4.5 Form Class</h2>
-<table>
-<tbody>
-<tr>
-<td width="482">
-<p><strong>Use Case Name:</strong></p>
-</td>
-<td width="482">
-<p>Form Class</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Use Case Type:</strong></p>
-</td>
-<td width="482">
-<p>Primary</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Actor(s):</strong></p>
-</td>
-<td width="482">
-<p>Teacher</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Brief Description:</strong></p>
-</td>
-<td width="482">
-<p>Teacher can form a class by generating a code which can then be provided to the students to join the class. This use case can be initiated if the actor is in homepage.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p style="text-align: center;">&nbsp;</p>
-<table>
-<tbody>
-<tr>
-<td colspan="2" width="965">
-<p><strong>Typical Course of Events</strong></p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Actor Actions</strong></p>
-</td>
-<td width="482">
-<p><strong>System Responses</strong></p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p>1. The teacher clicks the &lsquo;form a class&rsquo; button.</p>
-</td>
-<td width="482">
-<p>2. The system responds with a create classroom page.</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p>3. The teacher enters class name and clicks the &lsquo;create classroom&rsquo; button</p>
-</td>
-<td width="482">
-<p>4. The system generates a unique code and creates a classroom with the classroom name provided.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p style="text-align: center;">&nbsp;</p>
-<table>
-<tbody>
-<tr style="height: 30.6667px;">
-<td style="height: 30.6667px;" width="964">
-<p><strong>Alternate Course of Events</strong></p>
-</td>
-</tr>
-<tr style="height: 30px;">
-<td style="height: 30px;" width="964">
-<p>N/A</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h2 style="text-align: center;">4.6 Join Class</h2>
-<table>
-<tbody>
-<tr>
-<td width="482">
-<p><strong>Use Case Name:</strong></p>
-</td>
-<td width="482">
-<p>Join Class</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Use Case Type:</strong></p>
-</td>
-<td width="482">
-<p>Primary</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Actor(s):</strong></p>
-</td>
-<td width="482">
-<p>Student</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Brief Description:</strong></p>
-</td>
-<td width="482">
-<p>Student can join a class by inputting the code given by the teacher via any means which is outside the system. This use case can be initiated if the student is in homepage.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p style="text-align: center;">&nbsp;</p>
-<table>
-<tbody>
-<tr style="height: 30.3333px;">
-<td style="height: 30.3333px;" colspan="2" width="965">
-<p><strong>Typical Course of Events</strong></p>
-</td>
-</tr>
-<tr style="height: 30px;">
-<td style="height: 30px;" width="482">
-<p><strong>Actor Actions</strong></p>
-</td>
-<td style="height: 30px;" width="482">
-<p><strong>System Responses</strong></p>
-</td>
-</tr>
-<tr style="height: 30px;">
-<td style="height: 30px;" width="482">
-<p>1. The student clicks the &lsquo;join a class&rsquo; button.</p>
-</td>
-<td style="height: 30px;" width="482">
-<p>2. The system responds with a join classroom page.</p>
-</td>
-</tr>
-<tr style="height: 50px;">
-<td style="height: 50px;" width="482">
-<p>3. The student enters the classroom code provided by the teacher and clicks the &lsquo;join class&rsquo; button</p>
-</td>
-<td style="height: 50px;" width="482">
-<p>4. The system verifies the code and redirects to the classroom page where the student is prompted to upload his/her passport size photo.</p>
-</td>
-</tr>
-<tr style="height: 50px;">
-<td style="height: 50px;" width="482">
-<p>5. The student selects his/her photo from the local directory and clicks the &lsquo;upload&rsquo; button.</p>
-</td>
-<td style="height: 50px;" width="482">
-<p>6. The system uploads the photo and shows that the upload is successful.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p style="text-align: center;">&nbsp;</p>
-<table>
-<tbody>
-<tr>
-<td width="964">
-<p><strong>Alternate Course of Events</strong></p>
-</td>
-</tr>
-<tr>
-<td width="964">
-<p>4.1 If the student enters an invalid code, the system prompts the student to reenter the classroom code.</p>
-<p>6.1 If the system fails to recognize a face in the photo uploaded, it would prompt the student to upload another photo with a face in it.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h2 style="text-align: center;">4.7 Provide Reading Materials</h2>
-<table>
-<tbody>
-<tr>
-<td width="482">
-<p><strong>Use Case Name:</strong></p>
-</td>
-<td width="482">
-<p>Providing Reading Materials</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Use Case Type:</strong></p>
-</td>
-<td width="482">
-<p>Primary</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Actor(s):</strong></p>
-</td>
-<td width="482">
-<p>Teacher</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Brief Description:</strong></p>
-</td>
-<td width="482">
-<p>After creating classroom, only teacher can provide reading materials by uploading it from his/her local directory to the system. This use case can be initiated if the teacher is in a classroom created by the teacher.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p style="text-align: center;">&nbsp;</p>
-<table>
-<tbody>
-<tr>
-<td colspan="2" width="965">
-<p><strong>Typical Course of Events</strong></p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Actor Actions</strong></p>
-</td>
-<td width="482">
-<p><strong>System Responses</strong></p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p>1. Teacher clicks &lsquo;provide reading materials&rsquo; button.</p>
-</td>
-<td width="482">
-<p>2. The system responds with a window allowing the teacher to browse his/her local directory and select any file.</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p>3. Teacher selects his/her desired file and clicks the upload button.</p>
-</td>
-<td width="482">
-<p>4. The system uploads the file and shows that the upload is successful.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p style="text-align: center;">&nbsp;</p>
-<table>
-<tbody>
-<tr style="height: 30px;">
-<td style="height: 30px;" width="964">
-<p><strong>Alternate Course of Events</strong></p>
-</td>
-</tr>
-<tr style="height: 30.3333px;">
-<td style="height: 30.3333px;" width="964">
-<p>N/A</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h2 style="text-align: center;">4.8 Read Reading Materials</h2>
-<table>
-<tbody>
-<tr>
-<td width="482">
-<p><strong>Use Case Name:</strong></p>
-</td>
-<td width="482">
-<p>Read Reading Materials</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Use Case Type:</strong></p>
-</td>
-<td width="482">
-<p>Primary</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Actor(s):</strong></p>
-</td>
-<td width="482">
-<p>Student</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Brief Description:</strong></p>
-</td>
-<td width="482">
-<p>After joining a classroom, the student can view any reading materials provided by the teacher. This use case can be initiated if the student is in a classroom joined by the student.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p style="text-align: center;">&nbsp;</p>
-<table>
-<tbody>
-<tr>
-<td colspan="2" width="965">
-<p><strong>Typical Course of Events</strong></p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Actor Actions</strong></p>
-</td>
-<td width="482">
-<p><strong>System Responses</strong></p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p>1. Student clicks the file provided by the teacher.</p>
-</td>
-<td width="482">
-<p>2. The system responds by opening the file and allowing the student to view and scroll through the file. At the same time, the system turns on the camera of the device and starts using the face recognition and tracking APIs for recognizing face and tracking student&rsquo;s eye and reading time on the document.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p style="text-align: center;">&nbsp;</p>
-<table>
-<tbody>
-<tr>
-<td width="964">
-<p><strong>Alternate Course of Events</strong></p>
-</td>
-</tr>
-<tr>
-<td width="964">
-<p>2.1 If the access to the camera is denied by the student, the system prompts the student to grant access or he/she can&rsquo;t view the file.</p>
-<p>2.2 If the system fails to detect camera on the device, then it would allow the student to view the file without showing any further prompts.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h2 style="text-align: center;">4.9 View Reading Info</h2>
-<table>
-<tbody>
-<tr>
-<td width="482">
-<p><strong>Use Case Name:</strong></p>
-</td>
-<td width="482">
-<p>View Reading Info</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Use Case Type:</strong></p>
-</td>
-<td width="482">
-<p>Secondary</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Actor(s):</strong></p>
-</td>
-<td width="482">
-<p>Teacher</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Brief Description:</strong></p>
-</td>
-<td width="482">
-<p>Teacher is provided with a list of options to monitor student&rsquo;s activity on the reading materials uploaded. This use case can be initiated if the teacher is in a classroom.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p style="text-align: center;">&nbsp;</p>
-<table>
-<tbody>
-<tr>
-<td colspan="2" width="965">
-<p><strong>Typical Course of Events</strong></p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Actor Actions</strong></p>
-</td>
-<td width="482">
-<p><strong>System Responses</strong></p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p>1. Teacher clicks the &lsquo;view reading info&rsquo; button in the classroom.</p>
-</td>
-<td width="482">
-<p>2. System responds with the view reading info page where there is a list of names of all the reading materials uploaded.</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p>3. Teacher clicks the name of a particular reading material to view its reading info.</p>
-</td>
-<td width="482">
-<p>4. System responds with a student reading info page where there are three options which are: detecting face of students, time spent by the students &amp; graph analysis of time spent.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p style="text-align: center;">&nbsp;</p>
-<table>
-<tbody>
-<tr>
-<td width="964">
-<p><strong>Alternate Course of Events</strong></p>
-</td>
-</tr>
-<tr>
-<td width="964">
-<p>N/A</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h2 style="text-align: center;">4.10 Detect Face of Students</h2>
-<table>
-<tbody>
-<tr>
-<td width="482">
-<p><strong>Use Case Name:</strong></p>
-</td>
-<td width="482">
-<p>Detect Face of Students</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Use Case Type:</strong></p>
-</td>
-<td width="482">
-<p>Primary</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Actor(s):</strong></p>
-</td>
-<td width="482">
-<p>Teacher</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Brief Description:</strong></p>
-</td>
-<td width="482">
-<p>Displays the name of all students and states whether or not the photo of the student provided while joining the class matches with the photo captured while reading the study materials. . This use case can be initiated if the teacher is in the student reading info page.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p style="text-align: center;">&nbsp;</p>
-<table>
-<tbody>
-<tr>
-<td colspan="2" width="965">
-<p><strong>Typical Course of Events</strong></p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Actor Actions</strong></p>
-</td>
-<td width="482">
-<p><strong>System Responses</strong></p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p>1. Teacher clicks the &lsquo;detect face of the students&rsquo; button.</p>
-</td>
-<td width="482">
-<p>2. The system responds with a list of all the students which states whether or not their faces while reading study materials matched with the photo provided while joining the class.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p style="text-align: center;">&nbsp;</p>
-<table>
-<tbody>
-<tr>
-<td width="964">
-<p><strong>Alternate Course of Events</strong></p>
-</td>
-</tr>
-<tr>
-<td width="964">
-<p>2.1 If the student doesn&rsquo;t provide any photo while joining the class, then the system will show that no photo was found.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h2 style="text-align: center;">4.11 Time Spent by Students</h2>
-<table>
-<tbody>
-<tr>
-<td width="482">
-<p><strong>Use Case Name:</strong></p>
-</td>
-<td width="482">
-<p>Time Spent by Students</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Use Case Type:</strong></p>
-</td>
-<td width="482">
-<p>Primary</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Actor(s):</strong></p>
-</td>
-<td width="482">
-<p>Teacher</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Brief Description:</strong></p>
-</td>
-<td width="482">
-<p>Shows the total time spent by the student reading the study materials. It also shows the page by page reading time of the students. This use case can be initiated if the teacher is in the student reading info page.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p style="text-align: center;">&nbsp;</p>
-<table>
-<tbody>
-<tr>
-<td colspan="2" width="965">
-<p><strong>Typical Course of Events</strong></p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Actor Actions</strong></p>
-</td>
-<td width="482">
-<p><strong>System Responses</strong></p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p>1. Teacher clicks the &lsquo;time spent by students&rsquo; button.</p>
-</td>
-<td width="482">
-<p>2. The system responds by showing a list of all the students along with the total time spent by each of them reading the study material.</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p>3. The teacher clicks on a particular student.</p>
-</td>
-<td width="482">
-<p>4. The system responds with the page by page reading time of the student.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p style="text-align: center;">&nbsp;</p>
-<table>
-<tbody>
-<tr>
-<td width="964">
-<p><strong>Alternate Course of Events</strong></p>
-</td>
-</tr>
-<tr>
-<td width="964">
-<p>2.1 If the device used by the student doesn&rsquo;t have any camera, it would show that no camera was detected by the system.</p>
-<p>4.1 Here also, if no camera was detected on the device, then the system would display no camera was detected by the system.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h2 style="text-align: center;">4.12 Graph Analysis of Time Spent</h2>
-<table>
-<tbody>
-<tr>
-<td width="482">
-<p><strong>Use Case Name:</strong></p>
-</td>
-<td width="482">
-<p>Graph Analysis of Time Spent</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Use Case Type:</strong></p>
-</td>
-<td width="482">
-<p>Primary</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Actor(s):</strong></p>
-</td>
-<td width="482">
-<p>Teacher</p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Brief Description:</strong></p>
-</td>
-<td width="482">
-<p>Shows various graphs depicting the time spent by different students on a particular reading material. This use case can be initiated if the teacher is in the student reading info page.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p style="text-align: center;">&nbsp;</p>
-<table>
-<tbody>
-<tr>
-<td colspan="2" width="965">
-<p><strong>Typical Course of Events</strong></p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p><strong>Actor Actions</strong></p>
-</td>
-<td width="482">
-<p><strong>System Responses</strong></p>
-</td>
-</tr>
-<tr>
-<td width="482">
-<p>1. Teacher clicks the &lsquo;graph analysis of time spent&rsquo; button</p>
-</td>
-<td width="482">
-<p>2. The system responds with various graphs showing the diverse time-periods of each student reading the study material.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p style="text-align: center;">&nbsp;</p>
-<table>
-<tbody>
-<tr>
-<td width="964">
-<p><strong>Alternate Course of Events</strong></p>
-</td>
-</tr>
-<tr>
-<td width="964">
-<p>N/A</p>
-</td>
-</tr>
-</tbody>
-</table>
-	    </span>
-
-		    <span id="Other_Nonfunctional_Requirements">
-		      <h2>5. Other Nonfunctional Requirements</h2>
-
-		      <h3>5.1 Performance Requirements</h3>
-		      <p>If there are performance requirements for the product under various circumstances, state them here and explain their rationale, to help the developers understand the intent and make suitable design choices. Specify the timing relationships
-		        for real time systems. Make such requirements as specific as possible. You may need to state performance requirements for individual functional requirements or features.</p>
-
-		      <h3>5.2 Safety Requirements</h3>
-		      <p>Specify any requirements regarding security or privacy issues surrounding use of the
-		        product or protection of the data used or created by the product. Define any
-		        user identity authentication requirements. Refer to any external policies or
-		        regulations containing security issues that affect the product. Define any
-		        security or privacy certifications that must be satisfied.</p>
-		      <h3>5.3 Security Requirements</h3>
-		      <p>Specify any requirements regarding security or privacy issues surrounding use of the product or protection of the data used or created by the product. Define any user identity authentication requirements. Refer to any external policies or
-		        regulations containing security issues that affect the product. Define any security or privacy certifications that must be satisfied.</p>
-
-		      <h3>5.4 Software Quality Attributes</h3>
-		      <p>Specify any additional quality characteristics for the product that will be important to either the customers or the developers. Some to consider are: adaptability, availability, correctness, flexibility, interoperability, maintainability,
-		        portability, reliability, reusability, robustness, testability, and usability. Write these to be specific, quantitative, and verifiable when possible. At the least, clarify the relative preferences for various attributes, such as ease of use
-		        over ease of learning.</p>
-
-		      <h3>5.5 Business Rules</h3>
-		      <p>List any operating principles about the product, such as which individuals or roles can perform which functions under specific circumstances. These are not functional requirements in themselves, but they may imply certain functional
-		        requirements to enforce the rules.</p>
-		    </span>
-
-		    <span id="Other_Requirements">
-		      <h2>6. Other Requirements</h2>
-		      <p>Define any other requirements not covered elsewhere in the SRS. This might include database requirements, internationalization requirements, legal requirements, reuse objectives for the project, and so on. Add any new sections that are
-		        pertinent to the project.</p>
-		    </span>
-
-		    <span id="Appendix_A">
-		      <h2>Appendix A: Glossary</h2>
-		      <p>Define all the terms necessary to properly interpret the SRS, including acronyms and abbreviations. You may wish to build a separate glossary that spans multiple projects or the entire organization, and just include terms specific to a
-		        single project in each SRS.p>
-		    </span>
-
-		    <span id="Appendix_B">
-		      <h2>Appendix B: Analysis Models</h2>
-		      <p>Optionally, include any pertinent analysis models, such as data flow diagrams, class diagrams, state-transition diagrams, or entity-relationship diagrams.</p>
-		    </span>
-        <span id="Appendix_C">
-		      <h2>Appendix C: To Be Determined List</h2>
-		      <p>Collect a numbered list of the TBD (to be determined) references that remain in the SRS so they can be tracked to closure.></p>
-		    </span>
-
- 		 </div>
-
-     <!-- Optional JavaScript -->
-     <!-- jQuery first, then Popper.js, then Bootstrap JS
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS
      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
