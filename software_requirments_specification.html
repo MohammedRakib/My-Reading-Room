@@ -6,13 +6,14 @@
   <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">-->
   <link rel="icon" type="image/png" href="icon.png">
   <link rel="stylesheet" type="text/css" href="custom.css">
+  <link rel="stylesheet" type="text/css" media="print" href="print.css">
 
   <title>CSE327.1.5</title>
 </head>
 
 <body>
   <!--TOC-->
-  <div class="sidebar">
+  <div class="sidebar" id="hide">
     <ul>
       <h3>Table of Contents</h3>
     </ul><br>
@@ -57,20 +58,115 @@
       <hr>
     </div>
 
+    <div class="coverpg_toc">
+      <div class="cover">
+        <br><br><br><br><br><br><br>
+        <h1> Software Requirements<br>Specification</h1>
+        <h4>for</h4>
+        <h1>Reading Room</h1>
+        <h5>Version 1.0 approved</h5>
+        <h4>Prepared by</h4>
+        <h3><b>Sanaulla Haq - 1721380042 <br> Ismail Hossain - 1722018042 <br> Mohammed Rakib - 1731176042</b></h3>
+        <br>
+        <br>
+        <h2>North South University</h2>
+        <h4>July 31, 2020</h4>
+        <br><br><br><br><br><br>
+
+      </div>
+
+      <div class="toc">
+        <h2><b>Table of Contents</b></h2>
+        <h3><b>Table of Contents. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ii</b></h3>
+        <h3><b>Revision History. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ii</b></h3>
+
+        <b>
+          <ol>
+            <li>
+              <h3>Introduction. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1</h3>
+            </li>
+          </ol>
+        </b>
+        <p>1.1&nbsp;&nbsp; Purpose. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1</p>
+        <p>1.2&nbsp;&nbsp; Document Conventions. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1</p>
+        <p>1.3&nbsp;&nbsp; Intended Audience and Reading Suggestions. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1</p>
+        <p>1.4&nbsp;&nbsp; Product Scope. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1</p>
+        <p>1.5&nbsp;&nbsp; References. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1</p>
+
+        <b>
+          <ol start="2">
+            <li>Overall Description. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2</li>
+          </ol>
+        </b>
+        <p>2.1&nbsp;&nbsp; Product Perspective. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2</p>
+        <p>2.2&nbsp;&nbsp; Product Functions. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2</p>
+        <p>2.3&nbsp;&nbsp; User Classes and Characteristics. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2</p>
+        <p>2.4&nbsp;&nbsp; Operating Environment. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2</p>
+        <p>2.5&nbsp;&nbsp; Design and Implementation Constraints. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2</p>
+        <p>2.6&nbsp;&nbsp; User Documentation. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2</p>
+        <p>2.7&nbsp;&nbsp; Assumptions and Dependencies. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3</p>
+
+        <b>
+          <ol start="3">
+            <li>External Interface Requirements. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3</li>
+          </ol>
+        </b>
+        <p>3.1&nbsp;&nbsp; User Interfaces. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3</p>
+        <p>3.2&nbsp;&nbsp; Hardware Interfaces. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3</p>
+        <p>3.3&nbsp;&nbsp; Software Interfaces. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3</p>
+        <p>3.4&nbsp;&nbsp; Communications Interfaces. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3</p>
+
+        <b>
+          <ol start="4">
+            <li>System Features. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4</li>
+          </ol>
+        </b>
+        <p>4.1&nbsp;&nbsp; System Feature 1. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4</p>
+        <p>4.2&nbsp;&nbsp; System Feature 2 (and so on. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4</p>
+
+        <b>
+          <ol start="5">
+            <li>Other Nonfunctional Requirements. . . . . . . . . . . . . .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4</li>
+          </ol>
+        </b>
+        <p>5.1&nbsp;&nbsp; Performance Requirements. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4</p>
+        <p>5.2&nbsp;&nbsp; Safety Requirements. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5</p>
+        <p>5.3&nbsp;&nbsp; Security Requirements. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5</p>
+        <p>5.4&nbsp;&nbsp; Software Quality Attributes. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .5</p>
+        <p>5.5&nbsp;&nbsp; Business Rules. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5</p>
+
+        <b>
+          <ol start="6">
+            <li>Other Requirements. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5</li>
+          </ol>
+        </b>
+        <h3><b>Appendix A: Glossary. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5</b></h3>
+        <h3><b>Appendix B: Analysis Models. . . . . .  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5</b></h3>
+        <h3><b>Appendix C: To Be Determined List. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6</b></h3>
+
+      </div>
+    </div>
+
     <span id="Introduction">
       <h1>1. Introduction</h1>
       <h2>1.1 Purpose</h2>
-      <p>The education system is gradually getting online-based. Following the trend, the system aims to provide education online. The main specialty of the system is that it will monitor  the students while they are reading the study materials. The system will also let users create classes, join classes, provide teaching materials and most importantly observe a student's reading activity. The system will allow the teachers to check if students are reading the materials or not with the help of face detection and face tracking. It will also help the teachers to find out which section of the provided teaching materials the students spent most of their time so that the teacher can put more emphasis on that section. All in all, the system enhances the teacher's ability to keep track of the student's reading activity.</p>
+      <p>The education system is gradually getting online-based. Following the trend, the system aims to provide education online. The main specialty of the system is that it will monitor the students while they are reading the study materials. The
+        system will also let users create classes, join classes, provide teaching materials and most importantly observe a student's reading activity. The system will allow the teachers to check if students are reading the materials or not with the
+        help of face detection and face tracking. It will also help the teachers to find out which section of the provided teaching materials the students spent most of their time so that the teacher can put more emphasis on that section. All in all,
+        the system enhances the teacher's ability to keep track of the student's reading activity.</p>
 
       <h2>1.2 Document Conventions</h2>
       <p>This SRS follows the IEEE standards for writing Software Requirements Specification. According to that conventions all texts are written in Times New Roman font and all headings are written in bold format.</p>
 
       <h2>1.3 Intended Audience and Reading Suggestions</h2>
-      <p>This document is intended for all who are interested in this project including project members, developers, and project managers, marketing staff, users, testers, and documentation writers. The rest of the document contains an overall description of the project, external interface requirements, system features, functional and non-functional requirements, use case and extended use case diagram. The readers are advised to read it serially so that it is easier to understand and not miss anything.</p>
+      <p>This document is intended for all of them who are interested in this project including project members, developers, and project managers, marketing staff, users, testers, and documentation writers. The rest of the document contains an
+        overall description of the project, external interface requirements, system features, functional and non-functional requirements, used and extended used case diagram. The readers are advised to read it serially so that it is easier to
+        understand and not miss anything.</p>
 
       <h2>1.4 Product Scope</h2>
-      <p>Basically, the product is for the teachers and students for a reliable online education system where the teachers will be able to keep an eye on the student through the system. There are many online education systems but none of them provide these advantages to the teachers so that they can monitor the students while they are reading the study materials. The system will let the teachers check if students are reading the materials or not with the help of face detection and face tracking. It will also let the teachers find out which section of the provided teaching material, the students spent most of their time on so that the teachers can put more emphasis on that section.</p>
-
+      <p>Basically, The product is for the teachers and students for a reliable online education system where the teachers will able to keep an eye on the student through the system. There are many online education systems but none of them provides
+        these advantages to the teachers that they can monitor the students while they are reading the study materials with the help of the system. The system will let the teachers to check if students are reading the materials or not with the help
+        of face detection and face tracking. It will also let the teachers find out which section of the provided teaching materials the students spent most of their time so that the teachers can put more emphasis on that section.</p>
       <h2>1.5 References</h2>
       <p> [1] "SRS IEEE Template", Web.cs.dal.ca. [Online]. Available: https://web.cs.dal.ca/~hawkey/3130/srs_template-ieee.doc. [Accessed: 31- Jul- 2020].</p>
     </span><br>
