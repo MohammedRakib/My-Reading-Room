@@ -63,13 +63,13 @@
       <p>The education system is gradually getting online-based. Following the trend, the system aims to provide education online. The main specialty of the system is that it will monitor  the students while they are reading the study materials. The system will also let users create classes, join classes, provide teaching materials and most importantly observe a student's reading activity. The system will allow the teachers to check if students are reading the materials or not with the help of face detection and face tracking. It will also help the teachers to find out which section of the provided teaching materials the students spent most of their time so that the teacher can put more emphasis on that section. All in all, the system enhances the teacher's ability to keep track of the student's reading activity.</p>
 
       <h2>1.2 Document Conventions</h2>
-      <p>This SRS follows the IEEE standards for writing Software Requirements Specification. According to that conventions all texts are written in Times New Roman fonts and all heading are written in Bold formate.</p>
+      <p>This SRS follows the IEEE standards for writing Software Requirements Specification. According to that conventions all texts are written in Times New Roman font and all headings are written in bold format.</p>
 
       <h2>1.3 Intended Audience and Reading Suggestions</h2>
-      <p>This document is intended for all of them who are interested in this project including project members, developers, and project managers, marketing staff, users, testers, and documentation writers. The rest of the document contains an overall description of the project, external interface requirements, system features, functional and non-functional requirements, used and extended used case diagram. The readers are advised to read it serially so that it is easier to understand and not miss anything.</p>
+      <p>This document is intended for all who are interested in this project including project members, developers, and project managers, marketing staff, users, testers, and documentation writers. The rest of the document contains an overall description of the project, external interface requirements, system features, functional and non-functional requirements, use case and extended use case diagram. The readers are advised to read it serially so that it is easier to understand and not miss anything.</p>
 
       <h2>1.4 Product Scope</h2>
-      <p>Basically, The product is for the teachers and students for a reliable online education system where the teachers will able to keep an eye on the student through the system. There are many online education systems but none of them provides these advantages to the teachers that they can monitor the students while they are reading the study materials with the help of the system. The system will let the teachers to check if students are reading the materials or not with the help of face detection and face tracking. It will also let the teachers find out which section of the provided teaching materials the students spent most of their time so that the teachers can put more emphasis on that section.</p>
+      <p>Basically, the product is for the teachers and students for a reliable online education system where the teachers will be able to keep an eye on the student through the system. There are many online education systems but none of them provide these advantages to the teachers so that they can monitor the students while they are reading the study materials. The system will let the teachers check if students are reading the materials or not with the help of face detection and face tracking. It will also let the teachers find out which section of the provided teaching material, the students spent most of their time on so that the teachers can put more emphasis on that section.</p>
 
       <h2>1.5 References</h2>
       <p> [1] "SRS IEEE Template", Web.cs.dal.ca. [Online]. Available: https://web.cs.dal.ca/~hawkey/3130/srs_template-ieee.doc. [Accessed: 31- Jul- 2020].</p>
@@ -79,7 +79,7 @@
       <h1>2. Overall Description</h1>
       <h2>2.1 Product Perspective</h2>
       <p>Since the rapid spread of COVID-19, online learning has become an inevitable part and parcel of daily life. As such, this product will provide the teachers with the means to give reading materials to their students and monitor
-        student&rsquo;s reading activity. The product helps the teachers by identifying if the student is reading the contents or not through face recognition. Besides, the product also allows teachers to track the time spent by each student reading
+        student's reading activity. The product helps the teachers by identifying if the student is reading the contents or not through face recognition. Besides, the product also allows teachers to track the time spent by each student reading
         the study materials. As a result, the teacher can understand which topics were difficult to grasp and give more emphasis on them.</p>
       <h2>2.2 Product Functions</h2>
       <p>The major functions of the product are stated below:</p>
@@ -92,23 +92,23 @@
         <li>Both the teacher and the student has to log in or sign up first to perform any of the mentioned functions above.</li>
       </ul>
       <h2>2.3 User Classes and Characteristics</h2>
-      <p><em>The system generally will be used by two user classes-namely Student and Teacher.</em></p>
+      <p>The system generally will be used by two user classes-namely Student and Teacher.</p>
       <h3>2.3.1 Student</h3>
-      <p><em>Students will use this product to read the study materials provided by the teacher. Students will be able to join classrooms under a particular teacher and study the reading materials uploaded by the teacher. </em></p>
+      <p>Students will use this product to read the study materials provided by the teacher. Students will be able to join classrooms under a particular teacher and study the reading materials uploaded by the teacher.</p>
       <h3>2.3.2 Teacher</h3>
-      <p><em>Teachers will use this product to create classes and upload study materials. Teachers will also be able to monitor a student&rsquo;s reading activity. This product is useful for teachers that want to track students reading activity and
-          find out the topics which are hard for the students.</em></p>
+      <p>Teachers will use this product to create classes and upload study materials. Teachers will also be able to monitor a student&rsquo;s reading activity. This product is useful for teachers that want to track students reading activity and
+          find out the topics which are hard for the students.</p>
       <h2>2.4 Operating Environment</h2>
       <p>This product will work on any device supporting web browsers like Chrome, Mozilla Firefox, Microsoft Edge etc. Moreover, the product will also have an android application for android devices with android version 8 or higher.</p>
       <h2>2.5 Design and Implementation Constraints</h2>
-      <p><em>Since both the android application and the web-version will be sharing a database, the wait-times of the users might increase if there is a queue of incoming requests. Besides, a constant internet connection must be ensured to run the
-          product correctly. Moreover, several other constraints may arise while building the product.</em></p>
+      <p>Since both the android application and the web-version will be sharing a database, the wait-times of the users might increase if there is a queue of incoming requests. Besides, a constant internet connection must be ensured to run the
+          product correctly. Moreover, several other constraints may arise while building the product.</p>
       <h2>2.6 User Documentation</h2>
-      <p><em>Upon completion of the development stage, a user manual will be provided with the product to help users understand how to use the product.</em></p>
+      <p>Upon completion of the development stage, a user manual will be provided with the product to help users understand how to use the product.</p>
       <h2>2.7 Assumptions and Dependencies</h2>
-      <p><em>The system will depend on a number of APIs to perform various tasks. For federated identity service, the system will use an authentication API. For face detection, face recognition and face tracking, the system will call various APIs to
+      <p>The system will depend on a number of APIs to perform various tasks. For federated identity service, the system will use an authentication API. For face detection, face recognition and face tracking, the system will call various APIs to
           integrate the functions successfully. If any of the APIs are unavailable or don&rsquo;t provide the necessary support, then the system will fail to implement the features. Besides, the system also requires users to have a fully functional
-          front camera and a stable internet connection to operate without any issues.</em></p>
+          front camera and a stable internet connection to operate without any issues.</p>
     </span><br>
 
     <span id="External_Interface_Requirements">
