@@ -27,6 +27,10 @@ div.content {
   display: block;
 }
 
+.cover,.toc {
+  page-break-after: always;
+}
+
 table {
       page-break-inside: avoid;
    }
