@@ -1,10 +1,12 @@
 body {
   margin: 0;
-  background-color: #f1f1f1;
+  background-color: #f2f2f2;
 }
 
 .intro {
   text-align: center;
+  /* 580447  */
+  background-color: #d7e6fa;
 }
 
 * {
@@ -14,7 +16,7 @@ body {
 
 hr {
   position: relative;
-  top: 20px;
+  /* top: 20px; */
   border: none;
   height: 12px;
   background: black;
@@ -62,6 +64,7 @@ ul.a {
   padding-top: 50px;
   text-align: center;
   /* padding-bottom: 50px; */
+  background-color: #dad7fa;
 }
 
 /* Sidebar links */
@@ -80,7 +83,7 @@ ul.a {
 
 /* Links on mouse-over */
 .sidebar a:hover:not(.active) {
-  background-color: #555;
+  background-color: #2e799f;
   color: white;
 }
 
