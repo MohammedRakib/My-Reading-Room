@@ -21,12 +21,35 @@ hr {
   margin-bottom: 50px;
 }
 
-span#Overall_Description ul,span#Other_Nonfunctional_Requirements ul, span#Appendix_C ul{
+/*unordered list*/
+span#Overall_Description ul, span#Other_Nonfunctional_Requirements ul, span#Appendix_C ul {
   margin-left: 2%;
 }
 
 ul.a {
   list-style-type: square;
+}
+
+/*table Design*/
+.table_class {
+  border-collapse: collapse;
+  /* width: 100%; */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.table_class td, .table_class th {
+  border: 3px solid #000000;
+  padding: 8px;
+  text-align: center;
+}
+
+.table_class tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table_class tr:hover {
+  background-color: #ddd;
 }
 
 /* The side navigation menu */
@@ -47,7 +70,6 @@ ul.a {
   color: black;
   text-decoration: none;
   padding: 2px;
-
 }
 
 /* Active/current link */
