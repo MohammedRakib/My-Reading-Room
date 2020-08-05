@@ -35,8 +35,11 @@ div.content {
   text-align: justify;
 }
 
-.cover,.toc {
+.cover,.toc{
   page-break-after: always;
+}
+span#Overall_Description .h, span#System_Features .h {
+  page-break-before: always;
 }
 
 table {
