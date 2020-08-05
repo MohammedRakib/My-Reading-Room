@@ -21,6 +21,14 @@ hr {
   margin-bottom: 50px;
 }
 
+span#Overall_Description ul,span#Other_Nonfunctional_Requirements ul, span#Appendix_C ul{
+  margin-left: 2%;
+}
+
+ul.a {
+  list-style-type: square;
+}
+
 /* The side navigation menu */
 .sidebar {
   width: 20%;
