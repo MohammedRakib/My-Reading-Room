@@ -2,6 +2,14 @@
   display: none;
 }
 
+span#Overall_Description ul,span#Other_Nonfunctional_Requirements ul, span#Appendix_C ul{
+  margin-left: 5%;
+}
+
+ul.a {
+  list-style-type: square;
+}
+
 .sidebar {
   width: 0%;
 }
