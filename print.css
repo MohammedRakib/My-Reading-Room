@@ -26,6 +26,14 @@ div.content {
 .coverpg_toc {
   display: block;
 }
+.cover {
+  text-align: right;
+  font-size: 20px;
+}
+
+.toc p, .toc ol,.toc li{
+  text-align: justify;
+}
 
 .cover,.toc {
   page-break-after: always;
