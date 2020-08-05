@@ -26,3 +26,7 @@ div.content {
 .coverpg_toc {
   display: block;
 }
+
+table {
+      page-break-inside: avoid;
+   }
