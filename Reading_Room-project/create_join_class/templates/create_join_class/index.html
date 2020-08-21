@@ -7,9 +7,26 @@
 </head>
 <body>
 
+<h1>Login</h1>
+
+{% if error %}
+        {{ error }}
+{% endif %}
+<form method="POST">
+    {% csrf_token %}
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username"><br>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password"><br>
+    <button type="submit"> Login </button><br>
+</form>
+<hr>
+
 <button><a href="{% provider_login_url "google" method="js_sdk" %}"> Sign In With Google </a></button>
 <button><a href="{% provider_login_url "github" method="js_sdk" %}"> Sign In With Github </a></button>
 {#<button><a href="{% provider_login_url "github" method="oauth2" %}"> Github Login </a></button>#}
+<button><a href="{% url 'signup_user' %}"> Create New Account </a></button>
+
 
 </body>
 </html>

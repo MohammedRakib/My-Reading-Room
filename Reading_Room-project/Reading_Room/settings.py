@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'create_join_class'
 ]
 # ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
-# LOGIN_REDIRECT_URL = "/"
+# LOGIN_REDIRECT_URL = "classroom/"
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'  # to stop github email verification
 SITE_ID = 1
