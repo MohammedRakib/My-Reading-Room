@@ -1,0 +1,15 @@
+{% load socialaccount %}
+{% providers_media_js %}
+
+<!DOCTYPE html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+
+<button><a href="{% provider_login_url "google" method="js_sdk" %}"> Sign In With Google </a></button>
+<button><a href="{% provider_login_url "github" method="js_sdk" %}"> Sign In With Github </a></button>
+{#<button><a href="{% provider_login_url "github" method="oauth2" %}"> Github Login </a></button>#}
+
+</body>
+</html>
