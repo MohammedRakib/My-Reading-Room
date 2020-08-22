@@ -1,0 +1,18 @@
+ <h2>New Class</h2>
+
+{% if error %}
+    {{ error }}
+{% endif %}
+
+<form method="POST">
+    {% csrf_token %}
+
+    <label for="name">Class Name</label>
+    <input type="text" name="name" id="name" required><br>
+
+    <label for="section">Section</label>
+    <input type="number" name="section" id="section" required><br>
+
+    <button type="submit">Create Class</button>
+
+</form>

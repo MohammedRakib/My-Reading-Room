@@ -3,4 +3,23 @@
     {% csrf_token %}
     <button type="submit">Logout</button>
 </form>
+{#<form method="POST" action="{% url 'create_class' %}">#}
+{#    {% csrf_token %}#}
+{#    <button type="submit">Create a new class</button>#}
+{#</form>#}
+
+<button ><a href="{% url 'create_class' %}">Create a new class</a></button>
+
+{% if classes %}
+    <h2> Your created classes </h2>
+    {% for class in classes %}
+        <h3>{{ class.name }}.{{ class.section }}</h3>
+    {% endfor %}
+{% else %}
+    <h3>Looks like you don't have created any classes</h3>
+
+{% endif %}
+
+
+
 
