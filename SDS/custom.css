@@ -37,7 +37,7 @@ ul.a {
 }
 
 /*table Design*/
-table_class{
+table{
   border-collapse: collapse;
   /*width: 100%;*/ 
   margin-left: auto;
@@ -45,17 +45,17 @@ table_class{
   
 }
 
-.table_class td, .table_class th {
+table td, th {
   border: 3px solid #000000;
   padding: 8px;
   text-align: center;
 }
 
-.table_class tr:nth-child(even) {
+table tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-.table_class tr:hover {
+table tr:hover {
   background-color: #ddd;
 }
 
