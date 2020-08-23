@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="stylesheet" type="text/css" href="custom.css">
+  <link rel="stylesheet" type="text/css" media="print" href="print.css">
+
+  <title>CSE327.1.5</title>
+</head>
+
+<body>
+  <!--TOC-->
+  <div class="sidebar" id="hide">
+    <ul>
+      <h3>Table of Contents</h3>
+    </ul><br>
+    <ul><a href="#Introduction">
+        <h4>Introduction</h4>
+      </a></ul>
+    <ul><a href="#Document_Conventions">
+        <h4>Document Conventions</h4>
+      </a></ul>
+    <ul><a href="#Description_of_Design_Components">
+        <h4>Description of Design Components</h4>
+      </a></ul>
+    <ul><a href="#High_Level_Component_Design">
+        <h4>High-Level Component Designs</h4>
+      </a></ul>
+    <ul><a href="#Class_diagrams">
+        <h4>Class diagrams</h4>
+      </a></ul>
+    <ul><a href="#Database_Design">
+        <h4>Database Design</h4>
+      </a></ul>
+    <ul><a href="#Implementation_plan">
+        <h4>Implementation plan</h4>
+      </a></ul>
+
+  </div>
+
+  <!--Page Content-->
+  <div class="content">
+    <div class="intro">
+      <h1> Software Design Specification</h1>
+      <h4>for</h4>
+      <h1>Reading Room</h1>
+      <h5>Version 1.0 approved</h5>
+      <b>Sanaulla Haq - 1721380042 || Ismail Hossain - 1722018042 || Mohammed Rakib - 1731176042</b>
+      <hr>
+    </div>
+
+    <div class="coverpg_toc">
+      <div class="cover">
+        <br><br><br><br><br><br><br>
+        <h1> Software Design<br>Specification</h1>
+        <h4>for</h4>
+        <h1>Reading Room</h1>
+        <h5>Version 1.0 approved</h5>
+        <h4>Prepared by</h4>
+        <h3><b>Sanaulla Haq - 1721380042 <br> Ismail Hossain - 1722018042 <br> Mohammed Rakib - 1731176042</b></h3>
+        <br>
+        <br>
+        <h2>North South University</h2>
+        <h4>August 23, 2020</h4>
+        <!-- <br><br><br><br><br><br> -->
+
+      </div>
+
+      <div class="toc">
+        <h2 text align=center><b>Table of Contents</b></h2>
+        <h3><b>Table of Contents. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ii</b></h3>
+        <!-- <h3><b>Revision History. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ii</b></h3> -->
+
+        <b>
+          <ol>
+            <li>
+              <h3>Introduction. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4</h3>
+            </li>
+          </ol>
+        </b>
+
+        <b>
+          <ol start="2">
+            <li>Document Conventions. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5</li>
+          </ol>
+        </b>
+
+        <b>
+          <ol start="3">
+            <li>Description of Design Components. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6</li>
+          </ol>
+        </b>
+        <p>3.1&nbsp;&nbsp; Server-side. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6</p>
+        <p>3.2&nbsp;&nbsp; Client-Side. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .6</p>
+
+        <b>
+          <ol start="4">
+            <li>High-Level Component Design. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7</li>
+          </ol>
+        </b>
+
+        <b>
+          <ol start="5">
+            <li>Class diagrams. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 26</li>
+          </ol>
+        </b>
+        <p>5.1&nbsp;&nbsp; Detailed Class Diagram(s). . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 26</p>
+        <p>5.2&nbsp;&nbsp; Detailed Class Description(s). . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 26</p>
+
+        <b>
+          <ol start="6">
+            <li>Database Design. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 26</li>
+            <p>6.1&nbsp;&nbsp; ER Diagram. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 26</p>
+            <p>6.2&nbsp;&nbsp; Details Per Table. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 26</p>
+          </ol>
+        </b>
+
+        <b>
+          <ol start="7">
+            <li>Implementation plan. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 26</li>
+          </ol>
+        </b>
+
+      </div>
+    </div>
+
+    <span id="Introduction">
+      <h1>1. Introduction</h1>
+      <p>Your text here!</p>
+
+    </span><br>
+
+    <span id="Document_Conventions">
+      <h1>2. DocumentConventions</h1>
+      <p>Your text here!</p>
+
+    </span><br>
+
+    <span id="Description_of_Design_Components">
+      <h1>3. Description of Design Components</h1>
+      <h2>3.1 Server-side</h2>
+      <p>Your text here</p>
+
+      <h2>3.2 Client-side</h2>
+      <p>Your text here</p>
+
+    </span><br>
+
+    <span id="High_Level_Component_Design">
+      <h1>4. High-Level Component Design</h1>
+      <p>Your text here</p>
+
+    </span><br>
+
+    <span id="Class_diagrams">
+      <h1>5. Class diagrams</h1>
+
+      <h2>5.1 Detailed Class Diagram(s)</h2>
+      <p>Your text here</p>
+
+      <h2>5.2 Detailed Class Description(s).</h2>
+      <p>Your text here</p>
+
+    </span><br>
+
+    <span id="Database_Design">
+      <h1>6. Database Design</h1>
+      <h2>6.1 ER Diagram</h2>
+      <p>Your text here</p>
+
+      <h2>6.2 Details Per Table</h2>
+      <p>Your text here</p>
+    </span>
+
+    <span id="Implementation_plan">
+      <h1>Implementation plan</h1>
+      <p>your text here</p>
+
+      <h2 text align=center>--------END--------</h2>
+
+    </span><br>
+
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+#hide {
+  display: none;
+}
+
+span#Overall_Description ul,span#Other_Nonfunctional_Requirements ul, span#Appendix_C ul{
+  margin-left: 5%;
+}
+
+ul.a {
+  list-style-type: square;
+}
+
+.sidebar {
+  width: 0%;
+}
+
+div.content {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.intro {
+  display: none;
+}
+
+.coverpg_toc {
+  display: block;
+}
+.cover {
+  text-align: right;
+  font-size: 20px;
+}
+
+.toc p, .toc ol,.toc li{
+  text-align: justify;
+}
+
+.cover,.toc{
+  page-break-after: always;
+}
+span#Overall_Description .h, span#System_Features .h {
+  page-break-before: always;
+}
+
+table {
+      page-break-inside: avoid;
+   }
