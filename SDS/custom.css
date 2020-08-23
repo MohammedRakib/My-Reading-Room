@@ -37,11 +37,12 @@ ul.a {
 }
 
 /*table Design*/
-.table_class {
+table_class{
   border-collapse: collapse;
-  /* width: 100%; */
+  /*width: 100%;*/ 
   margin-left: auto;
   margin-right: auto;
+  
 }
 
 .table_class td, .table_class th {

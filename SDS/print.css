@@ -44,4 +44,5 @@ span#Overall_Description .h, span#System_Features .h {
 
 table {
       page-break-inside: avoid;
+	  border-collapse: collapse;
    }

@@ -160,8 +160,1437 @@
       <h2>5.1 Detailed Class Diagram(s)</h2>
       <p>Your text here</p>
 
-      <h2>5.2 Detailed Class Description(s).</h2>
-      <p>Your text here</p>
+      <h2>5.2 Detailed Class Description(s)</h2>
+      <p>
+      <h1>User Class</h1>
+      <table>
+        <tbody>
+          <tr>
+            <td width="468">
+              <p><strong>Class Name:</strong></p>
+            </td>
+            <td width="468">
+              <p>User</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="468">
+              <p><strong>Purpose:</strong></p>
+            </td>
+            <td width="468">
+              <p>Stores info of the user</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="3" width="935">
+              <p><strong>Private Attribute</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="312">
+              <p><strong>Name</strong></p>
+            </td>
+            <td width="312">
+              <p><strong>Type</strong></p>
+            </td>
+            <td width="312">
+              <p><strong>Purpose</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="312">
+              <p>username</p>
+            </td>
+            <td width="312">
+              <p>String</p>
+            </td>
+            <td width="312">
+              <p>Stores Username</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="312">
+              <p>userId</p>
+            </td>
+            <td width="312">
+              <p>Integer</p>
+            </td>
+            <td width="312">
+              <p>Stores User Id</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="312">
+              <p>password</p>
+            </td>
+            <td width="312">
+              <p>Integer</p>
+            </td>
+            <td width="312">
+              <p>Stores Password</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <h1>Admin Class</h1>
+      <table>
+        <tbody>
+          <tr>
+            <td width="468">
+              <p><strong>Class Name:</strong></p>
+            </td>
+            <td width="468">
+              <p>Admin</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="468">
+              <p><strong>Purpose:</strong></p>
+            </td>
+            <td width="468">
+              <p>Can alter any of the User, Classroom, FaceImage &amp; ReadingMaterial classes.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="4" width="935">
+              <p><strong>Public Method</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p><strong>Name</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Parameters</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Return Type</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Purpose &amp; Description</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p>addUser</p>
+            </td>
+            <td width="234">
+              <p>user: User</p>
+            </td>
+            <td width="234">
+              <p>void</p>
+            </td>
+            <td width="234">
+              <p>Adds a user to the database</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p>editUser</p>
+            </td>
+            <td width="234">
+              <p>None</p>
+            </td>
+            <td width="234">
+              <p>void</p>
+            </td>
+            <td width="234">
+              <p>Can edit user in the database including his/her info</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p>removeUser</p>
+            </td>
+            <td width="234">
+              <p>user: User</p>
+            </td>
+            <td width="234">
+              <p>void</p>
+            </td>
+            <td width="234">
+              <p>Removes the user from the database</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p>addClassroom</p>
+            </td>
+            <td width="234">
+              <p>class: Classroom</p>
+            </td>
+            <td width="234">
+              <p>void</p>
+            </td>
+            <td width="234">
+              <p>Adds a classroom to the database</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p>editClassroom</p>
+            </td>
+            <td width="234">
+              <p>None</p>
+            </td>
+            <td width="234">
+              <p>void</p>
+            </td>
+            <td width="234">
+              <p>Can edit classroom in the database including its info</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p>removeClassroom</p>
+            </td>
+            <td width="234">
+              <p>class: Classroom</p>
+            </td>
+            <td width="234">
+              <p>void</p>
+            </td>
+            <td width="234">
+              <p>Removes the classroom from the database</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p>addImage</p>
+            </td>
+            <td width="234">
+              <p>image: FaceImage</p>
+            </td>
+            <td width="234">
+              <p>void</p>
+            </td>
+            <td width="234">
+              <p>Adds a image to the database</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p>editImage</p>
+            </td>
+            <td width="234">
+              <p>None</p>
+            </td>
+            <td width="234">
+              <p>void</p>
+            </td>
+            <td width="234">
+              <p>Can edit image in the database including its info</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p>removeImage</p>
+            </td>
+            <td width="234">
+              <p>image: FaceImage</p>
+            </td>
+            <td width="234">
+              <p>void</p>
+            </td>
+            <td width="234">
+              <p>Removes the image from the database</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p>addReadingMaterial</p>
+            </td>
+            <td width="234">
+              <p>material: ReadingMaterial</p>
+            </td>
+            <td width="234">
+              <p>void</p>
+            </td>
+            <td width="234">
+              <p>Adds a ReadingMaterial to the database</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p>editReadingMaterial</p>
+            </td>
+            <td width="234">
+              <p>None</p>
+            </td>
+            <td width="234">
+              <p>void</p>
+            </td>
+            <td width="234">
+              <p>Can edit ReadingMaterial in the database including its info</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p>removeReadingMaterial</p>
+            </td>
+            <td width="234">
+              <p>material: ReadingMaterial</p>
+            </td>
+            <td width="234">
+              <p>void</p>
+            </td>
+            <td width="234">
+              <p>Removes the ReadingMaterial from the database</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <h1>LogIn Class</h1>
+      <table>
+        <tbody>
+          <tr>
+            <td width="468">
+              <p><strong>Class Name:</strong></p>
+            </td>
+            <td width="468">
+              <p>LogIn</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="468">
+              <p><strong>Purpose:</strong></p>
+            </td>
+            <td width="468">
+              <p>To login to the system with credentials.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="4" width="935">
+              <p><strong>Public Method</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p><strong>Name</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Parameters</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Return Type</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Purpose &amp; Description</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p>login()</p>
+            </td>
+            <td width="234">
+              <p>None</p>
+            </td>
+            <td width="234">
+              <p>void</p>
+            </td>
+            <td width="234">
+              <p>To login to the system with username &amp; password</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <h1>LogOut Class</h1>
+      <table>
+        <tbody>
+          <tr>
+            <td width="468">
+              <p><strong>Class Name:</strong></p>
+            </td>
+            <td width="468">
+              <p>LogOut</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="468">
+              <p><strong>Purpose:</strong></p>
+            </td>
+            <td width="468">
+              <p>To logout of the system</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="4" width="935">
+              <p><strong>Public Method</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p><strong>Name</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Parameters</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Return Type</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Purpose &amp; Description</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p>logout()</p>
+            </td>
+            <td width="234">
+              <p>None</p>
+            </td>
+            <td width="234">
+              <p>void</p>
+            </td>
+            <td width="234">
+              <p>To logout of the system</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h1><br />SignUp Class</h1>
+      <table>
+        <tbody>
+          <tr>
+            <td width="468">
+              <p><strong>Class Name:</strong></p>
+            </td>
+            <td width="468">
+              <p>SignUp</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="468">
+              <p><strong>Purpose:</strong></p>
+            </td>
+            <td width="468">
+              <p>To create an account in the system</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="4" width="935">
+              <p><strong>Public Method</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p><strong>Name</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Parameters</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Return Type</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Purpose &amp; Description</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p>signUp()</p>
+            </td>
+            <td width="234">
+              <p>None</p>
+            </td>
+            <td width="234">
+              <p>void</p>
+            </td>
+            <td width="234">
+              <p>To create an account with username &amp; password</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <h1>SignInWith Class</h1>
+      <table>
+        <tbody>
+          <tr>
+            <td width="468">
+              <p><strong>Class Name:</strong></p>
+            </td>
+            <td width="468">
+              <p>SignInWith</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="468">
+              <p><strong>Purpose:</strong></p>
+            </td>
+            <td width="468">
+              <p>To sign-in with federated identity</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="4" width="935">
+              <p><strong>Public Method</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p><strong>Name</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Parameters</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Return Type</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Purpose &amp; Description</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p>signInWith()</p>
+            </td>
+            <td width="234">
+              <p>None</p>
+            </td>
+            <td width="234">
+              <p>void</p>
+            </td>
+            <td width="234">
+              <p>To sign-in with a federated identity</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <h1>CreateClass Class</h1>
+      <table>
+        <tbody>
+          <tr>
+            <td width="468">
+              <p><strong>Class Name:</strong></p>
+            </td>
+            <td width="468">
+              <p>CreateClass</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="468">
+              <p><strong>Purpose:</strong></p>
+            </td>
+            <td width="468">
+              <p>Creates a classroom in the database</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="4" width="935">
+              <p><strong>Public Method</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p><strong>Name</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Parameters</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Return Type</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Purpose &amp; Description</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p>createClass()</p>
+            </td>
+            <td width="234">
+              <p>None</p>
+            </td>
+            <td width="234">
+              <p>void</p>
+            </td>
+            <td width="234">
+              <p>Creates a classroom in the database</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <h1>JoinClass Class</h1>
+      <table>
+        <tbody>
+          <tr>
+            <td width="468">
+              <p><strong>Class Name:</strong></p>
+            </td>
+            <td width="468">
+              <p>JoinClass</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="468">
+              <p><strong>Purpose:</strong></p>
+            </td>
+            <td width="468">
+              <p>Adds a user to the desired classroom</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="4" width="935">
+              <p><strong>Public Method</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p><strong>Name</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Parameters</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Return Type</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Purpose &amp; Description</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p>joinClass()</p>
+            </td>
+            <td width="234">
+              <p>None</p>
+            </td>
+            <td width="234">
+              <p>void</p>
+            </td>
+            <td width="234">
+              <p>Adds a user to his/her desired clasroom</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <h1>ProvideReadingMaterial Class</h1>
+      <table>
+        <tbody>
+          <tr>
+            <td width="468">
+              <p><strong>Class Name:</strong></p>
+            </td>
+            <td width="468">
+              <p>ProvideReadingMaterial</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="468">
+              <p><strong>Purpose:</strong></p>
+            </td>
+            <td width="468">
+              <p>Allows a user to upload reading material to his/her created classroom</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="4" width="935">
+              <p><strong>Public Method</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p><strong>Name</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Parameters</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Return Type</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Purpose &amp; Description</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p>uploadReadingFile()</p>
+            </td>
+            <td width="234">
+              <p>None</p>
+            </td>
+            <td width="234">
+              <p>void</p>
+            </td>
+            <td width="234">
+              <p>Allows a user to upload reading material to his/her created classroom</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <h1>ReadReadingMaterial Class</h1>
+      <table>
+        <tbody>
+          <tr>
+            <td width="468">
+              <p><strong>Class Name:</strong></p>
+            </td>
+            <td width="468">
+              <p>ReadReadingMaterial</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="468">
+              <p><strong>Purpose:</strong></p>
+            </td>
+            <td width="468">
+              <p>Allows a student to read the reading material. At the same time, it tracks the student&rsquo;s reading time, matches his face with the photo in the database</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="4" width="935">
+              <p><strong>Public Method</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p><strong>Name</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Parameters</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Return Type</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Purpose &amp; Description</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p>openReadingMaterial()</p>
+            </td>
+            <td width="234">
+              <p>None</p>
+            </td>
+            <td width="234">
+              <p>void</p>
+            </td>
+            <td width="234">
+              <p>Opens the file containing the reading material</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p>recogniseFace()</p>
+            </td>
+            <td width="234">
+              <p>None</p>
+            </td>
+            <td width="234">
+              <p>Boolean</p>
+            </td>
+            <td width="234">
+              <p>Verifies the face with the corresponding face image in the database and returns a boolean</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p>trackReadingTime()</p>
+            </td>
+            <td width="234">
+              <p>None</p>
+            </td>
+            <td width="234">
+              <p>String</p>
+            </td>
+            <td width="234">
+              <p>tracks the total reading time by tracking the eyes and return the total time</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <h1>Classroom Class</h1>
+      <table>
+        <tbody>
+          <tr>
+            <td width="468">
+              <p><strong>Class Name:</strong></p>
+            </td>
+            <td width="468">
+              <p>Classroom</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="468">
+              <p><strong>Purpose:</strong></p>
+            </td>
+            <td width="468">
+              <p>Stores info of a classroom in the database</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="3" width="935">
+              <p><strong>Private Attribute</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="312">
+              <p><strong>Name</strong></p>
+            </td>
+            <td width="312">
+              <p><strong>Type</strong></p>
+            </td>
+            <td width="312">
+              <p><strong>Purpose</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="312">
+              <p>className</p>
+            </td>
+            <td width="312">
+              <p>String</p>
+            </td>
+            <td width="312">
+              <p>Stores Class Name</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="312">
+              <p>classId</p>
+            </td>
+            <td width="312">
+              <p>Integer</p>
+            </td>
+            <td width="312">
+              <p>Stores Class Id</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="312">
+              <p>classCode</p>
+            </td>
+            <td width="312">
+              <p>String</p>
+            </td>
+            <td width="312">
+              <p>Stores Class Code</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="312">
+              <p>section</p>
+            </td>
+            <td width="312">
+              <p>Integer</p>
+            </td>
+            <td width="312">
+              <p>Stores Section No.</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="312">
+              <p>studentList</p>
+            </td>
+            <td width="312">
+              <p>ArrayList&lt;User&gt;</p>
+            </td>
+            <td width="312">
+              <p>Stores the list of students in the classroom</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="312">
+              <p>teacher</p>
+            </td>
+            <td width="312">
+              <p>User</p>
+            </td>
+            <td width="312">
+              <p>Stores the teacher of the classroom</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="4" width="935">
+              <p><strong>Public Method</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p><strong>Name</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Parameters</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Return Type</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Purpose &amp; Description</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p>changeClassName()</p>
+            </td>
+            <td width="234">
+              <p>name: string</p>
+            </td>
+            <td width="234">
+              <p>void</p>
+            </td>
+            <td width="234">
+              <p>Allows to change the class name</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <h1>ReadingMaterial Class</h1>
+      <table>
+        <tbody>
+          <tr>
+            <td width="468">
+              <p><strong>Class Name:</strong></p>
+            </td>
+            <td width="468">
+              <p>ReadingMaterial</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="468">
+              <p><strong>Purpose:</strong></p>
+            </td>
+            <td width="468">
+              <p>Stores the info of reading material</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="3" width="935">
+              <p><strong>Private Attribute</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="312">
+              <p><strong>Name</strong></p>
+            </td>
+            <td width="312">
+              <p><strong>Type</strong></p>
+            </td>
+            <td width="312">
+              <p><strong>Purpose</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="312">
+              <p>materialId</p>
+            </td>
+            <td width="312">
+              <p>Integer</p>
+            </td>
+            <td width="312">
+              <p>Stores the Material Id</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="312">
+              <p>classId</p>
+            </td>
+            <td width="312">
+              <p>Integer</p>
+            </td>
+            <td width="312">
+              <p>Stores the Classroom Id</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="312">
+              <p>readingFile</p>
+            </td>
+            <td width="312">
+              <p>File</p>
+            </td>
+            <td width="312">
+              <p>Stores the reading material as file</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="312">
+              <p>totalPg</p>
+            </td>
+            <td width="312">
+              <p>Integer</p>
+            </td>
+            <td width="312">
+              <p>Stores the total page no.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>&nbsp;</p>
+      <h1>FaceImage Class</h1>
+      <table>
+        <tbody>
+          <tr>
+            <td width="468">
+              <p><strong>Class Name:</strong></p>
+            </td>
+            <td width="468">
+              <p>FaceImage</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="468">
+              <p><strong>Purpose:</strong></p>
+            </td>
+            <td width="468">
+              <p>Stores the image all the users</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="3" width="935">
+              <p><strong>Private Attribute</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="312">
+              <p><strong>Name</strong></p>
+            </td>
+            <td width="312">
+              <p><strong>Type</strong></p>
+            </td>
+            <td width="312">
+              <p><strong>Purpose</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="312">
+              <p>userId</p>
+            </td>
+            <td width="312">
+              <p>Integer</p>
+            </td>
+            <td width="312">
+              <p>Stores the User Id</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="312">
+              <p>imgFile</p>
+            </td>
+            <td width="312">
+              <p>File</p>
+            </td>
+            <td width="312">
+              <p>Stores the Image File</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <h1>ViewReadingInfo Class</h1>
+      <table>
+        <tbody>
+          <tr>
+            <td width="468">
+              <p><strong>Class Name:</strong></p>
+            </td>
+            <td width="468">
+              <p>ViewReadingInfo</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="468">
+              <p><strong>Purpose:</strong></p>
+            </td>
+            <td width="468">
+              <p>Shows the reading info of a reading material of a student</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="4" width="935">
+              <p><strong>Public Method</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p><strong>Name</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Parameters</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Return Type</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Purpose &amp; Description</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p>viewReadingInfo()</p>
+            </td>
+            <td width="234">
+              <p>None</p>
+            </td>
+            <td width="234">
+              <p>ArrayList&lt;ReadingInfo&gt;</p>
+            </td>
+            <td width="234">
+              <p>Shows the reading info of a reading material of a particular student</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <h1>ViewReadingMaterial Class</h1>
+      <table>
+        <tbody>
+          <tr>
+            <td width="468">
+              <p><strong>Class Name:</strong></p>
+            </td>
+            <td width="468">
+              <p>ViewReadingMaterial</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="468">
+              <p><strong>Purpose:</strong></p>
+            </td>
+            <td width="468">
+              <p>Shows a list of all the reading materials of a classroom</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="4" width="935">
+              <p><strong>Public Method</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p><strong>Name</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Parameters</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Return Type</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Purpose &amp; Description</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p>viewReadingMaterial()</p>
+            </td>
+            <td width="234">
+              <p>None</p>
+            </td>
+            <td width="234">
+              <p>ArrayList&lt;ReadingMaterial&gt;</p>
+            </td>
+            <td width="234">
+              <p>Shows a list of all the reading materials of a classroom</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <h1>ReadingInfo Class</h1>
+      <table>
+        <tbody>
+          <tr>
+            <td width="468">
+              <p><strong>Class Name:</strong></p>
+            </td>
+            <td width="468">
+              <p>ReadingInfo</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="468">
+              <p><strong>Purpose:</strong></p>
+            </td>
+            <td width="468">
+              <p>Stores the reading info of a student for a reading material</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="3" width="935">
+              <p><strong>Private Attribute</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="312">
+              <p><strong>Name</strong></p>
+            </td>
+            <td width="312">
+              <p><strong>Type</strong></p>
+            </td>
+            <td width="312">
+              <p><strong>Purpose</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="312">
+              <p>materialId</p>
+            </td>
+            <td width="312">
+              <p>Integer</p>
+            </td>
+            <td width="312">
+              <p>Stores the Material Id</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="312">
+              <p>userId</p>
+            </td>
+            <td width="312">
+              <p>Integer</p>
+            </td>
+            <td width="312">
+              <p>Stores the User Id</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="312">
+              <p>PgByPgTimeSpentList</p>
+            </td>
+            <td width="312">
+              <p>ArrayList&lt;string&gt;</p>
+            </td>
+            <td width="312">
+              <p>Stores the list of page by page reading time spent by a student of a reading material</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="312">
+              <p>totalTimeSpent</p>
+            </td>
+            <td width="312">
+              <p>String</p>
+            </td>
+            <td width="312">
+              <p>Stores the total time spent by a student reading this material</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="4" width="935">
+              <p><strong>Public Method</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p><strong>Name</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Parameters</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Return Type</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Purpose &amp; Description</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p>calcAvgTimeSpent()</p>
+            </td>
+            <td width="234">
+              <p>totalTimeSpent: string</p>
+            </td>
+            <td width="234">
+              <p>String</p>
+            </td>
+            <td width="234">
+              <p>Calculates the average time spent by all the students reading the material</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p>calcMostTimeSpentPg()</p>
+            </td>
+            <td width="234">
+              <p>PgByPgTimeSpentList: ArrayList&lt;string&gt;</p>
+            </td>
+            <td width="234">
+              <p>String</p>
+            </td>
+            <td width="234">
+              <p>Calculates the most time spent by a student on a page</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <h1>ProvideFaceImage Class</h1>
+      <table>
+        <tbody>
+          <tr>
+            <td width="468">
+              <p><strong>Class Name:</strong></p>
+            </td>
+            <td width="468">
+              <p>ProvideFaceImage</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="468">
+              <p><strong>Purpose:</strong></p>
+            </td>
+            <td width="468">
+              <p>To upload the image of face and detect if the uploaded file is a face or not</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="4" width="935">
+              <p><strong>Public Method</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p><strong>Name</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Parameters</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Return Type</strong></p>
+            </td>
+            <td width="234">
+              <p><strong>Purpose &amp; Description</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p>uploadImgFile()</p>
+            </td>
+            <td width="234">
+              <p>None</p>
+            </td>
+            <td width="234">
+              <p>void</p>
+            </td>
+            <td width="234">
+              <p>Allows the user to upload an image and stores it in the database</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="234">
+              <p>detectFace()</p>
+            </td>
+            <td width="234">
+              <p>None</p>
+            </td>
+            <td width="234">
+              <p>Boolean</p>
+            </td>
+            <td width="234">
+              <p>Checks if the uploaded image is a face or not and returns a boolean</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </p>
 
     </span><br>
 
