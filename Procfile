@@ -1,1 +1,1 @@
-web: gunicorn Reading_Room-project.Reading_Room.wsgi --log-file -
+web: gunicorn Reading_Room.wsgi --log-file -
