@@ -71,10 +71,29 @@ def create_class(request):
             new_class.teacher = request.user
             new_class.classCode = uuid.uuid4().hex[:6].upper()
             new_class.save()
-            # created_classes = ClassRoom.objects.filter(teacher=request.user)
-            # return render(request, 'create_join_class/home_classroom.html',
-            #               {'user': request.user, 'classes': created_classes})
             return redirect('home_classroom')
         except ValueError:
             return render(request, 'create_join_class/create_class.html',
                           {'form': CreateClassRoomForm, 'error': 'Bad data passed in. Try again!'})
+
+
+@login_required
+def join_class(request):
+    if request.method == "GET":
+        return render(request, 'create_join_class/join_class.html')
+    else:
+        # checking if the class code that user entered does exist or not
+        try:
+            classobj = ClassRoom.objects.get(classCode=request.POST['classCode'])
+        except ClassRoom.DoesNotExist:
+            return render(request, 'create_join_class/join_class.html',{'error': 'No class found with that class code!'})
+
+        if classobj.teacher == request.user:
+            return render(request, 'create_join_class/join_class.html',{'error': 'You are the teacher of this class!'})
+        else:
+            user=request.user
+            classobj.students.create(user)
+            return redirect('home_classroom')
+
+
+

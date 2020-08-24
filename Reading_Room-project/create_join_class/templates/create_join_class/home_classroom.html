@@ -9,11 +9,12 @@
 {#</form>#}
 
 <button ><a href="{% url 'create_class' %}">Create a new class</a></button>
+<button ><a href="{% url 'join_class' %}">Join a class</a></button>
 
 {% if classes %}
     <h2> Your created classes </h2>
     {% for class in classes %}
-        <h3>{{ class.name }}.{{ class.section }}</h3>
+        <h3>{{ class.name }}.{{ class.section }} - {{ class.classCode }}</h3>
     {% endfor %}
 {% else %}
     <h3>Looks like you don't have created any classes</h3>
