@@ -14,7 +14,7 @@ body {
   font-family: "Times New Roman", Times, serif;
 }
 
-p,ul{
+p, ul {
   line-height: 1.5;
 }
 
@@ -28,21 +28,18 @@ hr {
 }
 
 /*unordered list*/
-span#Overall_Description ul, span#Other_Nonfunctional_Requirements ul, span#Appendix_C ul {
+/* span#Overall_Description ul, span#Other_Nonfunctional_Requirements ul, span#Appendix_C ul {
   margin-left: 2%;
-}
-
-ul.a {
+} */
+/* ul.a {
   list-style-type: square;
-}
-
+} */
 /*table Design*/
-table{
+table {
   border-collapse: collapse;
-  /*width: 100%;*/ 
+  /*width: 100%;*/
   margin-left: auto;
   margin-right: auto;
-  
 }
 
 table td, th {
@@ -50,10 +47,9 @@ table td, th {
   text-align: center;
 }
 
-table tr:nth-child(even) {
+/* table tr:nth-child(even) {
   background-color: #f2f2f2;
-}
-
+} */
 table tr:hover {
   background-color: #ddd;
 }
@@ -107,10 +103,12 @@ div.content {
   text-align: right;
   font-size: 20px;
 } */
-
 /* .toc {
   text-align: justify;
 } */
+img {
+  border: 5px solid black;
+}
 
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
 @media screen and (max-width: 700px) {

@@ -1,4 +1,4 @@
-/venv/*
-/.idea/*
+Reading_Room-project/.idea/*
+Reading_Room-project/venv/*
 *.pyc
 __pycache__

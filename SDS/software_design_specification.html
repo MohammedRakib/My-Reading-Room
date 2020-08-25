@@ -1598,10 +1598,335 @@
     <span id="Database_Design">
       <h1>6. Database Design</h1>
       <h2>6.1 ER Diagram</h2>
-      <p>Your text here</p>
+      <p style="text-align: center;"><img src="SDS ERD.jpg" alt="" width="1000" height="900" /></p>
+      <p style="text-align: center;"><strong>Figure 2: SDS ER Diagram of the System</strong></p>
+      <p style="text-align: center;"><img src="ERD relation ship.PNG" alt="" width="350" height="300" /></p>
+      <p style="text-align: center;"><strong>Figure 3: Cardinality of ER Diagram</strong></p>
 
       <h2>6.2 Details Per Table</h2>
-      <p>Your text here</p>
+      <p><strong>Table Name: User</strong></p>
+      <p><strong>Purpose:</strong> The main actor of our system is User we will store User objects in this table called User. Since the admin will be one of the user objects who will be also stored here. As we are implementing federated identity
+        those who will sign-in through federated identity will also be stored in this table</p>
+      <p><strong>Attributes:</strong></p>
+      <table>
+        <tbody>
+          <tr>
+            <td width="49">
+              <p>&nbsp;</p>
+            </td>
+            <td width="120">
+              <p><strong>Name</strong></p>
+            </td>
+            <td width="110">
+              <p><strong>Type</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="49">
+              <p><strong>PK</strong></p>
+            </td>
+            <td width="120">
+              <p>userID</p>
+            </td>
+            <td width="110">
+              <p>integer</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="49">
+              <p><strong>KEY</strong></p>
+            </td>
+            <td width="120">
+              <p>userName</p>
+            </td>
+            <td width="110">
+              <p>varchar</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="49">
+              <p><strong>KEY</strong></p>
+            </td>
+            <td width="120">
+              <p>password</p>
+            </td>
+            <td width="110">
+              <p>varchar</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>&nbsp;</p>
+      <p><strong>User table does not contain any foreign key.</strong></p>
+      <p>&nbsp;</p>
+      <p><strong>Table Name: FaceImage</strong></p>
+      <p><strong>Purpose:</strong> One of the important parts of our project is to detect the face of our user when he/she is reading provided reading materials that&rsquo;s why the system requires a pre-uploaded image that will be stored in this
+        table. This pre-uploaded image and webcam image of the user while reading, reading material will be going through match tests many times.</p>
+      <p><strong>Attributes:</strong></p>
+      <table>
+        <tbody>
+          <tr>
+            <td width="63">
+              <p>&nbsp;</p>
+            </td>
+            <td width="120">
+              <p><strong>Name</strong></p>
+            </td>
+            <td width="116">
+              <p><strong>Type</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="63">
+              <p><strong>PK,FK</strong></p>
+            </td>
+            <td width="120">
+              <p>userID</p>
+            </td>
+            <td width="116">
+              <p>integer</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="63">
+              <p><strong>KEY</strong></p>
+            </td>
+            <td width="120">
+              <p>imgFile</p>
+            </td>
+            <td width="116">
+              <p>image</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p><strong>Foreign Key Purpose:</strong> User will upload his/her image and the system will store it in the FaceImage table and for tracking which image belongs to which user system will also keep track of userID. As there is no existence of
+        FaceImage table without User table that is why FaceImage table is a week entity.</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p><strong>Table Name: ClassRoom</strong></p>
+      <p><strong>Purpose:</strong> Another part of the system is the user can create or join classes. When a user will create a class he/she will be recognized by the system as the teacher of that class in this table and rest who will join the class
+        using unique class code will be listed as a student in the student list of the class by the system in this table. In short with these two and a few other attributes all classroom objects will be stored in this class. To keep track of
+        created/joined classes by the users.</p>
+      <p><strong>Attributes:</strong></p>
+      <table>
+        <tbody>
+          <tr>
+            <td width="58">
+              <p>&nbsp;</p>
+            </td>
+            <td width="120">
+              <p><strong>Name</strong></p>
+            </td>
+            <td width="174">
+              <p><strong>Type</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="58">
+              <p><strong>PK</strong></p>
+            </td>
+            <td width="120">
+              <p>classID</p>
+            </td>
+            <td width="174">
+              <p>integer</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="58">
+              <p><strong>KEY</strong></p>
+            </td>
+            <td width="120">
+              <p>classCode</p>
+            </td>
+            <td width="174">
+              <p>varchar</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="58">
+              <p><strong>KEY</strong></p>
+            </td>
+            <td width="120">
+              <p>className</p>
+            </td>
+            <td width="174">
+              <p>varchar</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="58">
+              <p><strong>KEY</strong></p>
+            </td>
+            <td width="120">
+              <p>teacher</p>
+            </td>
+            <td width="174">
+              <p>User</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="58">
+              <p><strong>KEY</strong></p>
+            </td>
+            <td width="120">
+              <p>studentList</p>
+            </td>
+            <td width="174">
+              <p>ArrayList&lt;User&gt;</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="58">
+              <p><strong>KEY</strong></p>
+            </td>
+            <td width="120">
+              <p>section</p>
+            </td>
+            <td width="174">
+              <p>int</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>&nbsp;</p>
+      <p><strong>ClassRoom table does not contain any foreign key.</strong></p>
+      <p>&nbsp;</p>
+      <p><strong>Table Name: Reading Material</strong></p>
+      <p><strong>Purpose:</strong> In the classroom teacher can upload reading materials. Students from that specific classroom can read the reading materials. To store reading materials and to show those to the students to read the system will use
+        this table.</p>
+      <p><strong>Attributes:</strong></p>
+      <table>
+        <tbody>
+          <tr>
+            <td width="58">
+              <p>&nbsp;</p>
+            </td>
+            <td width="120">
+              <p><strong>Name</strong></p>
+            </td>
+            <td width="142">
+              <p><strong>Type</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="58">
+              <p><strong>PK</strong></p>
+            </td>
+            <td width="120">
+              <p>materialID</p>
+            </td>
+            <td width="142">
+              <p>integer</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="58">
+              <p><strong>FK</strong></p>
+            </td>
+            <td width="120">
+              <p>classID</p>
+            </td>
+            <td width="142">
+              <p>integer</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="58">
+              <p><strong>KEY</strong></p>
+            </td>
+            <td width="120">
+              <p>readingFile</p>
+            </td>
+            <td width="142">
+              <p>File</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="58">
+              <p><strong>KEY</strong></p>
+            </td>
+            <td width="120">
+              <p>totalPg</p>
+            </td>
+            <td width="142">
+              <p>integer</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p><strong>Foreign Key Purpose:</strong> System will need to keep track of the reading materials, in-class it is uploaded so that nothing but from the students of that class can read, the reading materials.</p>
+      <p>&nbsp;</p>
+      <p><strong>Tale Name: ReadingInfo</strong></p>
+      <p><strong>Purpose:</strong> The main feature of the system is here! Which user spends how many times on a specific page of a reading material? This information will be stored by the system in this table what is called ReadingInfo Table.</p>
+      <p><strong>Attributes</strong>:</p>
+      <table>
+        <tbody>
+          <tr>
+            <td width="59">
+              <p>&nbsp;</p>
+            </td>
+            <td width="182">
+              <p><strong>Name</strong></p>
+            </td>
+            <td width="147">
+              <p><strong>Type</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td width="59">
+              <p><strong>PK,Fk</strong></p>
+            </td>
+            <td width="182">
+              <p>materialID</p>
+            </td>
+            <td width="147">
+              <p>integer</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="59">
+              <p><strong>FK</strong></p>
+            </td>
+            <td width="182">
+              <p>userID</p>
+            </td>
+            <td width="147">
+              <p>integer</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="59">
+              <p><strong>KEY</strong></p>
+            </td>
+            <td width="182">
+              <p>PgByPgTimeSpentList</p>
+            </td>
+            <td width="147">
+              <p>ArrayList&lt;String&gt;</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="59">
+              <p><strong>KEY</strong></p>
+            </td>
+            <td width="182">
+              <p>totalTimeSpent</p>
+            </td>
+            <td width="147">
+              <p>String</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>&nbsp;</p>
+      <p><strong>Foreign Key Purpose:</strong> In this table, there are two Foreign Keys, one is materialID and the other one is userID. The system will be storing readingInfo based on the materialID and userID that this student with this userID
+        spent this amount of time on this specific page of the reading material with materialID this.</p>
     </span>
 
     <span id="Implementation_plan">
