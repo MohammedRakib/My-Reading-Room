@@ -55,8 +55,9 @@ def logout_user(request):
 @login_required
 def home_classroom(request):
     created_classes = ClassRoom.objects.filter(teacher=request.user)
+    joined_classes = ClassRoom.objects.filter(students__in=[request.user.id])
     return render(request, 'create_join_class/home_classroom.html',
-                  {'user': request.user, 'classes': created_classes})
+                  {'user': request.user, 'created_classes': created_classes, 'joined_classes': joined_classes})
     # return render(request, 'create_join_class/home_classroom.html', {'user': request.user})
 
 
@@ -86,13 +87,13 @@ def join_class(request):
         try:
             classobj = ClassRoom.objects.get(classCode=request.POST['classCode'])
         except ClassRoom.DoesNotExist:
-            return render(request, 'create_join_class/join_class.html',{'error': 'No class found with that class code!'})
+            return render(request, 'create_join_class/join_class.html', {'error': 'No class found with that class code!'})
 
         if classobj.teacher == request.user:
-            return render(request, 'create_join_class/join_class.html',{'error': 'You are the teacher of this class!'})
+            return render(request, 'create_join_class/join_class.html', {'error': 'You are the teacher of this class!'})
         else:
             user=request.user
-            classobj.students.create(user)
+            classobj.students.add(user)
             return redirect('home_classroom')
 
 
