@@ -5,39 +5,46 @@ body {
 
 .intro {
   text-align: center;
-  /* 580447  */
   background-color: #d7e6fa;
 }
 
 * {
   padding: 0px;
   font-family: "Times New Roman", Times, serif;
+  font-size: 18px;
 }
 
-p, ul {
+h1{
+  font-size: 26px;
+}
+h2{
+  font-size: 21px;
+}
+
+p, ol {
   line-height: 1.5;
 }
 
 hr {
   position: relative;
-  /* top: 20px; */
   border: none;
   height: 7px;
   background: black;
   margin-bottom: 50px;
 }
 
-/*unordered list*/
-/* span#Overall_Description ul, span#Other_Nonfunctional_Requirements ul, span#Appendix_C ul {
+span#Implementation_plan ol {
   margin-left: 2%;
-} */
-/* ul.a {
+}
+/*ol {
   list-style-type: square;
-} */
+}*/
+
 /*table Design*/
 table {
+  table-layout: auto;
   border-collapse: collapse;
-  /*width: 100%;*/
+  /* width: 100%; */
   margin-left: auto;
   margin-right: auto;
 }
@@ -47,9 +54,6 @@ table td, th {
   text-align: center;
 }
 
-/* table tr:nth-child(even) {
-  background-color: #f2f2f2;
-} */
 table tr:hover {
   background-color: #ddd;
 }
@@ -99,13 +103,6 @@ div.content {
   display: none;
 }
 
-/* .cover {
-  text-align: right;
-  font-size: 20px;
-} */
-/* .toc {
-  text-align: justify;
-} */
 img {
   border: 5px solid black;
 }
