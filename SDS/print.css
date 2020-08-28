@@ -26,19 +26,27 @@ div.content {
 .coverpg_toc {
   display: block;
 }
-.cover {
+.cover{
   text-align: right;
-  font-size: 20px;
+  font-size: 30px;
 }
 
-.toc p, .toc ol,.toc li{
+/* .toc p, .toc ol,.toc li{
   text-align: justify;
+} */
+
+.toc_inside{
+  text-align: justify;
+  text-align-last: justify;
 }
 
 .cover,.toc{
   page-break-after: always;
 }
-span#Overall_Description .h, span#System_Features .h {
+.line_break{
+  page-break-after: always;
+}
+.line_break_before{
   page-break-before: always;
 }
 

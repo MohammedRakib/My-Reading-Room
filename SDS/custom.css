@@ -20,7 +20,9 @@ h1{
 h2{
   font-size: 21px;
 }
-
+a{
+  text-decoration: none;
+}
 p, ol {
   line-height: 1.5;
 }
@@ -36,15 +38,11 @@ hr {
 span#Implementation_plan ol {
   margin-left: 2%;
 }
-/*ol {
-  list-style-type: square;
-}*/
 
 /*table Design*/
 table {
   table-layout: auto;
   border-collapse: collapse;
-  /* width: 100%; */
   margin-left: auto;
   margin-right: auto;
 }
@@ -100,7 +98,9 @@ div.content {
 }
 
 .coverpg_toc {
+  /* display: block; */
   display: none;
+
 }
 
 img {
