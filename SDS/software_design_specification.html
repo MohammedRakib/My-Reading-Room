@@ -1827,7 +1827,7 @@
       <p><strong>ClassRoom table does not contain any foreign key.</strong></p>
 
       <p><strong>Table Name: Reading Material</strong></p>
-      <p><strong>Purpose:</strong> In the classroom teacher can upload reading materials. Students from that specific classroom can read the reading materials. To store reading materials and to show those to the students to read the system will use
+      <p><strong>Purpose:</strong> In the classroom, teacher can upload reading materials. Students from that specific classroom can read the reading materials. To store reading materials and to show those to the students, the system will use
         this table.</p>
       <p><strong>Attributes:</strong></p>
       <table>
@@ -1889,10 +1889,10 @@
           </tr>
         </tbody>
       </table>
-      <p><strong>Foreign Key Purpose:</strong> System will need to keep track of the reading materials, in-class it is uploaded so that nothing but from the students of that class can read, the reading materials.</p>
+      <p><strong>Foreign Key Purpose:</strong> System will need to keep track of the reading materials that belong to a particular class so that no one but the students of that class can read the reading materials.</p>
 
       <p><strong>Tale Name: ReadingInfo</strong></p>
-      <p><strong>Purpose:</strong> The main feature of the system is here! Which user spends how many times on a specific page of a reading material? This information will be stored by the system in this table what is called ReadingInfo Table.</p>
+      <p><strong>Purpose:</strong> The main feature of the system is here. This table stores the time spent by each user on a specific page of a reading material along with other necessary info.</p>
       <p><strong>Attributes</strong>:</p>
       <table>
         <tbody>
@@ -1953,8 +1953,8 @@
           </tr>
         </tbody>
       </table>
-      <p><strong>Foreign Key Purpose:</strong> In this table, there are two Foreign Keys, one is materialID and the other one is userID. The system will be storing readingInfo based on the materialID and userID that this student with this userID
-        spent this amount of time on this specific page of the reading material with materialID this.</p>
+      <p><strong>Foreign Key Purpose:</strong> In this table, there are two foreign keys. One is materialID and the other one is userID. The system will be storing readingInfo based on the materialI of the reading material and userID of the student
+        who spent time on this specific page of the reading material.</p>
     </span><br>
 
     <span id="Implementation_plan">
