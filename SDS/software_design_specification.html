@@ -135,13 +135,13 @@
       <p>This software design specification is made with the purpose of outlining the software architecture and design of the ‘Reading Room’ in detail. The document will provide developers insight into meeting the client’s needs efficiently and
         effectively. Moreover, the document facilitates communication and understanding of the system by providing several views of the system design.</p>
       <h2>1.2 Scope</h2>
-      <p>The Software design document would demonstrate how the design will accomplish the functional and non-functional requirements captured in the Software Requirement Specification (SRS). The document will provide a framework for the developers
+      <p>This document demonstrates how the design will accomplish the functional and non-functional requirements captured in the Software Requirement Specification (SRS). It also provides a framework for the developers
         by describing the high-level components and architecture, subsystems, interfaces, database design, AI components, and algorithm design. This is achieved through the use of architectural patterns, design patterns, sequence diagrams, class
         diagrams, relational models, and user interfaces.
       </p>
       <h2>1.3 Intended audience</h2>
-      <p>The intended audience for this document is venture administrators and developers. This record is intended to be utilized as a rule for all the advanced needs of its makers. The report contains a few specialized phrasings and outlines, hence
-        the perusers are encouraged to have foreordained information about the subjects secured.
+      <p>The intended audience for this document is project administrators and developers. This document is intended to be utilized as a rule for all the advanced needs of its makers. The report contains a few specialized phrasings and outlines. Hence,
+        the perusers are encouraged to have prior knowledge about the subjects covered.
       </p>
 
       <h2>1.4 Reference</h2>
@@ -152,7 +152,7 @@
 
     <span id="Document_Conventions">
       <h1>2. Document Conventions</h1>
-      <p class="line_break">Typical document conventions are maintained where main topics are bold, have a font size of about 20pt. Sub topics are bold, have a smaller font size of about 16pt and are numbered with the main topic number as a prefix,
+      <p class="line_break">Typical document conventions are maintained where main topics are bold, have a font-size of about 20pt. Sub-topics are bold, have a smaller font-size of about 16pt and are numbered with the main topic number as a prefix,
         eg 1.1 to 1.5. </p>
 
     </span><br>
@@ -162,13 +162,13 @@
       <h2>3.1 Client-side & Server side</h2>
 
 
-      <p style="text-align: center;"><img src="Design_Components.jpeg" alt="" width="1000" height="900" /></p>
+      <p style="text-align: center;"><img src="Design_Components.jpeg" alt="" width="995" height="600" /></p>
       <p style="text-align: center;"><strong>Figure 1: Component design</strong></p>
       <br>
       <h2>3.2 Design Components Description(s)</h2>
-      <p class="line_break">In this figure, the user has access to both Web and Android app. Android and web view will be connected through a Django backend. All analytical parts will be at the Django backend.This will be an automated process that
+      <p class="line_break">The users will have access to both Web and Android App. Both the Android App and Web-version will be connected through a Django backend. All analytical parts will be at the Django backend. This will be an automated process that
         will be conducted by
-        Admin/ developers.</p>
+        admin/developers.</p>
 
 
     </span><br>
@@ -178,16 +178,14 @@
       <h2>4.1 High-Level Component Design Diagram</h2>
 
 
-      <p style="text-align: center;"><img src="highlevelc.jpeg" alt="" width="1000" height="900" /></p>
+      <p style="text-align: center;"><img src="highlevel.jpeg" alt="" width="995" height="650" /></p>
       <p style="text-align: center;"><strong>Figure 2: High-Level Component Deisgn</strong></p>
       <br>
       <h2> 4.2 High-Level Component Design Description </h2>
-      <p>The image, Names, and all necessary information of users will be provided to the AI module through Django Backend. A Django backend will be connected through a database and it will execute a model through an ‘app logic’ and a ‘view logic’ to
-        deliver and receive data and all necessary stuff from a user using the frontend user’s actions. <br>
-        All the user’s information will be fetched from the signup page or other functional models and will be stored in DB (class creates, class join, etc).<br>
-        The AI module will first detect the face trough an API. After successfully detected face, it will perform face recognition and landmark detection respectively. The module will produce a dataset for every user. that will be saved in DB through
-        the Django backend. The real-time data will be transfer to the Django backend as well. <br>
-        Finally, All the results will be shown on the frontend & the system will allow users to access both web and android.
+      <p>The Django backend connected with a database will provide all the information of users including images to the AI module. The AI module will then process the data and return the desired results back, to store in the database. Next, the Django backend will execute a model through an ‘app logic’ and a ‘view logic’ to
+        provide data and receive data from users using the frontend user’s actions. All the user’s information and wishes will be fetched from the frontend and incorporated in the backend (like creating a class or joining a class) and then be stored in the DB.
+        The AI module will first detect the face through an API. After successfully detecting face, it will perform face recognition and landmark detection respectively. The module will produce a realtime dataset for every user which will be saved in DB through
+        the Django backend. Finally, all the results will be shown on the frontend & the system will allow users to access both the web and android version of the app.
       <p>
 
     </span><br>
@@ -196,8 +194,8 @@
       <h1>5. Class diagrams</h1>
 
       <h2>5.1 Detailed Class Diagram(s)</h2>
-      <p style="text-align: center;"><img src="SDS Class Diagram.jpg" alt="" width="1000" height="900" /></p>
-      <p style="text-align: center;" class="line_break"><strong>Figure 3: SDS Class Diagram of the System<a href="https://app.creately.com/diagram/D2WiTxDbSqj/view" target="_blank">(Better View)</a></strong></p>
+      <p style="text-align: center;"><img src="SDS Class Diagram.jpg" alt="" width="995" height="900" /></p>
+      <p style="text-align: center;" class="line_break"><strong>Figure 3: SDS Class Diagram of the System<a href="https://app.creately.com/diagram/D2WiTxDbSqj/view" target="_blank"> (Better View)</a></strong></p>
 
       <h2>5.2 Detailed Class Description(s)</h2>
       <p>
@@ -1636,8 +1634,8 @@
     <span id="Database_Design">
       <h1 class="line_break_before">6. Database Design</h1>
       <h2>6.1 ER Diagram</h2>
-      <p style="text-align: center;"><img src="SDS ERD.jpg" width="1000" height="900" /></p>
-      <p style="text-align: center;"><strong>Figure 4: SDS ER Diagram of the System<a href="https://app.creately.com/diagram/8HDcFRcYOu4/view" target="_blank">(Better View)</a></strong></p>
+      <p style="text-align: center;"><img src="SDS ERD.jpg" width="995" height="850" /></p>
+      <p style="text-align: center;"><strong>Figure 4: SDS ER Diagram of the System<a href="https://app.creately.com/diagram/8HDcFRcYOu4/view" target="_blank"> (Better View)</a></strong></p>
       <p style="text-align: center;"><img src="ERD relation ship.PNG" width="350" height="300" /></p>
       <p style="text-align: center;"><strong>Figure 5: Cardinality of ER Diagram</strong></p>
 
