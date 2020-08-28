@@ -1641,7 +1641,7 @@
 
       <h2 class="line_break_before">6.2 Details Per Table</h2>
       <p><strong>Table Name: User</strong></p>
-      <p><strong>Purpose:</strong> The main actor of our system is User we will store User objects in this table called User. Since the admin will be one of the user objects who will be also stored here. As we are implementing federated identity
+      <p><strong>Purpose:</strong> The main actor of our system is user. We will store user-objects in this table. Since the admin itself is a user-object, it will also be also stored here. As we are implementing federated identity,
         those who will sign-in through federated identity will also be stored in this table</p>
       <p><strong>Attributes:</strong></p>
       <table>
@@ -1695,8 +1695,8 @@
       <p><strong>User table does not contain any foreign key.</strong></p>
 
       <p><strong>Table Name: FaceImage</strong></p>
-      <p><strong>Purpose:</strong> One of the important parts of our project is to detect the face of our user when he/she is reading provided reading materials that&rsquo;s why the system requires a pre-uploaded image that will be stored in this
-        table. This pre-uploaded image and webcam image of the user while reading, reading material will be going through match tests many times.</p>
+      <p><strong>Purpose:</strong> One of the important parts of our project is to detect the face of our user when he/she is reading the provided reading materials. For this reason, the system requires a pre-uploaded image that will be stored in this
+        table. This pre-uploaded image and webcam captured image of the user while reading will be going through match tests many times.</p>
       <p><strong>Attributes:</strong></p>
       <table>
         <tbody>
@@ -1735,12 +1735,12 @@
           </tr>
         </tbody>
       </table>
-      <p><strong>Foreign Key Purpose:</strong> User will upload his/her image and the system will store it in the FaceImage table and for tracking which image belongs to which user system will also keep track of userID. As there is no existence of
-        FaceImage table without User table that is why FaceImage table is a week entity.</p>
+      <p><strong>Foreign Key Purpose:</strong> User will upload his/her image and the system will store it in the FaceImage table for tracking which image belongs to which user. System will also keep track of userID. As there is no existence of
+        FaceImage table without User table, that is why FaceImage table is a weak entity.</p>
 
       <p><strong>Table Name: ClassRoom</strong></p>
-      <p><strong>Purpose:</strong> Another part of the system is the user can create or join classes. When a user will create a class he/she will be recognized by the system as the teacher of that class in this table and rest who will join the class
-        using unique class code will be listed as a student in the student list of the class by the system in this table. In short with these two and a few other attributes all classroom objects will be stored in this class. To keep track of
+      <p><strong>Purpose:</strong> Another part of the system is the user can create or join classes. When a user will create a class he/she will be recognized by the system as the teacher of that class in this table. The rest of the users who will join the class
+        using unique class code will be listed as a student in the student list of the class by the system in this table. In short, with these two and a few other attributes, all classroom objects will be stored in this class to keep track of
         created/joined classes by the users.</p>
       <p><strong>Attributes:</strong></p>
       <table>
@@ -1961,12 +1961,12 @@
       <h1>Implementation plan</h1>
       <p>Brief implementation plan in bullet points.</p>
       <ol>
-        <li>User login with federated identity.</li>
-        <li>Create class and See created class.</li>
-        <li>Join class and See joined classes.</li>
+        <li>User login system with federated identity.</li>
+        <li>Create class and view created class.</li>
+        <li>Join class and view joined classes.</li>
         <li>Provide reading materials in the class.</li>
         <li>Read reading materials.</li>
-        <li>User activity tracing while reading, reading materials.</li>
+        <li>User activity tracing while reading the study materials.</li>
         <li>View reading info by teacher.</li>
       </ol>
 
