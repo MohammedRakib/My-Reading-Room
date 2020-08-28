@@ -173,7 +173,13 @@
 	
       <p style="text-align: center;"><img src="highlevelc.jpg" alt="" width="1000" height="900" /></p>
       <p style="text-align: center;"><strong>Figure 2: High-Level Component Deisgn</strong></p>
-      <p>Your text here</p>
+      <br>
+<h2> 4.2 High-Level Component Design Description </h2>
+<p>The image, Names, and all necessary information of users will be provided to the AI module through Django Backend. A Django backend will be connected through a database and it will execute a model through an ‘app logic’ and a ‘view logic’ to deliver and receive data and all necessary stuff from a user using the frontend user’s actions. <br>
+All the user’s information will be fetched from the signup page or other functional models and will be stored in DB (class creates, class join, etc).<br>
+The AI module will first detect the face trough an API. After successfully detected face, it will perform face recognition and landmark detection respectively. The module will produce a dataset for every user. that will be saved in DB through the Django backend. The real-time data will be transfer to the Django backend as well. <br>
+Finally, All the results will be shown on the frontend & the system will allow users to access both web and android. 
+<p>
 
     </span><br>
 
