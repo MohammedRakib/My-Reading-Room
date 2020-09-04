@@ -1,6 +1,6 @@
 import uuid
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.db import IntegrityError
@@ -95,6 +95,19 @@ def join_class(request):
             user=request.user
             classobj.students.add(user)
             return redirect('home_classroom')
+
+@login_required
+def viewcreatedclassroom(request, classroom_pk):
+    classroom = get_object_or_404(ClassRoom, teacher=request.user, pk=classroom_pk)
+    return render(request, "create_join_class/viewcreatedclassroom.html", {'classroom': classroom})
+
+@login_required
+def viewjoinedclassroom(request, classroom_pk):
+    classroom = get_object_or_404(ClassRoom, students__in=[request.user.id], pk=classroom_pk)
+    return render(request, "create_join_class/viewjoinedclassroom.html", {'classroom': classroom})
+
+
+
 
 
 

@@ -10,6 +10,9 @@ urlpatterns = [
 
     path('create/class/', views.create_class, name='create_class'),
     path('join/class/', views.join_class, name='join_class'),
+    path('view/createdclass/<int:classroom_pk>', views.viewcreatedclassroom, name='viewcreatedclassroom'),
+    path('view/joinedclass/<int:classroom_pk>', views.viewjoinedclassroom, name='viewjoinedclassroom'),
+
 
 
 

@@ -14,7 +14,9 @@
 {% if created_classes %}
     <h2> Your created classes </h2>
     {% for class in created_classes %}
+        <a href="{% url 'viewcreatedclassroom' class.id %}">
         <h3>{{ class.name }}.{{ class.section }} - {{ class.classCode }}</h3>
+        </a>
     {% endfor %}
 {% else %}
     <h3>Looks like you did not create any class yet</h3>
@@ -24,8 +26,9 @@
 {% if joined_classes %}
     <h2> Your joined classes </h2>
     {% for class in joined_classes %}
+        <a href="{% url 'viewjoinedclassroom' class.id %}">
         <h3>{{ class.name }}.{{ class.section }} - {{ class.classCode }}</h3>
-{#        <h3>{{ class.name }}.{{ class.section }}</h3>#}
+        </a>
     {% endfor %}
 {% else %}
     <h3>Looks like you did not join any class yet!</h3>
