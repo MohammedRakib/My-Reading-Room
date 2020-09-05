@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Reading Material</title>
+</head>
+<body>
+<h2> Upload a File </h2>
+   <form method="post" enctype="multipart/form-data">
+       {% csrf_token %}
+       {{ form.as_p }}
+       <button type="submit" class="btn-btn-primary"> Upload File </button>
+   </form>
+</body>
+</html>

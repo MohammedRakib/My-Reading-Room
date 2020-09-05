@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Reading Material</title>
+</head>
+<body>
+
+    <h2> Your Reading Materials </h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>File Name</th>
+            <th>Classroom</th>
+            <th>View File</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for material in readingmaterials %}
+                <tr>
+                <td>{{ material.name }}</td>
+                <td>{{ material.classroom }}</td>
+                <td>
+                   <a href="{{ material.readingFile.url }}" class="btn btn-primary btn-sm">
+                       View File
+                   </a>
+                </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
