@@ -2,3 +2,4 @@ Reading_Room-project/.idea/*
 Reading_Room-project/venv/*
 *.pyc
 __pycache__
+Reading_Room-project/db.sqlite3
