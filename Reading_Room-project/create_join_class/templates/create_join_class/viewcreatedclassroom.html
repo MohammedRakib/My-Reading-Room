@@ -6,6 +6,11 @@
 
 <body>
     <p><h3>Student List: {{ classroom.students }}</h3></p>
-    <p>Upload Reading Materials:</p>
+            <a href="{% url 'uploadReadingMaterial' classroom.id %}">
+                <h3>Upload Reading Material</h3>
+            </a>
+            <a href="{% url 'viewReadingMaterial' %}">
+                <h3>View Reading Material</h3>
+            </a>
 </body>
 

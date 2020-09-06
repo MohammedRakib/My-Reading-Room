@@ -13,3 +13,13 @@ class ClassRoom(models.Model):
 
     def __str__(self):
         return self.name + '.' + str(self.section)
+
+class ReadingMaterial(models.Model):
+    name = models.CharField(max_length=100)
+    classroom = models.ForeignKey(ClassRoom, on_delete=models.CASCADE, related_name='classroom')
+    readingFile = models.FileField(upload_to='uploads/ReadingMaterial/')
+
+    def __str__(self):
+        return self.name
+
+

@@ -5,8 +5,8 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth import login, logout, authenticate
-from .forms import CreateClassRoomForm
-from .models import ClassRoom
+from .forms import CreateClassRoomForm, ReadingMaterialForm
+from .models import ClassRoom, ReadingMaterial
 
 
 def index(request):
@@ -105,6 +105,24 @@ def viewcreatedclassroom(request, classroom_pk):
 def viewjoinedclassroom(request, classroom_pk):
     classroom = get_object_or_404(ClassRoom, students__in=[request.user.id], pk=classroom_pk)
     return render(request, "create_join_class/viewjoinedclassroom.html", {'classroom': classroom})
+
+@login_required()
+def uploadReadingMaterial(request, classroom_pk):
+    if request.method == 'GET':
+        form = ReadingMaterialForm()
+        return render(request, "create_join_class/uploadReadingMaterial.html", {'form':form})
+    else:
+        form = ReadingMaterialForm(request.POST, request.FILES)
+        if form.is_valid():
+            newmaterial = form.save(commit=False)
+            newmaterial.classroom = ClassRoom(pk=classroom_pk)
+            newmaterial.save()
+            return redirect('viewReadingMaterial')
+
+def viewReadingMaterial(request):
+    readingmaterials = ReadingMaterial.objects.filter(classroom__teacher=request.user)
+    return render(request, "create_join_class/viewReadingMaterial.html",{'readingmaterials': readingmaterials})
+
 
 
 
