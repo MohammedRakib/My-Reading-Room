@@ -1,9 +1,12 @@
+{% load crispy_forms_tags %}
+
 <h2>Sign Up</h2>
 {% if error %}
     {{ error }}
 {% endif %}
 <form method="POST">
     {% csrf_token %}
+    {#    {{ form|crispy }}#}
     <label for="username">Username</label>
     <input type="text" name="username" class="form-control" id="username" aria-describedby="usernameHelp"><br>
 {#    <small id="usernameHelp" class="form-text text-muted">Your username must be unique. We'll let you know if someone has taken it already.</small>#}

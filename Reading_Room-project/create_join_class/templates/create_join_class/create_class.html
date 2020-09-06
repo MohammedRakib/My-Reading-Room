@@ -1,12 +1,12 @@
  <h2>New Class</h2>
-
+{% load crispy_forms_tags %}
 {% if error %}
     {{ error }}
 {% endif %}
 
 <form method="POST">
     {% csrf_token %}
-
+{#    {{ form|crispy }}#}
     <label for="name">Class Name</label>
     <input type="text" name="name" id="name" required><br>
 

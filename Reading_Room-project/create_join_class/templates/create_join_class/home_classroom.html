@@ -1,6 +1,9 @@
+{% load crispy_forms_tags %}
+
 <h2>Welcome {{ user }}</h2> <br>
 <form method="POST" action="{% url 'logout_user' %}">
     {% csrf_token %}
+    {#    {{ form|crispy }}#}
     <button type="submit">Logout</button>
 </form>
 {#<form method="POST" action="{% url 'create_class' %}">#}

@@ -1,3 +1,5 @@
+{% load crispy_forms_tags %}
+
  <h2>Join Class</h2>
 
 {% if error %}
@@ -6,6 +8,7 @@
 
 <form method="POST" action="{% url 'join_class' %}">
     {% csrf_token %}
+    {#    {{ form|crispy }}#}
 
     <label for="classCode">Class Name</label>
     <input type="text" name="classCode" id="classCode" maxlength = "6" required><br>

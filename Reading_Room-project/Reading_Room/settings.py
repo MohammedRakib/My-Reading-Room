@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'crispy_forms',
 
     # allAuth providers
     'allauth.socialaccount.providers.google',
@@ -54,6 +55,8 @@ INSTALLED_APPS = [
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'  # to stop github email verification
 SITE_ID = 1
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

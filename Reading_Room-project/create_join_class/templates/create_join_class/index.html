@@ -1,4 +1,5 @@
 {% load socialaccount %}
+{% load crispy_forms_tags %}
 {% providers_media_js %}
 
 <!DOCTYPE html>
@@ -14,6 +15,7 @@
 {% endif %}
 <form method="POST">
     {% csrf_token %}
+    {#    {{ form|crispy }}#}
         <label for="username">Username</label>
         <input type="text" name="username" id="username"><br>
         <label for="password">Password</label>
