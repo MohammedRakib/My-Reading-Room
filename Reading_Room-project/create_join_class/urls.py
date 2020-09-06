@@ -12,8 +12,10 @@ urlpatterns = [
     path('join/class/', views.join_class, name='join_class'),
     path('view/createdclass/<int:classroom_pk>', views.viewcreatedclassroom, name='viewcreatedclassroom'),
     path('view/joinedclass/<int:classroom_pk>', views.viewjoinedclassroom, name='viewjoinedclassroom'),
-    path('view/readingmaterial/', views.viewReadingMaterial, name='viewReadingMaterial'),
+    path('view/createdclass/<int:created_pk>/viewCreatedReadingMaterial', views.viewCreatedReadingMaterial, name='viewCreatedReadingMaterial'),
+    path('view/joinedclass/<int:joined_pk>/viewJoinedReadingMaterial', views.viewJoinedReadingMaterial, name='viewJoinedReadingMaterial'),
     path('view/createdclass/<int:classroom_pk>/uploadReadingMaterial/', views.uploadReadingMaterial, name='uploadReadingMaterial'),
+
 
 
 ]

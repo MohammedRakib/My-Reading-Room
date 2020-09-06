@@ -116,12 +116,18 @@ def uploadReadingMaterial(request, classroom_pk):
         if form.is_valid():
             newmaterial = form.save(commit=False)
             newmaterial.classroom = ClassRoom(pk=classroom_pk)
+            newmaterial.uploader = User(request.user.id)
             newmaterial.save()
-            return redirect('viewReadingMaterial')
+            return redirect('viewCreatedReadingMaterial',classroom_pk)
 
-def viewReadingMaterial(request):
-    readingmaterials = ReadingMaterial.objects.filter(classroom__teacher=request.user)
-    return render(request, "create_join_class/viewReadingMaterial.html",{'readingmaterials': readingmaterials})
+def viewCreatedReadingMaterial(request, created_pk):
+    materialTeacher = ReadingMaterial.objects.filter(classroom_id=created_pk)
+    return render(request, "create_join_class/viewCreatedReadingMaterial.html",{'materialTeacher': materialTeacher})
+
+def viewJoinedReadingMaterial(request, joined_pk):
+    materialStudent = ReadingMaterial.objects.filter(classroom_id=joined_pk)
+    return render(request, "create_join_class/viewJoinedReadingMaterial.html",{'materialStudent': materialStudent})
+
 
 
 
