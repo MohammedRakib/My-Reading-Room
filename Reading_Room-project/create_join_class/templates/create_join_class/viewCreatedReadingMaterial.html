@@ -30,9 +30,15 @@
                     </a>
                 </td>
                 <td>
-                    <a href="{% url 'view_reading_info' material.id %}" class="btn btn-primary btn-sm" target="_blank">
+                    <a href="{% url 'view_reading_info' material.id %}" class="btn btn-danger btn-sm" target="_blank">
                         View Reading Info
                     </a>
+                </td>
+                <td>
+                    <form method="post" action="{% url 'deleteReadingMaterial' material.classroom.pk material.pk %}">
+                        {%  csrf_token %}
+                        <button type="submit" class="btn-btn-danger btn-sm">Delete Reading Material</button>
+                    </form>
                 </td>
             </tr>
         {% endfor %}

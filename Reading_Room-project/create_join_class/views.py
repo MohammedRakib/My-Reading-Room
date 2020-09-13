@@ -107,7 +107,7 @@ def viewjoinedclassroom(request, classroom_pk):
     classroom = get_object_or_404(ClassRoom, students__in=[request.user.id], pk=classroom_pk)
     return render(request, "create_join_class/viewjoinedclassroom.html", {'classroom': classroom})
 
-@login_required()
+@login_required
 def uploadReadingMaterial(request, classroom_pk):
     if request.method == 'GET':
         form = ReadingMaterialForm()
@@ -119,17 +119,24 @@ def uploadReadingMaterial(request, classroom_pk):
             newmaterial.classroom = ClassRoom(pk=classroom_pk)
             newmaterial.uploader = User(request.user.id)
             newmaterial.save()
-            return redirect('viewCreatedReadingMaterial',classroom_pk)
+            return redirect('viewCreatedReadingMaterial', classroom_pk)
 
+@login_required
+def deleteReadingMaterial(request, classroom_pk, readingMaterial_pk):
+    if request.method == "POST":
+        readingmaterial = ReadingMaterial.objects.get(pk=readingMaterial_pk)
+        readingmaterial.delete()
+        return redirect('viewCreatedReadingMaterial', classroom_pk)
 
+@login_required
 def viewCreatedReadingMaterial(request, created_pk):
-    materialTeacher = ReadingMaterial.objects.filter(classroom_id=created_pk)
-    return render(request, "create_join_class/viewCreatedReadingMaterial.html",{'materialTeacher': materialTeacher})
+    materialTeacher = ReadingMaterial.objects.filter(classroom_id=created_pk, uploader=request.user)
+    return render(request, "create_join_class/viewCreatedReadingMaterial.html", {'materialTeacher': materialTeacher})
 
-
+@login_required
 def viewJoinedReadingMaterial(request, joined_pk):
-    materialStudent = ReadingMaterial.objects.filter(classroom_id=joined_pk)
-    return render(request, "create_join_class/viewJoinedReadingMaterial.html",{'materialStudent': materialStudent})
+    materialStudent = ReadingMaterial.objects.filter(classroom_id=joined_pk, classroom__students__in=[request.user.id])
+    return render(request, "create_join_class/viewJoinedReadingMaterial.html", {'materialStudent': materialStudent})
 
 
 # def push_reading_info(request, readingMaterial_id):
@@ -141,7 +148,7 @@ def viewJoinedReadingMaterial(request, joined_pk):
 #     reading_info = json.dumps(reading_info)
 #     reading_info_obj=ReadingInfo.objects.create(material_id=ReadingMaterial.objects.get(id=readingMaterial_id), material_info=reading_info)
 #     reading_info_obj.save()
-
+@login_required
 def view_reading_info(request, readingMaterial_id):
     try:
         reading_info_obj=ReadingInfo.objects.get(material_id=ReadingMaterial.objects.get(id=readingMaterial_id))

@@ -18,6 +18,8 @@ urlpatterns = [
          name='viewJoinedReadingMaterial'),
     path('view/createdclass/<int:classroom_pk>/uploadReadingMaterial/', views.uploadReadingMaterial,
          name='uploadReadingMaterial'),
+    path('view/createdclass/<int:classroom_pk>/deleteReadingMaterial/<int:readingMaterial_pk>',
+         views.deleteReadingMaterial, name='deleteReadingMaterial'),
 
     # development purpose
     # path('push/<int:readingMaterial_id>/push/info/', views.push_reading_info, name='view_reading_info'),
