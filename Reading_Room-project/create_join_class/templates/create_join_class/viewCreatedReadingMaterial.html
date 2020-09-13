@@ -13,6 +13,7 @@
             <th>File Name</th>
             <th>Classroom</th>
             <th>View File</th>
+            <th>View Reading Info</th>
         </tr>
         </thead>
         <tbody>
@@ -23,6 +24,11 @@
                 <td>
                    <a href="{{ material.readingFile.url }}" class="btn btn-primary btn-sm"  target="_blank">
                        View File
+                   </a>
+                </td>
+                <td>
+                    <a href="{% url 'view_reading_info' material.id %}" class="btn btn-primary btn-sm"  target="_blank">
+                       View Reading Info
                    </a>
                 </td>
                 </tr>

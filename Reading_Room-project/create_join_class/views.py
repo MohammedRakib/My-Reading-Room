@@ -6,7 +6,8 @@ from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth import login, logout, authenticate
 from .forms import CreateClassRoomForm, ReadingMaterialForm
-from .models import ClassRoom, ReadingMaterial
+from .models import *
+import json
 
 
 def index(request):
@@ -120,18 +121,36 @@ def uploadReadingMaterial(request, classroom_pk):
             newmaterial.save()
             return redirect('viewCreatedReadingMaterial',classroom_pk)
 
+
 def viewCreatedReadingMaterial(request, created_pk):
     materialTeacher = ReadingMaterial.objects.filter(classroom_id=created_pk)
     return render(request, "create_join_class/viewCreatedReadingMaterial.html",{'materialTeacher': materialTeacher})
+
 
 def viewJoinedReadingMaterial(request, joined_pk):
     materialStudent = ReadingMaterial.objects.filter(classroom_id=joined_pk)
     return render(request, "create_join_class/viewJoinedReadingMaterial.html",{'materialStudent': materialStudent})
 
 
+# def push_reading_info(request, readingMaterial_id):
+#     reading_info = {
+#         'sanaulla': [10, 20, 30, 40, 50],
+#         'sana1': [60, 70, 80, 90, 100,0,0,0],
+#     }
+#
+#     reading_info = json.dumps(reading_info)
+#     reading_info_obj=ReadingInfo.objects.create(material_id=ReadingMaterial.objects.get(id=readingMaterial_id), material_info=reading_info)
+#     reading_info_obj.save()
 
-
-
-
-
-
+def view_reading_info(request, readingMaterial_id):
+    try:
+        reading_info_obj=ReadingInfo.objects.get(material_id=ReadingMaterial.objects.get(id=readingMaterial_id))
+        reading_info_dict = json.loads(reading_info_obj.material_info)
+        return render(request, "create_join_class/view_reading_info.html", {'reading_info_dict': reading_info_dict})
+    except ReadingInfo.DoesNotExist:
+        return render(request, "create_join_class/view_reading_info.html", {'reading_info_dict': 'This Material does '
+                                                                                                 'not have any '
+                                                                                                 'reading info in DB'})
+    except ReadingMaterial.DoesNotExist:
+        return render(request, "create_join_class/view_reading_info.html",
+                      {'reading_info_dict': 'Reading Material Does Not Exists'})
