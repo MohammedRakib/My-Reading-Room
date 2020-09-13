@@ -11,16 +11,17 @@
 <h1>Login</h1>
 
 {% if error %}
-        {{ error }}
+    {{ error }}
 {% endif %}
 <form method="POST">
     {% csrf_token %}
     {#    {{ form|crispy }}#}
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username"><br>
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password"><br>
-    <button type="submit"> Login </button><br>
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username"><br>
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password"><br>
+    <button type="submit"> Login</button>
+    <br>
 </form>
 <hr>
 

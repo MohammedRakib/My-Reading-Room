@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ReadingRoom</title>
+</head>
+<body>
+<h2>Current User: {{ user }}</h2>
+<button><a href="{% url 'home_classroom' %}">Home</a></button>
+<br>
+<br>
+<form method="POST" action="{% url 'logout_user' %}">
+    {% csrf_token %}
+    {#    {{ form|crispy }}#}
+    <button type="submit">Logout</button>
+</form>
+<br>
+{% block content %}{% endblock %}
+</body>
+</html>

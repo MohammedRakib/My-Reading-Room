@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>View Reading Material</title>
-</head>
-<body>
+{% extends "create_join_class/base.html" %}
+{% block content %}
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>View Reading Material</title>
+    </head>
+    <body>
 
     <h2> Your Reading Materials </h2>
     <table class="table">
@@ -17,23 +20,25 @@
         </tr>
         </thead>
         <tbody>
-            {% for material in materialTeacher %}
-                <tr>
+        {% for material in materialTeacher %}
+            <tr>
                 <td>{{ material.name }}</td>
                 <td>{{ material.classroom }}</td>
                 <td>
-                   <a href="{{ material.readingFile.url }}" class="btn btn-primary btn-sm"  target="_blank">
-                       View File
-                   </a>
+                    <a href="{{ material.readingFile.url }}" class="btn btn-primary btn-sm" target="_blank">
+                        View File
+                    </a>
                 </td>
                 <td>
-                    <a href="{% url 'view_reading_info' material.id %}" class="btn btn-primary btn-sm"  target="_blank">
-                       View Reading Info
-                   </a>
+                    <a href="{% url 'view_reading_info' material.id %}" class="btn btn-primary btn-sm" target="_blank">
+                        View Reading Info
+                    </a>
                 </td>
-                </tr>
-            {% endfor %}
+            </tr>
+        {% endfor %}
         </tbody>
     </table>
-</body>
-</html>
+    </body>
+    </html>
+
+{% endblock %}

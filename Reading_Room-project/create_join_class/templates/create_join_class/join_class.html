@@ -1,18 +1,22 @@
+{% extends "create_join_class/base.html" %}
 {% load crispy_forms_tags %}
+{% block content %}
 
- <h2>Join Class</h2>
+    <h2>Join Class</h2>
 
-{% if error %}
-    {{ error }}
-{% endif %}
+    {% if error %}
+        {{ error }}
+    {% endif %}
 
-<form method="POST" action="{% url 'join_class' %}">
-    {% csrf_token %}
-    {#    {{ form|crispy }}#}
+    <form method="POST" action="{% url 'join_class' %}">
+        {% csrf_token %}
+        {#    {{ form|crispy }}#}
 
-    <label for="classCode">Class Name</label>
-    <input type="text" name="classCode" id="classCode" maxlength = "6" required><br>
+        <label for="classCode">Class Name</label>
+        <input type="text" name="classCode" id="classCode" maxlength="6" required><br>
 
-    <button type="submit">Join Class</button>
+        <button type="submit">Join Class</button>
 
-</form>
+    </form>
+
+{% endblock %}

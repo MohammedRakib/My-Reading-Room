@@ -1,16 +1,21 @@
-<head>
-    <h2>Classroom Name: {{ classroom.name }}<h2>
-    <h3>Classroom Section: {{ classroom.section }}</h3>
-    <h3>Classroom Code: {{ classroom.classCode }}</h3>
-</head>
+{% extends "create_join_class/base.html" %}
+{% block content %}
 
-<body>
-    <p><h3>Student List: {{ classroom.students }}</h3></p>
-            <a href="{% url 'uploadReadingMaterial' classroom.id %}">
-                <h3>Upload Reading Material</h3>
-            </a>
-            <a href="{% url 'viewCreatedReadingMaterial' classroom.id %}">
-                <h3>View Reading Material</h3>
-            </a>
-</body>
+    <head>
+        <h2>Classroom Name: {{ classroom.name }}</h2>
+        <h3>Classroom Section: {{ classroom.section }}</h3>
+        <h3>Classroom Code: {{ classroom.classCode }}</h3>
+    </head>
 
+    <body>
+    <p>
+    <h3>Student List: {{ classroom.students }}</h3></p>
+    <a href="{% url 'uploadReadingMaterial' classroom.id %}">
+        <h3>Upload Reading Material</h3>
+    </a>
+    <a href="{% url 'viewCreatedReadingMaterial' classroom.id %}">
+        <h3>View Reading Material</h3>
+    </a>
+    </body>
+
+{% endblock %}

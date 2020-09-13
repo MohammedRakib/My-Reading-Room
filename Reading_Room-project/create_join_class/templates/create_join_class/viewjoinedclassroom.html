@@ -1,12 +1,16 @@
-<head>
-    <h2>Classroom Name: {{ classroom.name }}<h2>
-    <h3>Classroom Section: {{ classroom.section }}</h3>
-    <h3>Classroom Code: {{ classroom.classCode }}</h3>
-</head>
+{% extends "create_join_class/base.html" %}
+{% block content %}
+    <head>
+        <h2>Classroom Name: {{ classroom.name }}</h2>
+        <h3>Classroom Section: {{ classroom.section }}</h3>
+        <h3>Classroom Code: {{ classroom.classCode }}</h3>
+    </head>
 
-<body>
- <a href="{% url 'viewJoinedReadingMaterial' classroom.id %}">
-     <h3>View Reading Material</h3>
- </a>
-</body>
+    <body>
+    <a href="{% url 'viewJoinedReadingMaterial' classroom.id %}">
+        <h3>View Reading Material</h3>
+    </a>
+    </body>
+
+{% endblock %}
 
