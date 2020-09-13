@@ -24,6 +24,10 @@ class ReadingMaterial(models.Model):
     def __str__(self):
         return self.name
 
+    def delete(self, *args, **kwargs):
+        self.readingFile.delete() # delete instance path
+        super().delete(*args, **kwargs)  # Call the "real" delete() method.
+
 
 class ReadingInfo(models.Model):
     material_id = models.ForeignKey(ReadingMaterial, on_delete=models.CASCADE)
