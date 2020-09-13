@@ -48,7 +48,10 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.github',
 
     # local app
-    'create_join_class'
+    'create_join_class',
+
+    # file storage management
+    'private_storage',
 ]
 # ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
 # LOGIN_REDIRECT_URL = "classroom/"
@@ -150,6 +153,6 @@ DATABASES['default'].update(db_from_env)
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
 
+PRIVATE_STORAGE_ROOT = 'media/private-media/'
+PRIVATE_STORAGE_AUTH_FUNCTION = 'private_storage.permissions.allow_authenticated'

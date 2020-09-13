@@ -110,6 +110,12 @@ def viewjoinedclassroom(request, classroom_pk):
 @login_required
 def uploadReadingMaterial(request, classroom_pk):
     if request.method == 'GET':
+        try:
+            classroom = ClassRoom.objects.get(teacher=request.user, pk=classroom_pk)
+        except ClassRoom.DoesNotExist:
+            return render(request, "create_join_class/uploadReadingMaterial.html",
+                          {'error': 'You don\'t have upload permissions to this classroom!'})
+
         form = ReadingMaterialForm()
         return render(request, "create_join_class/uploadReadingMaterial.html", {'form':form})
     else:
