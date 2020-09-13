@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from private_storage.fields import PrivateFileField
 
 
 class ClassRoom(models.Model):
@@ -18,7 +19,7 @@ class ClassRoom(models.Model):
 class ReadingMaterial(models.Model):
     name = models.CharField(max_length=100)
     classroom = models.ForeignKey(ClassRoom, on_delete=models.CASCADE, related_name='classroom')
-    readingFile = models.FileField(upload_to='uploads/ReadingMaterial/')
+    readingFile = PrivateFileField(upload_to='uploads/ReadingMaterial/')
     uploader = models.ForeignKey(User, on_delete=models.CASCADE, related_name='uploader')
 
     def __str__(self):
