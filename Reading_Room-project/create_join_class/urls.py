@@ -20,6 +20,7 @@ urlpatterns = [
          name='uploadReadingMaterial'),
     path('view/createdclass/<int:classroom_pk>/deleteReadingMaterial/<int:readingMaterial_pk>',
          views.deleteReadingMaterial, name='deleteReadingMaterial'),
+    # unit test till above urls
 
     # development purpose
     # path('push/<int:readingMaterial_id>/push/info/', views.push_reading_info, name='view_reading_info'),
