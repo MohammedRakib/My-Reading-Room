@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth import login, logout, authenticate
 from .forms import CreateClassRoomForm, ReadingMaterialForm
+from private_storage.views import PrivateStorageDetailView
 from .models import *
 import json
 
@@ -167,3 +168,17 @@ def view_reading_info(request, readingMaterial_id):
     except ReadingMaterial.DoesNotExist:
         return render(request, "create_join_class/view_reading_info.html",
                       {'reading_info_dict': 'Reading Material Does Not Exists'})
+
+
+# class MyDocumentDownloadView(PrivateStorageDetailView):
+#     model = ReadingMaterial
+#     model_file_field = 'readingFile'
+#     template_name = 'viewCreatedReadingMaterial.html'
+#
+#     def get_queryset(self):
+#         return super().get_queryset().filter(uploader=)
+#
+#     def can_access_file(self, private_file):
+#         # When the object can be accessed, the file may be downloaded.
+#         # This overrides PRIVATE_STORAGE_AUTH_FUNCTION
+#         return True
