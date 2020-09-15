@@ -9,8 +9,8 @@
     <form method="POST">
         {% csrf_token %}
         {#    {{ form|crispy }}#}
-        <label for="classCode">Class Code</label>
-        <input type="text" name="classcode" id="classCode" required><br>
+        <label for="name">Class Name</label>
+        <input type="text" name="name" id="name" required><br>
 
         <label for="section">Section</label>
         <input type="number" name="section" id="section" required><br>

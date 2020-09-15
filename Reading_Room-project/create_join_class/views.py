@@ -181,21 +181,22 @@ def view_reading_info(request, readingMaterial_id):
         return render(request, "create_join_class/view_reading_info.html",
                       {'reading_info_dict': 'Reading Material Does Not Exists'})
 
-@login_required()
+
+@login_required
 def uploadFaceImage(request):
     if request.method == 'GET':
         form = FaceImageForm()
         return render(request, "create_join_class/uploadFaceImage.html", {'form':form})
     else:
         form = FaceImageForm(request.POST, request.FILES)
+        files = request.FILES.getlist('imageFile')
         if form.is_valid():
-            files = request.FILES.getlist('imageFile')
             for f in files:
                 file = FaceImage(imageFile=f)
                 file.name = User(request.user.id)
                 file.save()
-                messages.success(request, 'Image Upload Successful')
-                return redirect('home_classroom')
+            messages.success(request, 'Image Upload Successful')
+            return redirect('home_classroom')
         else:
             return render(request, "create_join_class/uploadFaceImage.html", {'form': form})
 

@@ -29,6 +29,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('', include('create_join_class.urls')),
+    path('login/', include('create_join_class.urls')),
 
     path('accounts/', include('allauth.urls')),
 

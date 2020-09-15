@@ -174,7 +174,7 @@ PRIVATE_STORAGE_ROOT = os.path.join(BASE_DIR, 'media/private-media/')
 PRIVATE_STORAGE_AUTH_FUNCTION = 'private_storage.permissions.allow_authenticated'
 
 
-# LOGIN_URL = '/login'
+LOGIN_URL = '/login/'
 # maybe in our case it will be -LOGIN_URL = ' '-
 # this line is added by sans, for later purpose
 # if a user wants to create,view current todo, delete etc with out login this will redirect them to login first,
