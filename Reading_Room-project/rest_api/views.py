@@ -6,6 +6,7 @@ from django.http import JsonResponse
 from rest_framework.authtoken.models import Token
 from .serializers import *
 import uuid
+from rest_framework.exceptions import ValidationError
 
 
 @csrf_exempt
@@ -31,13 +32,37 @@ class HomeClassroomCreateClass(generics.ListCreateAPIView):
         return ClassRoom.objects.filter(teacher=self.request.user)
 
     def perform_create(self, serializer):
-        serializer.save(teacher=self.request.user)
-        # serializer.save(teacher=self.request.user, classCode=uuid.uuid4().hex[:6].upper())
+        serializer.save(teacher=self.request.user, classCode=uuid.uuid4().hex[:6].upper())
 
 
-class HomeClassroomJoinClass(generics.ListAPIView):
-    serializer_class = ClassRoomJoinSerializer
+class HomeClassroomJoinedClass(generics.ListAPIView):
+    serializer_class = ClassRoomJoinedSerializer
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
         return ClassRoom.objects.filter(students__in=[self.request.user.id])
+
+
+# class MakeHomeClassroomJoinClass(generics.UpdateAPIView):
+#     serializer_class = MakeClassRoomJoinSerializer
+#     permission_classes = [permissions.IsAuthenticated]
+#
+#     def get_queryset(self):
+#         pass
+#
+#     def perform_create(self, serializer):
+#         pass
+#
+#     def perform_update(self, serializer):
+#         data = JSONParser().parse(self.request)
+#         try:
+#             classObj = ClassRoom.objects.get(classCode=data['classCode'])
+#         except ClassRoom.DoesNotExist:
+#             raise ValidationError('No class found with that class code')
+#
+#         if classObj.teacher == self.request.user:
+#             raise ValidationError('You are the teacher of this class!')
+#         else:
+#             # classObj.students.add(self.request.user)
+#             serializer.instance.students.add(self.request.user)
+#             serializer.save()
