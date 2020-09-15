@@ -5,14 +5,8 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth import login, logout, authenticate
-<<<<<<< Updated upstream
-from .forms import CreateClassRoomForm, ReadingMaterialForm
-from private_storage.views import PrivateStorageDetailView
-=======
 from django.contrib import messages
 from .forms import CreateClassRoomForm, ReadingMaterialForm, FaceImageForm
-
->>>>>>> Stashed changes
 from .models import *
 
 import json
