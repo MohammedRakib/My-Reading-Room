@@ -1,0 +1,23 @@
+{% extends "create_join_class/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Upload FaceImage</title>
+    </head>
+    <body>
+    <h2> Upload FaceImage </h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {#    {{ form|crispy }}#}
+        {{ form.as_p }}
+        <button type="submit" class="btn-btn-primary"> Upload FaceImage</button>
+    </form>
+    </body>
+    </html>
+
+{% endblock %}

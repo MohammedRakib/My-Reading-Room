@@ -14,6 +14,15 @@
 
     <button><a href="{% url 'create_class' %}">Create a new class</a></button>
     <button><a href="{% url 'join_class' %}">Join a class</a></button>
+    <button><a href="{% url 'uploadFaceImage' %}">Upload Image</a></button>
+
+    <p>
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    </p>
 
     {% if created_classes %}
         <h2> Your created classes </h2>

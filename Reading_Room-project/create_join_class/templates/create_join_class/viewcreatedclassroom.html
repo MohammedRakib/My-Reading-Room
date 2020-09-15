@@ -9,7 +9,9 @@
 
     <body>
     <p>
-    <h3>Student List: {{ classroom.students }}</h3></p>
+    <h3>Student List: </h3>
+        {{ classroom.students.all }}
+    </p>
     <a href="{% url 'uploadReadingMaterial' classroom.id %}">
         <h3>Upload Reading Material</h3>
     </a>
