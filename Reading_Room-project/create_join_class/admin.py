@@ -10,3 +10,4 @@ class ReadingMaterialAdmin(admin.ModelAdmin):
 admin.site.register(ClassRoom)
 admin.site.register(ReadingMaterial, ReadingMaterialAdmin )
 admin.site.register(ReadingInfo)
+admin.site.register(FaceImage)

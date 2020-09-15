@@ -1,11 +1,12 @@
 from django.forms import ModelForm
-from .models import ClassRoom, ReadingMaterial
-
+from django import forms
+from .models import ClassRoom, ReadingMaterial, FaceImage
 
 class CreateClassRoomForm(ModelForm):
     class Meta:
         model = ClassRoom
         fields = ['name', 'section']
+
 
 class ReadingMaterialForm(ModelForm):
 
@@ -17,3 +18,12 @@ class ReadingMaterialForm(ModelForm):
     class Meta:
         model = ReadingMaterial
         fields = ['name', 'readingFile']
+
+
+
+
+class FaceImageForm(forms.Form):
+    imageFile = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}))
+    class Meta:
+        model = FaceImage
+        fields = ['imageFile']

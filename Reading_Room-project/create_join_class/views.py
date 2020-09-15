@@ -1,13 +1,20 @@
 import uuid
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth import login, logout, authenticate
+<<<<<<< Updated upstream
 from .forms import CreateClassRoomForm, ReadingMaterialForm
 from private_storage.views import PrivateStorageDetailView
+=======
+from django.contrib import messages
+from .forms import CreateClassRoomForm, ReadingMaterialForm, FaceImageForm
+
+>>>>>>> Stashed changes
 from .models import *
+
 import json
 
 
@@ -98,15 +105,18 @@ def join_class(request):
             classobj.students.add(user)
             return redirect('home_classroom')
 
+
 @login_required
 def viewcreatedclassroom(request, classroom_pk):
     classroom = get_object_or_404(ClassRoom, teacher=request.user, pk=classroom_pk)
     return render(request, "create_join_class/viewcreatedclassroom.html", {'classroom': classroom})
 
+
 @login_required
 def viewjoinedclassroom(request, classroom_pk):
     classroom = get_object_or_404(ClassRoom, students__in=[request.user.id], pk=classroom_pk)
     return render(request, "create_join_class/viewjoinedclassroom.html", {'classroom': classroom})
+
 
 @login_required
 def uploadReadingMaterial(request, classroom_pk):
@@ -116,9 +126,8 @@ def uploadReadingMaterial(request, classroom_pk):
         except ClassRoom.DoesNotExist:
             return render(request, "create_join_class/uploadReadingMaterial.html",
                           {'error': 'You don\'t have upload permissions to this classroom!'})
-
         form = ReadingMaterialForm()
-        return render(request, "create_join_class/uploadReadingMaterial.html", {'form':form})
+        return render(request, "create_join_class/uploadReadingMaterial.html", {'form': form})
     else:
         form = ReadingMaterialForm(request.POST, request.FILES)
         if form.is_valid():
@@ -126,7 +135,11 @@ def uploadReadingMaterial(request, classroom_pk):
             newmaterial.classroom = ClassRoom(pk=classroom_pk)
             newmaterial.uploader = User(request.user.id)
             newmaterial.save()
+            messages.success(request, 'File Upload Successful')
             return redirect('viewCreatedReadingMaterial', classroom_pk)
+        else:
+            return render(request, "create_join_class/uploadReadingMaterial.html", {'form': form})
+
 
 @login_required
 def deleteReadingMaterial(request, classroom_pk, readingMaterial_pk):
@@ -135,10 +148,12 @@ def deleteReadingMaterial(request, classroom_pk, readingMaterial_pk):
         readingmaterial.delete()
         return redirect('viewCreatedReadingMaterial', classroom_pk)
 
+
 @login_required
 def viewCreatedReadingMaterial(request, created_pk):
     materialTeacher = ReadingMaterial.objects.filter(classroom_id=created_pk, uploader=request.user)
     return render(request, "create_join_class/viewCreatedReadingMaterial.html", {'materialTeacher': materialTeacher})
+
 
 @login_required
 def viewJoinedReadingMaterial(request, joined_pk):
@@ -152,9 +167,10 @@ def viewJoinedReadingMaterial(request, joined_pk):
 #         'sana1': [60, 70, 80, 90, 100,0,0,0],
 #     }
 #
-#     reading_info = json.dumps(reading_info)
-#     reading_info_obj=ReadingInfo.objects.create(material_id=ReadingMaterial.objects.get(id=readingMaterial_id), material_info=reading_info)
-#     reading_info_obj.save()
+# reading_info = json.dumps(reading_info) reading_info_obj=ReadingInfo.objects.create(
+# material_id=ReadingMaterial.objects.get(id=readingMaterial_id), material_info=reading_info) reading_info_obj.save()
+
+
 @login_required
 def view_reading_info(request, readingMaterial_id):
     try:
@@ -169,16 +185,21 @@ def view_reading_info(request, readingMaterial_id):
         return render(request, "create_join_class/view_reading_info.html",
                       {'reading_info_dict': 'Reading Material Does Not Exists'})
 
+@login_required()
+def uploadFaceImage(request):
+    if request.method == 'GET':
+        form = FaceImageForm()
+        return render(request, "create_join_class/uploadFaceImage.html", {'form':form})
+    else:
+        form = FaceImageForm(request.POST, request.FILES)
+        files = request.FILES.getlist('imageFile')
+        if form.is_valid():
+            for f in files:
+                file = FaceImage(imageFile=f)
+                file.name = User(request.user.id)
+                file.save()
+                messages.success(request, 'Image Upload Successful')
+                return redirect('home_classroom')
+        else:
+            return render(request, "create_join_class/uploadFaceImage.html", {'form': form})
 
-# class MyDocumentDownloadView(PrivateStorageDetailView):
-#     model = ReadingMaterial
-#     model_file_field = 'readingFile'
-#     template_name = 'viewCreatedReadingMaterial.html'
-#
-#     def get_queryset(self):
-#         return super().get_queryset().filter(uploader=)
-#
-#     def can_access_file(self, private_file):
-#         # When the object can be accessed, the file may be downloaded.
-#         # This overrides PRIVATE_STORAGE_AUTH_FUNCTION
-#         return True
