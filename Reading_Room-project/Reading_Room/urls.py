@@ -27,8 +27,12 @@ import private_storage.urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
     path('', include('create_join_class.urls')),
+
     path('accounts/', include('allauth.urls')),
+
+    path('api/', include('rest_api.urls')),
 
 ]
 

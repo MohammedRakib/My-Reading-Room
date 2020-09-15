@@ -61,7 +61,7 @@ def home_classroom(request):
     joined_classes = ClassRoom.objects.filter(students__in=[request.user.id])
     return render(request, 'create_join_class/home_classroom.html',
                   {'user': request.user, 'created_classes': created_classes, 'joined_classes': joined_classes})
-    # return render(request, 'create_join_class/home_classroom.html', {'user': request.user})
+    return render(request, 'create_join_class/home_classroom.html', {'user': request.user})
 
 
 @login_required
@@ -90,12 +90,13 @@ def join_class(request):
         try:
             classobj = ClassRoom.objects.get(classCode=request.POST['classCode'])
         except ClassRoom.DoesNotExist:
-            return render(request, 'create_join_class/join_class.html', {'error': 'No class found with that class code!'})
+            return render(request, 'create_join_class/join_class.html',
+                          {'error': 'No class found with that class code!'})
 
         if classobj.teacher == request.user:
             return render(request, 'create_join_class/join_class.html', {'error': 'You are the teacher of this class!'})
         else:
-            user=request.user
+            user = request.user
             classobj.students.add(user)
             return redirect('home_classroom')
 
@@ -135,6 +136,7 @@ def uploadReadingMaterial(request, classroom_pk):
             return render(request, "create_join_class/uploadReadingMaterial.html", {'form': form})
 
 
+
 @login_required
 def deleteReadingMaterial(request, classroom_pk, readingMaterial_pk):
     if request.method == "POST":
@@ -161,14 +163,14 @@ def viewJoinedReadingMaterial(request, joined_pk):
 #         'sana1': [60, 70, 80, 90, 100,0,0,0],
 #     }
 #
-# reading_info = json.dumps(reading_info) reading_info_obj=ReadingInfo.objects.create(
-# material_id=ReadingMaterial.objects.get(id=readingMaterial_id), material_info=reading_info) reading_info_obj.save()
-
+#     reading_info = json.dumps(reading_info)
+#     reading_info_obj=ReadingInfo.objects.create(material_id=ReadingMaterial.objects.get(id=readingMaterial_id), material_info=reading_info)
+#     reading_info_obj.save()
 
 @login_required
 def view_reading_info(request, readingMaterial_id):
     try:
-        reading_info_obj=ReadingInfo.objects.get(material_id=ReadingMaterial.objects.get(id=readingMaterial_id))
+        reading_info_obj = ReadingInfo.objects.get(material_id=ReadingMaterial.objects.get(id=readingMaterial_id))
         reading_info_dict = json.loads(reading_info_obj.material_info)
         return render(request, "create_join_class/view_reading_info.html", {'reading_info_dict': reading_info_dict})
     except ReadingInfo.DoesNotExist:

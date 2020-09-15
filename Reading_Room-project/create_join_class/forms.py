@@ -1,7 +1,7 @@
 from django.forms import ModelForm
 from django import forms
 from .validators import validate_file_extension, validate_image_extension
-from .models import ClassRoom, ReadingMaterial, FaceImage
+from .models import *
 
 
 class CreateClassRoomForm(ModelForm):
