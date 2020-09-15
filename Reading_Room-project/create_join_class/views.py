@@ -186,8 +186,8 @@ def uploadFaceImage(request):
         return render(request, "create_join_class/uploadFaceImage.html", {'form':form})
     else:
         form = FaceImageForm(request.POST, request.FILES)
-        files = request.FILES.getlist('imageFile')
         if form.is_valid():
+            files = request.FILES.getlist('imageFile')
             for f in files:
                 file = FaceImage(imageFile=f)
                 file.name = User(request.user.id)

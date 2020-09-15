@@ -10,14 +10,17 @@
         <title>Upload Reading Material</title>
     </head>
     <body>
-    {{ error }}
-    <h2> Upload a File </h2>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {#    {{ form|crispy }}#}
-        {{ form.as_p }}
-        <button type="submit" class="btn-btn-primary"> Upload File</button>
-    </form>
+    {% if error %}
+        {{ error }}
+    {% else %}
+        <h2> Upload a File </h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {#    {{ form|crispy }}#}
+            {{ form.as_p }}
+            <button type="submit" class="btn-btn-primary"> Upload File</button>
+        </form>
+    {% endif %}
     </body>
     </html>
 
