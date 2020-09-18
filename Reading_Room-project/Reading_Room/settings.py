@@ -169,10 +169,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
 
-# PRIVATE_STORAGE_ROOT = 'media/private-media/'
 PRIVATE_STORAGE_ROOT = os.path.join(BASE_DIR, 'media/private-media/')
 PRIVATE_STORAGE_AUTH_FUNCTION = 'private_storage.permissions.allow_authenticated'
-
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 LOGIN_URL = '/login/'
 # maybe in our case it will be -LOGIN_URL = ' '-

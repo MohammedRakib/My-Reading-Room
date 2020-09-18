@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <title>Title of the document</title>
+  </head>
+  <body>
+  <div>
+      <object
+            data="{{ filename }}#toolbar=0"
+            type="application/pdf"
+            width="100%"
+            height="600px">
+          <iframe
+            src="{{ filename }}#toolbar=0"
+            width="100%"
+            height="600px"
+            style="border: none;">
+            <p>Your browser does not support PDFs.
+              <a href="{{ filename }}">You can download the PDF but your reading info
+              cannot be recorded. Please use supported browser like Chrome or Mozilla Firefox.</a>.</p>
+          </iframe>
+        </object>
+  </div>
+  </body>
+</html>

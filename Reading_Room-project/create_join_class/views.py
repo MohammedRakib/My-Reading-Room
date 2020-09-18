@@ -1,4 +1,5 @@
 import uuid
+from django.http import FileResponse
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -10,8 +11,7 @@ from .forms import CreateClassRoomForm, ReadingMaterialForm, FaceImageForm
 from .models import *
 from PIL import Image
 import face_recognition
-
-import json
+import json,os
 
 
 def index(request):
@@ -209,4 +209,10 @@ def uploadFaceImage(request):
         else:
             return render(request, "create_join_class/uploadFaceImage.html", {'form': form})
 
+
+@login_required
+def viewPDF(request, filename):
+    print("filename is: ")
+    print(filename)
+    return render(request, "create_join_class/viewPDF.html", {'filename': filename})
 

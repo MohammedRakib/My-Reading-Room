@@ -17,6 +17,8 @@ urlpatterns = [
          name='viewCreatedReadingMaterial'),
     path('view/joinedclass/<int:joined_pk>/viewJoinedReadingMaterial', views.viewJoinedReadingMaterial,
          name='viewJoinedReadingMaterial'),
+    path('viewpdf/<path:filename>', views.viewPDF,
+         name='viewPDF'),
     path('view/createdclass/<int:classroom_pk>/uploadReadingMaterial/', views.uploadReadingMaterial,
          name='uploadReadingMaterial'),
     path('view/createdclass/<int:classroom_pk>/deleteReadingMaterial/<int:readingMaterial_pk>',
