@@ -8,6 +8,8 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from .forms import CreateClassRoomForm, ReadingMaterialForm, FaceImageForm
 from .models import *
+from PIL import Image
+import face_recognition
 
 import json
 
@@ -191,12 +193,20 @@ def uploadFaceImage(request):
         form = FaceImageForm(request.POST, request.FILES)
         files = request.FILES.getlist('imageFile')
         if form.is_valid():
+            counter=1
             for f in files:
-                file = FaceImage(imageFile=f)
-                file.name = User(request.user.id)
-                file.save()
-            messages.success(request, 'Image Upload Successful')
+                image = face_recognition.api.load_image_file(f)
+                faces_in_a_image = face_recognition.api.face_locations(image)
+                if faces_in_a_image:
+                    file = FaceImage(imageFile=f)
+                    file.name = User(request.user.id)
+                    file.save()
+                    messages.success(request, f'Face detected in Image {counter}. Upload Successful!')
+                else:
+                    messages.error(request, f'Face NOT detected in Image {counter}. Upload Failed!')
+                counter += 1
             return redirect('home_classroom')
         else:
             return render(request, "create_join_class/uploadFaceImage.html", {'form': form})
+
 

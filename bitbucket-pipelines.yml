@@ -11,6 +11,7 @@ clone:
 pipelines:
   default:
     - step:
+        size: 2x
         caches:
           - pip
         script: # Modify the commands below to build your repository.
