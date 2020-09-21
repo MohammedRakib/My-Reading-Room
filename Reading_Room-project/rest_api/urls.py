@@ -5,6 +5,7 @@ from . import views
 urlpatterns = [
     # auth
     path('login/', views.login),
+    path('signup/', views.signup),
 
     #class
     path('home_classroom_create/', views.HomeClassroomCreateClass.as_view()),

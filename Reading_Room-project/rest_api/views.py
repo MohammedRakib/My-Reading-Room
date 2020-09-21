@@ -6,6 +6,7 @@ from django.http import JsonResponse
 from rest_framework.authtoken.models import Token
 from .serializers import *
 import uuid
+from django.db import IntegrityError
 
 
 @csrf_exempt
@@ -21,6 +22,20 @@ def login(request):
             except:
                 token = Token.objects.create(user=user)
             return JsonResponse({'token': str(token)}, status=200)
+
+
+@csrf_exempt
+def signup(request):
+    if request.method == "POST":
+        try:
+            data = JSONParser().parse(request)
+            user = User.objects.create_user(data['username'], password=data['password'])
+            user.save()
+            token = Token.objects.create(user=user)
+            return JsonResponse({'token': str(token)}, status=201)
+        except IntegrityError:
+            # status 400 means bad request
+            return JsonResponse({'error': 'Username is already take!'}, status=400)
 
 
 class HomeClassroomCreateClass(generics.ListCreateAPIView):
