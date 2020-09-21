@@ -9,5 +9,6 @@ urlpatterns = [
     #class
     path('home_classroom_create/', views.HomeClassroomCreateClass.as_view()),
     path('home_classroom_view_joined/', views.HomeClassroomJoinedClass.as_view()),
-    # path('home_classroom_make_join/', views.MakeHomeClassroomJoinClass.as_view()),
+    path('get_classroom_id/', views.getAclassroomID),
+    path('classroom/<int:pk>/join/', views.MakeClassRoomJoinClass.as_view()),
 ]

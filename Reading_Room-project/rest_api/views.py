@@ -6,7 +6,6 @@ from django.http import JsonResponse
 from rest_framework.authtoken.models import Token
 from .serializers import *
 import uuid
-from rest_framework.exceptions import ValidationError
 
 
 @csrf_exempt
@@ -43,26 +42,30 @@ class HomeClassroomJoinedClass(generics.ListAPIView):
         return ClassRoom.objects.filter(students__in=[self.request.user.id])
 
 
-# class MakeHomeClassroomJoinClass(generics.UpdateAPIView):
-#     serializer_class = MakeClassRoomJoinSerializer
-#     permission_classes = [permissions.IsAuthenticated]
-#
-#     def get_queryset(self):
-#         pass
-#
-#     def perform_create(self, serializer):
-#         pass
-#
-#     def perform_update(self, serializer):
-#         data = JSONParser().parse(self.request)
-#         try:
-#             classObj = ClassRoom.objects.get(classCode=data['classCode'])
-#         except ClassRoom.DoesNotExist:
-#             raise ValidationError('No class found with that class code')
-#
-#         if classObj.teacher == self.request.user:
-#             raise ValidationError('You are the teacher of this class!')
-#         else:
-#             # classObj.students.add(self.request.user)
-#             serializer.instance.students.add(self.request.user)
-#             serializer.save()
+class MakeClassRoomJoinClass(generics.UpdateAPIView):
+    serializer_class = JoinAClassSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        return ClassRoom.objects.exclude(students__in=[self.request.user.id])
+
+    def perform_create(self, serializer):
+        serializer.save()
+
+    def perform_update(self, serializer):
+        serializer.instance.students.add(self.request.user)
+        serializer.save()
+
+
+@csrf_exempt
+def getAclassroomID(request):
+    if request.method == "POST":
+        data = JSONParser().parse(request)
+        try:
+            classObj = ClassRoom.objects.get(classCode=data['classCode'])
+            return JsonResponse({'token': str(classObj.id)}, status=200)
+            # if classObj.teacher==request.user:
+            #     return JsonResponse({'token': 'You are the teacher of this class'}, status=200)
+            # else:
+        except ClassRoom.DoesNotExist:
+            return JsonResponse({'token': 'No class found with that class code'}, status=201)

@@ -27,7 +27,8 @@ class ClassRoomJoinedSerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'section', 'classCode', 'teacher', 'students']
 
 
-# class MakeClassRoomJoinSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = ClassRoom
-#         fields = ['classCode']
+class JoinAClassSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ClassRoom
+        fields = ['id']
+        read_only_fields = ['name', 'section', 'classCode', 'teacher', 'students', ]
