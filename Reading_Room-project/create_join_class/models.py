@@ -16,7 +16,7 @@ class ClassRoom(models.Model):
     students = models.ManyToManyField(User, blank=True, related_name='student_of_the_class')
 
     def __str__(self):
-        return self.name + '.' + str(self.section)
+        return self.name + '.' + str(self.section)+' ID:'+str(self.id)
 
 
 class ReadingMaterial(models.Model):
