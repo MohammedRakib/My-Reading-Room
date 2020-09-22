@@ -21,8 +21,7 @@ class ReadingMaterialForm(ModelForm):
 
 
 class FaceImageForm(forms.Form):
-    imageFile = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}),
-                                validators=[validate_image_extension])
+    imageFile = forms.FileField(validators=[validate_image_extension])
 
     class Meta:
         model = FaceImage
