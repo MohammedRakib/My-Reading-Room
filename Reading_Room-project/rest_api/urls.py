@@ -12,4 +12,6 @@ urlpatterns = [
     path('home_classroom_view_joined/', views.HomeClassroomJoinedClass.as_view()),
     path('get_classroom_id/', views.getAclassroomID),
     path('classroom/<int:pk>/join/', views.MakeClassRoomJoinClass.as_view()),
+    path('classroom/<int:classroom_id>/view_materials/', views.ViewFileAPIView.as_view()),
+    path('reading_info/<int:readingMaterial_id>/view/', views.ReadingInfoAPIView.as_view()),
 ]

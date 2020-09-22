@@ -1,6 +1,5 @@
 Reading_Room-project/.idea/*
 Reading_Room-project/venv/*
-Reading_Room-project/kutta/*
 *.pyc
 __pycache__
 Reading_Room-project/db.sqlite3

@@ -79,8 +79,24 @@ def getAclassroomID(request):
         try:
             classObj = ClassRoom.objects.get(classCode=data['classCode'])
             return JsonResponse({'token': str(classObj.id)}, status=200)
-            # if classObj.teacher==request.user:
-            #     return JsonResponse({'token': 'You are the teacher of this class'}, status=200)
-            # else:
         except ClassRoom.DoesNotExist:
             return JsonResponse({'token': 'No class found with that class code'}, status=201)
+
+
+class ViewFileAPIView(generics.ListCreateAPIView):
+    serializer_class = ReadingMaterialSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self, **kwargs):
+        return ReadingMaterial.objects.filter(classroom=ClassRoom.objects.get(id=self.kwargs['classroom_id']))
+
+    def perform_create(self, serializer):
+        serializer.save(classroom=ClassRoom.objects.get(id=self.kwargs['classroom_id']), uploader=self.request.user)
+
+
+class ReadingInfoAPIView(generics.ListAPIView):
+    serializer_class = ReadingInfoSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self, **kwargs):
+        return ReadingInfo.objects.filter(material_id=ReadingMaterial.objects.get(id=self.kwargs['readingMaterial_id']))
