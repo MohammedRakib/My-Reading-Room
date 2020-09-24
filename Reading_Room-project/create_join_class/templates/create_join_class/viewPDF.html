@@ -1,0 +1,103 @@
+{% extends "create_join_class/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title of the document</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.5.1.js"
+              integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+      <script src={% static "create_join_class/js/timeme.js"%}></script>
+      <script type="text/javascript">
+          var timeSpentOnPage = 0;
+          var totalTime = 0;
+          var user = '{{ username }}';
+	    // Initialize library and start tracking time
+	    TimeMe.initialize({
+    	currentPageName: "viewPDF", // current page
+    	idleTimeoutInSeconds: 600  // seconds
+	    });
+        $(document).ready(function () {
+            var time = 0;
+            setInterval(function () {
+                $.ajax({
+                    type: 'GET',
+                    url: "{% url 'facedetect' %}",
+                    success: function (data) {
+                        var list = data.value;
+                        if(list == -1){
+                            totalTime = totalTime - 5.0;
+                        }
+                        console.log("value is: "+ list);
+                    },
+                    error: function (response) {
+
+                        totalTime = totalTime - 5.0;
+                        console.log("time is :"+totalTime);
+                        document.getElementById("totalTime").textContent = totalTime.toFixed(2);
+                    }
+                })
+            },5000);
+        });
+	     var start = Date.now();
+        window.onload = function() {
+            setInterval(function () {
+                {#timeSpentOnPage = TimeMe.getTimeOnCurrentPageInSeconds();#}
+                {#document.getElementById('timeInSeconds').textContent = timeSpentOnPage.toFixed(2);#}
+                    totalTime = totalTime + 1;
+                    document.getElementById("totalTime").textContent = totalTime.toFixed(2);
+            }, 1000);
+        };
+        window.addEventListener("beforeunload", (function() {
+            $.ajax({
+                url: "{% url 'push_reading_info' material_id %}",
+                type: "POST",
+                dataType: "json",
+                data: {
+                    count: totalTime,
+                    username: user,
+                    csrfmiddlewaretoken: '{{ csrf_token }}'
+                },
+                success : function(json) {
+                    alert("Successfully sent the URL to Django");
+                },
+                error : function(xhr,errmsg,err) {
+                    alert("Could not send URL to Django. Error: " + xhr.status + ": " + xhr.responseText);
+                }
+            });
+        }));
+        </script>
+  </head>
+  <body>
+      <div>
+			<h1>
+{#                <span>Focus Time: </span><span id="timeInSeconds">0</span> <span>seconds</span>#}
+                <br>
+                <span>Total Time: </span><span id="totalTime">0</span> <span>seconds</span>
+			</h1>
+      </div>
+      <div>
+          <object
+                data="{{ filename }}#toolbar=0"
+                type="application/pdf"
+                width="100%"
+                height="400px">
+              <iframe
+                src="{{ filename }}#toolbar=0"
+                width="100%"
+                height="400px"
+                style="border: none;">
+                <p>Your browser does not support PDFs.
+                  <a href="{{ filename }}">You can download the PDF but your reading info
+                  cannot be recorded. Please use supported browser like Chrome or Mozilla Firefox.</a>.</p>
+              </iframe>
+          </object>
+      </div>
+
+  </body>
+</html>
+
+{% endblock %}

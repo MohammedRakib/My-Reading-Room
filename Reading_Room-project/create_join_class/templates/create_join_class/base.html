@@ -8,8 +8,6 @@
 <body>
 <h2>Current User: {{ user }}</h2>
 <button><a href="{% url 'home_classroom' %}">Home</a></button>
-<br>
-<br>
 <form method="POST" action="{% url 'logout_user' %}">
     {% csrf_token %}
     {#    {{ form|crispy }}#}

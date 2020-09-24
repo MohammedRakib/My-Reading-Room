@@ -1,4 +1,5 @@
 import uuid
+from django.http import FileResponse, JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -10,8 +11,9 @@ from .forms import CreateClassRoomForm, ReadingMaterialForm, FaceImageForm
 from .models import *
 from PIL import Image
 import face_recognition
-
-import json
+import json, os
+import cv2
+import numpy as np
 
 
 def index(request):
@@ -138,7 +140,6 @@ def uploadReadingMaterial(request, classroom_pk):
             return render(request, "create_join_class/uploadReadingMaterial.html", {'form': form})
 
 
-
 @login_required
 def deleteReadingMaterial(request, classroom_pk, readingMaterial_pk):
     if request.method == "POST":
@@ -159,15 +160,17 @@ def viewJoinedReadingMaterial(request, joined_pk):
     return render(request, "create_join_class/viewJoinedReadingMaterial.html", {'materialStudent': materialStudent})
 
 
-# def push_reading_info(request, readingMaterial_id):
-#     reading_info = {
-#         'sanaulla': [10, 20, 30, 40, 50],
-#         'sana1': [60, 70, 80, 90, 100,0,0,0],
-#     }
-#
-#     reading_info = json.dumps(reading_info)
-#     reading_info_obj=ReadingInfo.objects.create(material_id=ReadingMaterial.objects.get(id=readingMaterial_id), material_info=reading_info)
-#     reading_info_obj.save()
+def push_reading_info(request, readingMaterial_id):
+    totalTimeSpentOnPage = request.POST.get('count')
+    username = request.POST.get('username')
+    print("Username: "+ username)
+    print("TOTAL TIME SPENT: ", totalTimeSpentOnPage)
+    reading_infos = {username: totalTimeSpentOnPage}
+    reading_info = json.dumps(reading_infos)
+    reading_info_obj = ReadingInfo.objects.create(material_id=ReadingMaterial.objects.get(id=readingMaterial_id),
+                                                      material_info=reading_info)
+    reading_info_obj.save()
+
 
 @login_required
 def view_reading_info(request, readingMaterial_id):
@@ -188,12 +191,11 @@ def view_reading_info(request, readingMaterial_id):
 def uploadFaceImage(request):
     if request.method == 'GET':
         form = FaceImageForm()
-        return render(request, "create_join_class/uploadFaceImage.html", {'form':form})
+        return render(request, "create_join_class/uploadFaceImage.html", {'form': form})
     else:
         form = FaceImageForm(request.POST, request.FILES)
         files = request.FILES.getlist('imageFile')
         if form.is_valid():
-            counter=1
             for f in files:
                 image = face_recognition.api.load_image_file(f)
                 faces_in_a_image = face_recognition.api.face_locations(image)
@@ -201,12 +203,65 @@ def uploadFaceImage(request):
                     file = FaceImage(imageFile=f)
                     file.name = User(request.user.id)
                     file.save()
-                    messages.success(request, f'Face detected in Image {counter}. Upload Successful!')
+                    messages.success(request, f'Face detected in Image. Upload Successful!')
                 else:
-                    messages.error(request, f'Face NOT detected in Image {counter}. Upload Failed!')
-                counter += 1
+                    messages.error(request, f'Face NOT detected in Image. Upload Failed!')
             return redirect('home_classroom')
         else:
             return render(request, "create_join_class/uploadFaceImage.html", {'form': form})
 
 
+@login_required
+def viewPDF(request, filename, material_id):
+    return render(request, "create_join_class/viewPDF.html", {'filename': filename, 'material_id': material_id,
+                                                              'username': request.user.username})
+
+
+face_locations = []
+face_encodings = []
+
+
+@login_required
+def facedetect(request):
+    try:
+        faceimages = FaceImage.objects.filter(name=request.user.id)
+        url = ""
+        for faceimage in faceimages:
+            url = faceimage.imageFile.url
+            url = "media" + url
+            break
+        # Get a reference to webcam #0 (the default one)
+        video_capture = cv2.VideoCapture(0)
+
+        # Load a sample picture and learn how to recognize it.
+        my_image = face_recognition.load_image_file(url)
+        my_face_encoding = face_recognition.face_encodings(my_image)[0]
+
+        # Grab a single frame of video
+        s, img = video_capture.read()
+        if s:
+
+            # Resize frame of video to 1/4 size for faster face recognition processing
+            small_frame = cv2.resize(img, (0, 0), fx=0.25, fy=0.25)
+            rgb_small_frame = small_frame[:, :, ::-1]
+
+            # Find face and face encodings in the selected frame of video
+            face_locations = face_recognition.face_locations(rgb_small_frame)
+            face_encodings = face_recognition.face_encodings(rgb_small_frame, face_locations)
+
+            # See if the face is a match for my face encoding
+            check = face_recognition.compare_faces(my_face_encoding, face_encodings)
+
+            if True in check:
+                value = {'value': 1}
+                video_capture.release()
+                print(value)
+                return JsonResponse(value)
+            else:
+                value = {'value': -1}
+                video_capture.release()
+                print(value)
+                return JsonResponse(value)
+
+    except FaceImage.DoesNotExist:
+        return redirect("home_classroom", {'noimageerror': 'Please upload Image before viewing the file!'})

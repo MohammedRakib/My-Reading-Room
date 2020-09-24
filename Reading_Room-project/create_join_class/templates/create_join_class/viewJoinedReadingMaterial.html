@@ -2,7 +2,7 @@
 {% block content %}
 
     <!DOCTYPE html>
-    <html lang="en">
+    <html lang="en" xmlns="http://www.w3.org/1999/html">
     <head>
         <meta charset="UTF-8">
         <title>View Reading Material</title>
@@ -24,7 +24,8 @@
                 <td>{{ material.name }}</td>
                 <td>{{ material.classroom }}</td>
                 <td>
-                    <a href="{{ material.readingFile.url }}" class="btn btn-primary btn-sm" target="_blank">
+                    <a href="{% url 'viewPDF' material.readingFile.url material.id %}"
+                       class="btn btn-primary btn-sm" target="_blank">
                         View File
                     </a>
                 </td>

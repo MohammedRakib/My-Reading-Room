@@ -40,3 +40,5 @@ urlpatterns = [
 urlpatterns += [
     path('private-media/', include('private_storage.urls')),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.PRIVATE_STORAGE_ROOT)
