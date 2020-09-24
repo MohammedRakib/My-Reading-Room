@@ -24,7 +24,7 @@ SECRET_KEY = 'z9c01&zrwrvx-4-3v7o0y0336ycrnhc16qfwu9wj7h@w)9t@lz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['my-reading-room.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['my-reading-room.herokuapp.com', '127.0.0.1', '10.0.2.2']
 
 # Application definition
 
