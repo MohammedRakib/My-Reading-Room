@@ -5,6 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.io.IOException;
+
+import okhttp3.Call;
+import okhttp3.Callback;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -20,8 +26,7 @@ public TextView textView;
 
         textView = findViewById(R.id.TextViewID);
 
-        OkHttpClient client = new OkHttpClient().newBuilder()
-                .build();
+        OkHttpClient client = new OkHttpClient();
         MediaType mediaType = MediaType.parse("application/json");
 
         RequestBody body = RequestBody.create(mediaType, "{\"username\": \"srs\", \"password\":\"12345678\"}");
@@ -32,18 +37,38 @@ public TextView textView;
                 .addHeader("Content-Type", "application/json")
                 .build();
 
-        try {
-            final Response response = client.newCall(request).execute();
-            MainActivity.this.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    textView.setText(response.body().toString());
+//        try {
+//            final Response response = client.newCall(request).execute();
+//            MainActivity.this.runOnUiThread(new Runnable() {
+//                @Override
+//                public void run() {
+//                    textView.setText(response.body().toString());
+//                }
+//            });
+//        }
+//        catch (Exception e){
+//            textView.setText(e.toString());
+//        }
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                textView.setText(e.toString());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if(response.isSuccessful()){
+                    final String myresponse = response.body().string();
+                    MainActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            textView.setText(myresponse);
+                        }
+                    });
                 }
-            });
-        }
-        catch (Exception e){
-            textView.setText(e.toString());
-        }
+            }
+        });
 
     }
 }
