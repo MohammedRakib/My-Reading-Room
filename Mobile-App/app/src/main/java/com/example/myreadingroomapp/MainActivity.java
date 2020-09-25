@@ -32,7 +32,7 @@ public TextView textView;
         RequestBody body = RequestBody.create(mediaType, "{\"username\": \"srs\", \"password\":\"12345678\"}");
 
         Request request = new Request.Builder()
-                .url("http://127.0.0.1:8000/api/login/")
+                .url("http://10.0.2.2:8000/api/login/")
                 .method("POST", body)
                 .addHeader("Content-Type", "application/json")
                 .build();
