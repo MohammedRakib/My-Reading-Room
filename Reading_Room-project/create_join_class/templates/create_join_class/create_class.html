@@ -1,5 +1,9 @@
 {% extends "create_join_class/base.html" %}
 {% block content %}
+    <!DOCTYPE html>
+    <head>
+    </head>
+    <body>
     <h2>New Class</h2>
     {% load crispy_forms_tags %}
     {% if error %}
@@ -18,5 +22,6 @@
         <button type="submit">Create Class</button>
 
     </form>
-
+    </body>
+    </html>
 {% endblock %}

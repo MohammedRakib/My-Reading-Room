@@ -58,7 +58,7 @@ def logout_user(request):
         logout(request)
         return redirect('index')
 
-
+#2nd return statement should be removed
 @login_required
 def home_classroom(request):
     created_classes = ClassRoom.objects.filter(teacher=request.user)
