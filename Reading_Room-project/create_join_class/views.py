@@ -58,14 +58,15 @@ def logout_user(request):
         logout(request)
         return redirect('index')
 
-#2nd return statement should be removed
+
+# 2nd return statement should be removed
 @login_required
 def home_classroom(request):
     created_classes = ClassRoom.objects.filter(teacher=request.user)
     joined_classes = ClassRoom.objects.filter(students__in=[request.user.id])
     return render(request, 'create_join_class/home_classroom.html',
                   {'user': request.user, 'created_classes': created_classes, 'joined_classes': joined_classes})
-    return render(request, 'create_join_class/home_classroom.html', {'user': request.user})
+    # return render(request, 'create_join_class/home_classroom.html', {'user': request.user})
 
 
 @login_required
@@ -161,15 +162,49 @@ def viewJoinedReadingMaterial(request, joined_pk):
 
 
 def push_reading_info(request, readingMaterial_id):
-    totalTimeSpentOnPage = request.POST.get('count')
+    # totalTimeSpentOnPage = request.POST.get('count')
+    # username = request.POST.get('username')
+    # print("Username: " + username)
+    # print("TOTAL TIME SPENT: ", totalTimeSpentOnPage)
+    # reading_infos = {username: totalTimeSpentOnPage}
+    # reading_info = json.dumps(reading_infos)
+    # reading_info_obj = ReadingInfo.objects.create(material_id=ReadingMaterial.objects.get(id=readingMaterial_id),
+    #                                               material_info=reading_info)
+    # reading_info_obj.save()
     username = request.POST.get('username')
-    print("Username: "+ username)
-    print("TOTAL TIME SPENT: ", totalTimeSpentOnPage)
-    reading_infos = {username: totalTimeSpentOnPage}
-    reading_info = json.dumps(reading_infos)
-    reading_info_obj = ReadingInfo.objects.create(material_id=ReadingMaterial.objects.get(id=readingMaterial_id),
+    totalTimeSpentOnPage = request.POST.get('count')
+
+    try:
+        # print("ENTERED IN TRY BLOCK")
+        # username = request.POST.get('username')
+        # total_time = request.POST.get('count')
+        # print("DATA FETCHED")
+        readingInfoObj = ReadingInfo.objects.get(material_id=ReadingMaterial.objects.get(id=readingMaterial_id))
+        # print("READING INFO OBJECT FETCHED")
+        reading_info_dict = json.loads(readingInfoObj.material_info)
+        # print("MATERIAL INFO CONEVERTED TO DICT")
+        if username in reading_info_dict:
+            previous_value = reading_info_dict[username]
+            reading_info_dict[username] = int(totalTimeSpentOnPage) + int(previous_value)
+            readingInfoObj.material_info = json.dumps(reading_info_dict)
+            readingInfoObj.save()
+        else:
+            reading_info_dict[username] = totalTimeSpentOnPage
+            readingInfoObj.material_info = json.dumps(reading_info_dict)
+            readingInfoObj.save()
+        # print("Username: " + username)
+        # print("TOTAL TIME SPENT: from try-----", totalTimeSpentOnPage)
+
+    except:
+        print("Username: " + username)
+        print("TOTAL TIME SPENT: ", totalTimeSpentOnPage)
+        reading_infos = {
+            username: totalTimeSpentOnPage
+        }
+        reading_info = json.dumps(reading_infos)
+        reading_info_obj = ReadingInfo.objects.create(material_id=ReadingMaterial.objects.get(id=readingMaterial_id),
                                                       material_info=reading_info)
-    reading_info_obj.save()
+        reading_info_obj.save()
 
 
 @login_required
