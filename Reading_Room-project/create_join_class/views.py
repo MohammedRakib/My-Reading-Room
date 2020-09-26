@@ -1,19 +1,16 @@
+import json
 import uuid
-from django.http import FileResponse, JsonResponse
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth.models import User
-from django.db import IntegrityError
-from django.contrib.auth import login, logout, authenticate
+import cv2
+import face_recognition
 from django.contrib import messages
+from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.db import IntegrityError
+from django.http import JsonResponse
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CreateClassRoomForm, ReadingMaterialForm, FaceImageForm
 from .models import *
-from PIL import Image
-import face_recognition
-import json, os
-import cv2
-import numpy as np
 
 
 def index(request):
@@ -89,7 +86,12 @@ def create_class(request):
 @login_required
 def join_class(request):
     if request.method == "GET":
-        return render(request, 'create_join_class/join_class.html')
+        numberOfImage = FaceImage.objects.filter(name=request.user).count()
+        if numberOfImage >= 1:
+            return render(request, 'create_join_class/join_class.html', {'ImageFound': f'System found {numberOfImage} image(s) of you in the DB'})
+        else:
+            return render(request, 'create_join_class/join_class.html',
+                          {'ImageNotFound': 'Please upload at least one before joining a class'})
     else:
         # checking if the class code that user entered does exist or not
         try:
@@ -192,8 +194,8 @@ def push_reading_info(request, readingMaterial_id):
             reading_info_dict[username] = totalTimeSpentOnPage
             readingInfoObj.material_info = json.dumps(reading_info_dict)
             readingInfoObj.save()
-        # print("Username: " + username)
-        # print("TOTAL TIME SPENT: from try-----", totalTimeSpentOnPage)
+        print("Username: " + username)
+        print("TOTAL TIME SPENT: from try-----", totalTimeSpentOnPage)
 
     except:
         print("Username: " + username)
@@ -258,45 +260,41 @@ face_encodings = []
 
 @login_required
 def facedetect(request):
-    try:
-        faceimages = FaceImage.objects.filter(name=request.user.id)
-        url = ""
-        for faceimage in faceimages:
-            url = faceimage.imageFile.url
-            url = "media" + url
-            break
-        # Get a reference to webcam #0 (the default one)
-        video_capture = cv2.VideoCapture(0)
+    faceimages = FaceImage.objects.filter(name=request.user.id)
+    url = ""
+    for faceimage in faceimages:
+        url = faceimage.imageFile.url
+        url = "media" + url
+        break
+    # Get a reference to webcam #0 (the default one)
+    video_capture = cv2.VideoCapture(0)
 
-        # Load a sample picture and learn how to recognize it.
-        my_image = face_recognition.load_image_file(url)
-        my_face_encoding = face_recognition.face_encodings(my_image)[0]
+    # Load a sample picture and learn how to recognize it.
+    my_image = face_recognition.load_image_file(url)
+    my_face_encoding = face_recognition.face_encodings(my_image)[0]
 
-        # Grab a single frame of video
-        s, img = video_capture.read()
-        if s:
+    # Grab a single frame of video
+    s, img = video_capture.read()
+    if s:
 
-            # Resize frame of video to 1/4 size for faster face recognition processing
-            small_frame = cv2.resize(img, (0, 0), fx=0.25, fy=0.25)
-            rgb_small_frame = small_frame[:, :, ::-1]
+        # Resize frame of video to 1/4 size for faster face recognition processing
+        small_frame = cv2.resize(img, (0, 0), fx=0.25, fy=0.25)
+        rgb_small_frame = small_frame[:, :, ::-1]
 
-            # Find face and face encodings in the selected frame of video
-            face_locations = face_recognition.face_locations(rgb_small_frame)
-            face_encodings = face_recognition.face_encodings(rgb_small_frame, face_locations)
+        # Find face and face encodings in the selected frame of video
+        face_locations = face_recognition.face_locations(rgb_small_frame)
+        face_encodings = face_recognition.face_encodings(rgb_small_frame, face_locations)
 
-            # See if the face is a match for my face encoding
-            check = face_recognition.compare_faces(my_face_encoding, face_encodings)
+        # See if the face is a match for my face encoding
+        check = face_recognition.compare_faces(my_face_encoding, face_encodings)
 
-            if True in check:
-                value = {'value': 1}
-                video_capture.release()
-                print(value)
-                return JsonResponse(value)
-            else:
-                value = {'value': -1}
-                video_capture.release()
-                print(value)
-                return JsonResponse(value)
-
-    except FaceImage.DoesNotExist:
-        return redirect("home_classroom", {'noimageerror': 'Please upload Image before viewing the file!'})
+        if True in check:
+            value = {'value': 1}
+            video_capture.release()
+            print(value)
+            return JsonResponse(value)
+        else:
+            value = {'value': -1}
+            video_capture.release()
+            print(value)
+            return JsonResponse(value)

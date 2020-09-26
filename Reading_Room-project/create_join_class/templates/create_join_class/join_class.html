@@ -4,19 +4,43 @@
 
     <h2>Join Class</h2>
 
-    {% if error %}
-        {{ error }}
+    {% if ImageNotFound %}
+        {{ ImageNotFound }}
+
+    {% else %}
+        {% if ImageFound %}
+            {{ ImageFound }}
+        {% endif %}
+
+        {% if error %}
+            {{ error }}
+        {% endif %}
+
+        <form method="POST" action="{% url 'join_class' %}">
+            {% csrf_token %}
+            {#    {{ form|crispy }}#}
+
+            <label for="classCode">Class Code</label>
+            <input type="text" name="classCode" id="classCode" maxlength="6" required><br>
+
+            <button type="submit">Join Class</button>
+
+        </form>
     {% endif %}
 
-    <form method="POST" action="{% url 'join_class' %}">
-        {% csrf_token %}
-        {#    {{ form|crispy }}#}
-
-        <label for="classCode">Class Code</label>
-        <input type="text" name="classCode" id="classCode" maxlength="6" required><br>
-
-        <button type="submit">Join Class</button>
-
-    </form>
+    {#    {% if error %}#}
+    {#        {{ error }}#}
+    {#    {% endif %}#}
+    {##}
+    {#    <form method="POST" action="{% url 'join_class' %}">#}
+    {#        {% csrf_token %}#}
+    {#    {{ form|crispy }}#}
+    {##}
+    {#        <label for="classCode">Class Code</label>#}
+    {#        <input type="text" name="classCode" id="classCode" maxlength="6" required><br>#}
+    {##}
+    {#        <button type="submit">Join Class</button>#}
+    {##}
+    {#    </form>#}
 
 {% endblock %}
