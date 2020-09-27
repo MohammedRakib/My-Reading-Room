@@ -194,9 +194,9 @@ def push_reading_info(request, readingMaterial_id):
 
     try:
         readingInfoObj = ReadingInfo.objects.get(material_id=ReadingMaterial.objects.get(id=readingMaterial_id))
-        # print("READING INFO OBJECT FETCHED")
+        print("READING INFO OBJECT FETCHED")
         reading_info_dict = json.loads(readingInfoObj.material_info)
-        # print("MATERIAL INFO CONEVERTED TO DICT")
+        print("MATERIAL INFO CONVERTED TO DICT")
         if username in reading_info_dict:
             previous_value = reading_info_dict[username]
             reading_info_dict[username] = int(totalTimeSpentOnPage) + int(previous_value)
@@ -251,6 +251,7 @@ def uploadFaceImage(request):
         if form.is_valid():
             for f in files:
                 image = face_recognition.api.load_image_file(f)
+                
                 faces_in_a_image = face_recognition.api.face_locations(image)
                 if faces_in_a_image:
                     file = FaceImage(imageFile=f)
@@ -287,29 +288,38 @@ def facedetect(request):
 
     # Load a sample picture and learn how to recognize it.
     my_image = face_recognition.load_image_file(url)
-    my_face_encoding = face_recognition.face_encodings(my_image)[0]
+    my_face_encodings = face_recognition.face_encodings(my_image)
 
-    # Grab a single frame of video
-    s, img = video_capture.read()
-    video_capture.release()
-    if s:
+    if len(my_face_encodings)>0:
+        my_face_encoding = my_face_encodings[0]
 
-        # Resize frame of video to 1/4 size for faster face recognition processing
-        small_frame = cv2.resize(img, (0, 0), fx=0.25, fy=0.25)
-        rgb_small_frame = small_frame[:, :, ::-1]
 
-        # Find face and face encodings in the selected frame of video
-        face_locations = face_recognition.face_locations(rgb_small_frame)
-        face_encodings = face_recognition.face_encodings(rgb_small_frame, face_locations)
+        # Grab a single frame of video
+        s, img = video_capture.read()
+        video_capture.release()
+        if s:
 
-        # See if the face is a match for my face encoding
-        check = face_recognition.compare_faces(my_face_encoding, face_encodings)
+            # Resize frame of video to 1/4 size for faster face recognition processing
+            small_frame = cv2.resize(img, (0, 0), fx=0.25, fy=0.25)
+            rgb_small_frame = small_frame[:, :, ::-1]
 
-        if True in check:
-            value = {'value': 1}
-            print(value)
-            return JsonResponse(value)
+            # Find face and face encodings in the selected frame of video
+            face_locations = face_recognition.face_locations(rgb_small_frame)
+            face_encodings = face_recognition.face_encodings(rgb_small_frame, face_locations)
+
+            # See if the face is a match for my face encoding
+            check = face_recognition.compare_faces(my_face_encoding, face_encodings)
+
+            if True in check:
+                value = {'value': 1}
+                print(value)
+                return JsonResponse(value)
+            else:
+                value = {'value': -1}
+                print(value)
+                return JsonResponse(value)
+
         else:
-            value = {'value': -1}
+            value = {'value': 0}
             print(value)
             return JsonResponse(value)

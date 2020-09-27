@@ -27,13 +27,18 @@
                     url: "{% url 'facedetect' %}",
                     success: function (data) {
                         var list = data.value;
-                        if(list == -1){
+                        if(list == -1 || list == 0){
                             if (totalTime<5) {
                                 totalTime = 0;
                             } else {
                                 totalTime = totalTime - 5.0;
                             }
-                            console.log("Face NOT Recognised! Value: " + list);
+                            if (list == -1) {
+                                console.log("Face NOT Recognised! Value: " + list);
+                            } else {
+                                console.log("Face NOT Detected! Value: " + list);
+                            }
+
                         } else {
                             console.log("Face Recognised! Value: " + list);
                         }
@@ -60,7 +65,7 @@
                     document.getElementById("totalTime").textContent = totalTime.toFixed(2);
             }, 1000);
         };
-        window.addEventListener("beforeunload", (function() {
+        window.onbeforeunload = function() {
             $.ajax({
                 url: "{% url 'push_reading_info' material_id %}",
                 type: "POST",
@@ -77,7 +82,7 @@
                     alert("Could not send URL to Django. Error: " + xhr.status + ": " + xhr.responseText);
                 }
             });
-        }));
+        };
         </script>
   </head>
   <body>
