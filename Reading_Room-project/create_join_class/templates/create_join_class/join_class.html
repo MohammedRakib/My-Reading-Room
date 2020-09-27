@@ -2,45 +2,44 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-    <h2>Join Class</h2>
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5">
+            <h2>Join Class</h2>
+        </div>
+    </div>
 
-    {% if ImageNotFound %}
-        {{ ImageNotFound }}
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5">
+            {% if ImageNotFound %}
+                <div class="alert alert-danger" role="alert">
+                    {{ ImageNotFound }}
+                </div>
 
-    {% else %}
-        {% if ImageFound %}
-            {{ ImageFound }}
-        {% endif %}
+            {% else %}
+                {% if ImageFound %}
+                    <div class="alert alert-primary" role="alert">
+                        {{ ImageFound }}
+                    </div>
+                {% endif %}
+                {% if error %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ error }}
+                    </div>
+                {% endif %}
 
-        {% if error %}
-            {{ error }}
-        {% endif %}
-
-        <form method="POST" action="{% url 'join_class' %}">
-            {% csrf_token %}
-            {#    {{ form|crispy }}#}
-
-            <label for="classCode">Class Code</label>
-            <input type="text" name="classCode" id="classCode" maxlength="6" required><br>
-
-            <button type="submit">Join Class</button>
-
-        </form>
-    {% endif %}
-
-    {#    {% if error %}#}
-    {#        {{ error }}#}
-    {#    {% endif %}#}
-    {##}
-    {#    <form method="POST" action="{% url 'join_class' %}">#}
-    {#        {% csrf_token %}#}
-    {#    {{ form|crispy }}#}
-    {##}
-    {#        <label for="classCode">Class Code</label>#}
-    {#        <input type="text" name="classCode" id="classCode" maxlength="6" required><br>#}
-    {##}
-    {#        <button type="submit">Join Class</button>#}
-    {##}
-    {#    </form>#}
-
+                <form method="POST" action="{% url 'join_class' %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="classCode">Class Code</label>
+                        <input type="text" name="classCode" class="form-control" id="classCode" maxlength="6" required>
+                    </div>
+                    <div class="row justify-content-center mt-10">
+                        <div class="col-md-16">
+                            <button type="submit" class="btn btn-primary">Join Class</button>
+                        </div>
+                    </div>
+                </form>
+            {% endif %}
+        </div>
+    </div>
 {% endblock %}

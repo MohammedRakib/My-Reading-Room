@@ -1,27 +1,24 @@
 {% extends "create_join_class/base.html" %}
-{% load crispy_forms_tags %}
-
 {% block content %}
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Upload Reading Material</title>
-    </head>
-    <body>
-    {% if error %}
-        {{ error }}
-    {% else %}
-        <h2> Upload a File </h2>
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {#    {{ form|crispy }}#}
-            {{ form.as_p }}
-            <button type="submit" class="btn-btn-primary"> Upload File</button>
-        </form>
-    {% endif %}
-    </body>
-    </html>
-
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5">
+            <h2> Upload a PDF File </h2>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5">
+            {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% else %}
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-primary">Upload File</button>
+                </form>
+            {% endif %}
+        </div>
+    </div>
 {% endblock %}

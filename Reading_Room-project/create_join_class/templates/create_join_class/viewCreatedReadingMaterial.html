@@ -1,56 +1,55 @@
 {% extends "create_join_class/base.html" %}
 {% block content %}
+    <div class="row justify-content-center mt-8">
+        <div class="col-md-7 text-center">
+            <p>
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="alert alert-primary"{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            </p>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-10">
+        <div class="col-md-16">
+            <h2> Your Reading Materials </h2>
+        </div>
+    </div>
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>View Reading Material</title>
-    </head>
-    <body>
-    <p>
-        <ul class="messages">
-            {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    </p>
-    <h2> Your Reading Materials </h2>
-    <table class="table">
+    <table class="table table-bordered">
         <thead>
         <tr>
             <th>File Name</th>
             <th>Classroom</th>
             <th>View File</th>
             <th>View Reading Info</th>
+            <th>Delete</th>
         </tr>
         </thead>
         <tbody>
         {% for material in materialTeacher %}
             <tr>
-                <td>{{ material.name }}</td>
-                <td>{{ material.classroom }}</td>
+                <td><b>{{ material.name }}</b></td>
+                <td><b>{{ material.classroom }}</b></td>
                 <td>
                     <a href="{{ material.readingFile.url }}" class="btn btn-primary btn-sm" target="_blank">
                         View File
                     </a>
                 </td>
                 <td>
-                    <a href="{% url 'view_reading_info' material.id %}" class="btn btn-danger btn-sm" target="_blank">
+                    <a href="{% url 'view_reading_info' material.id %}" class="btn btn-primary btn-sm" target="_blank">
                         View Reading Info
                     </a>
                 </td>
                 <td>
                     <form method="post" action="{% url 'deleteReadingMaterial' material.classroom.pk material.pk %}">
                         {%  csrf_token %}
-                        <button type="submit" class="btn-btn-danger btn-sm">Delete Reading Material</button>
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                     </form>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-    </body>
-    </html>
-
 {% endblock %}

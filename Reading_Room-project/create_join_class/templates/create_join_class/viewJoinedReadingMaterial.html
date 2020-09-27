@@ -1,15 +1,34 @@
 {% extends "create_join_class/base.html" %}
 {% block content %}
-
     <!DOCTYPE html>
     <html lang="en" xmlns="http://www.w3.org/1999/html">
     <head>
         <meta charset="UTF-8">
-        <title>View Reading Material</title>
+        <style>
+            table {
+                table-layout: auto;
+                border-collapse: collapse;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            table td, th, tr {
+                border: 3px solid #000000;
+                text-align: center;
+            }
+
+            table tr:hover {
+                background-color: #ddd;
+            }
+        </style>
+
     </head>
     <body>
-
-    <h2> Your Reading Materials </h2>
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-16">
+            <h2> Reading Materials </h2>
+        </div>
+    </div>
     <table class="table">
         <thead>
         <tr>
@@ -35,5 +54,4 @@
     </table>
     </body>
     </html>
-
 {% endblock %}

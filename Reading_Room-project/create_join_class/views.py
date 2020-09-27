@@ -88,10 +88,11 @@ def join_class(request):
     if request.method == "GET":
         numberOfImage = FaceImage.objects.filter(name=request.user).count()
         if numberOfImage >= 1:
-            return render(request, 'create_join_class/join_class.html', {'ImageFound': f'System found {numberOfImage} image(s) of you in the DB'})
+            return render(request, 'create_join_class/join_class.html',
+                          {'ImageFound': f'System found {numberOfImage} image(s) of you in the DB'})
         else:
             return render(request, 'create_join_class/join_class.html',
-                          {'ImageNotFound': 'Please upload at least one before joining a class'})
+                          {'ImageNotFound': 'Please upload at least one image before joining a class'})
     else:
         # checking if the class code that user entered does exist or not
         try:
@@ -216,12 +217,12 @@ def view_reading_info(request, readingMaterial_id):
         reading_info_dict = json.loads(reading_info_obj.material_info)
         return render(request, "create_join_class/view_reading_info.html", {'reading_info_dict': reading_info_dict})
     except ReadingInfo.DoesNotExist:
-        return render(request, "create_join_class/view_reading_info.html", {'reading_info_dict': 'This Material does '
-                                                                                                 'not have any '
-                                                                                                 'reading info in DB'})
+        return render(request, "create_join_class/view_reading_info.html", {'NotFoundError': 'This Material does '
+                                                                                             'not have any '
+                                                                                             'reading info in DB'})
     except ReadingMaterial.DoesNotExist:
         return render(request, "create_join_class/view_reading_info.html",
-                      {'reading_info_dict': 'Reading Material Does Not Exists'})
+                      {'NotFoundError': 'Reading Material Does Not Exists'})
 
 
 @login_required

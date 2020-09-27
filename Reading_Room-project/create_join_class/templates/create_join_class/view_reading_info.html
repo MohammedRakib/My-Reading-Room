@@ -1,6 +1,67 @@
 {% extends "create_join_class/base.html" %}
 {% block content %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            table {
+                table-layout: auto;
+                border-collapse: collapse;
+                margin-left: auto;
+                margin-right: auto;
+            }
 
-    {{ reading_info_dict }}
+            table td, th, tr {
+                border: 3px solid #000000;
+                text-align: center;
+            }
 
+            table tr:hover {
+                background-color: #ddd;
+            }
+        </style>
+
+    </head>
+    <body>
+
+    <div class="d-flex justify-content-center mt-5">
+        <div class="col-md-16">
+            <h2>Reading Information</h2>
+        </div>
+    </div>
+
+    {% if NotFoundError %}
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-5">
+
+                <div class="alert alert-danger" role="alert">
+                    {{ NotFoundError }}
+                </div>
+
+            </div>
+        </div>
+    {% endif %}
+
+    {% if reading_info_dict %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th>User</th>
+                <th>Total Time Spent</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {% for k,v in reading_info_dict.items %}
+                <tr>
+                    <td>{{ k }}</td>
+                    <td>{{ v }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+    </body>
+    </html>
 {% endblock %}

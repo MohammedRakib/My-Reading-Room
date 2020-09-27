@@ -1,27 +1,36 @@
 {% extends "create_join_class/base.html" %}
 {% block content %}
-    <!DOCTYPE html>
-    <head>
-    </head>
-    <body>
-    <h2>New Class</h2>
-    {% load crispy_forms_tags %}
-    {% if error %}
-        {{ error }}
-    {% endif %}
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5">
+            <h2>New Class</h2>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5">
+            {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endif %}
 
-    <form method="POST">
-        {% csrf_token %}
-        {#    {{ form|crispy }}#}
-        <label for="name">Class Name</label>
-        <input type="text" name="name" id="name" required><br>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="name">Class Name</label>
+                    <input type="text" name="name" class="form-control" id="name" required>
+                </div>
 
-        <label for="section">Section</label>
-        <input type="number" name="section" id="section" required><br>
+                <div class="form-group">
+                    <label for="section">Section</label>
+                    <input type="number" name="section" class="form-control" id="section" required>
+                </div>
+                <div class="row justify-content-center mt-10">
+                    <div class="col-md-16">
+                        <button type="submit" class="btn btn-primary">Create Class</button>
+                    </div>
+                </div>
 
-        <button type="submit">Create Class</button>
-
-    </form>
-    </body>
-    </html>
+            </form>
+        </div>
+    </div>
 {% endblock %}
