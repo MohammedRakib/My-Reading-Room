@@ -13,22 +13,24 @@ from .forms import CreateClassRoomForm, ReadingMaterialForm, FaceImageForm
 from .models import *
 
 
+# This method is used for logging in. It redirects the user to homepage if credentials match.
+# Else it prompts the user to reenter credentials.
 def index(request):
     if request.method == 'GET':
         return render(request, 'create_join_class/index.html', {'form': AuthenticationForm()})
     else:
         user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
         if user is None:
-            return render(request, 'create_join_class/index.html', {'form': AuthenticationForm(), 'error': 'Username '
-                                                                                                           'or '
-                                                                                                           'Password '
-                                                                                                           'is '
-                                                                                                           'incorrect'})
+            return render(request, 'create_join_class/index.html',
+                          {'form': AuthenticationForm(), 'error': 'Username or password is incorrect'})
         else:
             login(request, user, backend='django.contrib.auth.backends.ModelBackend')
             return redirect('home_classroom')
 
 
+# This method is for any user to create an account first before doing anything else.
+# It redirects the user to homepage if account is created successfully. Else it prompts the
+# user to reenter his credentials.
 def signup_user(request):
     if request.method == "GET":
         return render(request, 'create_join_class/signupuser.html', {'form': UserCreationForm()})
@@ -49,6 +51,7 @@ def signup_user(request):
                                                                 'match!'})
 
 
+# This method logs out the user from the site and redirects him/her to the login page.
 @login_required
 def logout_user(request):
     if request.method == 'POST':
@@ -56,16 +59,18 @@ def logout_user(request):
         return redirect('index')
 
 
-# 2nd return statement should be removed
+# This method is the homepage where the user can see his/her created and joined classes.
+# It returns the homepage.
 @login_required
 def home_classroom(request):
     created_classes = ClassRoom.objects.filter(teacher=request.user)
     joined_classes = ClassRoom.objects.filter(students__in=[request.user.id])
     return render(request, 'create_join_class/home_classroom.html',
                   {'user': request.user, 'created_classes': created_classes, 'joined_classes': joined_classes})
-    # return render(request, 'create_join_class/home_classroom.html', {'user': request.user})
 
 
+# This method is used to create class. It creates a class with the POST data retrieved from the user via form
+# and also generates a unique class code for other users to join.
 @login_required
 def create_class(request):
     if request.method == "GET":
@@ -83,6 +88,9 @@ def create_class(request):
                           {'form': CreateClassRoomForm, 'error': 'Bad data passed in. Try again!'})
 
 
+# This method is used to join class. It checks if the user has uploaded an image of himself and only then
+# allows the user to enter the classroom code. If the code matches the user successfully jons the class. Else,
+# the system prompts the user to reenter code.
 @login_required
 def join_class(request):
     if request.method == "GET":
@@ -109,18 +117,25 @@ def join_class(request):
             return redirect('home_classroom')
 
 
+# This method is used to show the created classrooms by a user.
+# It returns a html page with links to all created classrooms.
 @login_required
 def viewcreatedclassroom(request, classroom_pk):
     classroom = get_object_or_404(ClassRoom, teacher=request.user, pk=classroom_pk)
     return render(request, "create_join_class/viewcreatedclassroom.html", {'classroom': classroom})
 
 
+# This method is used to show the joined classrooms by a user.
+# It returns a html page with links to all joined classrooms.
 @login_required
 def viewjoinedclassroom(request, classroom_pk):
     classroom = get_object_or_404(ClassRoom, students__in=[request.user.id], pk=classroom_pk)
     return render(request, "create_join_class/viewjoinedclassroom.html", {'classroom': classroom})
 
 
+# This method is used to upload reading material by the teacher of the class. The teacher
+# can only upload pdf files as reading material. If upload is successful, the teacher
+# is redirected to the created classroom html. Else the teacher is prompted to upload the file again.
 @login_required
 def uploadReadingMaterial(request, classroom_pk):
     if request.method == 'GET':
@@ -144,6 +159,8 @@ def uploadReadingMaterial(request, classroom_pk):
             return render(request, "create_join_class/uploadReadingMaterial.html", {'form': form})
 
 
+# This method is used to delete any reading material uploaded by the teacher of the class. The teacher
+# can only delete pdf files.
 @login_required
 def deleteReadingMaterial(request, classroom_pk, readingMaterial_pk):
     if request.method == "POST":
@@ -152,36 +169,30 @@ def deleteReadingMaterial(request, classroom_pk, readingMaterial_pk):
         return redirect('viewCreatedReadingMaterial', classroom_pk)
 
 
+# This method is used to view the created reading materials by the teacher.
+# It shows all the reading materials created by the teacher for a particular class.
 @login_required
 def viewCreatedReadingMaterial(request, created_pk):
     materialTeacher = ReadingMaterial.objects.filter(classroom_id=created_pk, uploader=request.user)
     return render(request, "create_join_class/viewCreatedReadingMaterial.html", {'materialTeacher': materialTeacher})
 
 
+# This method is used to view the reading materials as a student.
+# It shows all the reading materials uploaded by the teacher for a particular class.
 @login_required
 def viewJoinedReadingMaterial(request, joined_pk):
     materialStudent = ReadingMaterial.objects.filter(classroom_id=joined_pk, classroom__students__in=[request.user.id])
     return render(request, "create_join_class/viewJoinedReadingMaterial.html", {'materialStudent': materialStudent})
 
 
+# This method is used to send the student name and time spent on a reading material back to the database.
+# Atfirst with ajax post call, it receives reading info when a student closes the reading material tab and
+# then converts it to json to push the data into the database
 def push_reading_info(request, readingMaterial_id):
-    # totalTimeSpentOnPage = request.POST.get('count')
-    # username = request.POST.get('username')
-    # print("Username: " + username)
-    # print("TOTAL TIME SPENT: ", totalTimeSpentOnPage)
-    # reading_infos = {username: totalTimeSpentOnPage}
-    # reading_info = json.dumps(reading_infos)
-    # reading_info_obj = ReadingInfo.objects.create(material_id=ReadingMaterial.objects.get(id=readingMaterial_id),
-    #                                               material_info=reading_info)
-    # reading_info_obj.save()
     username = request.POST.get('username')
     totalTimeSpentOnPage = request.POST.get('count')
 
     try:
-        # print("ENTERED IN TRY BLOCK")
-        # username = request.POST.get('username')
-        # total_time = request.POST.get('count')
-        # print("DATA FETCHED")
         readingInfoObj = ReadingInfo.objects.get(material_id=ReadingMaterial.objects.get(id=readingMaterial_id))
         # print("READING INFO OBJECT FETCHED")
         reading_info_dict = json.loads(readingInfoObj.material_info)
@@ -210,6 +221,8 @@ def push_reading_info(request, readingMaterial_id):
         reading_info_obj.save()
 
 
+# This method is used to show the teacher the time spent by each student on a particular reading material
+# It returns a list of all students with their corresponding reading time of a particular material.
 @login_required
 def view_reading_info(request, readingMaterial_id):
     try:
@@ -224,7 +237,9 @@ def view_reading_info(request, readingMaterial_id):
         return render(request, "create_join_class/view_reading_info.html",
                       {'NotFoundError': 'Reading Material Does Not Exists'})
 
-
+# THis method is used to upload image. A user can upload any image in the format jpeg, jpg or png
+# as long as the system can detect a face in the image. If the file format is right and the system detects
+# a face, the upload is successful. Else the upload fails and prompts the user to upload again.
 @login_required
 def uploadFaceImage(request):
     if request.method == 'GET':
@@ -248,17 +263,17 @@ def uploadFaceImage(request):
         else:
             return render(request, "create_join_class/uploadFaceImage.html", {'form': form})
 
-
+# This method is used to show pdf files to the students and returns and a html page where the pdf file is
+# embedded.
 @login_required
 def viewPDF(request, filename, material_id):
     return render(request, "create_join_class/viewPDF.html", {'filename': filename, 'material_id': material_id,
                                                               'username': request.user.username})
 
-
+# This method is used to detect and recognise face of the student while he/she is viewing the reading material.
+# It returns 1 if face is recognised else it returns -1 if face is not recognised.
 face_locations = []
 face_encodings = []
-
-
 @login_required
 def facedetect(request):
     faceimages = FaceImage.objects.filter(name=request.user.id)
