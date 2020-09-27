@@ -1,6 +1,7 @@
 Reading_Room-project/.idea/*
 Mobile-App/.idea/*
 Reading_Room-project/venv/*
+Reading_Room-project/media/*
 *.pyc
 __pycache__
 Reading_Room-project/db.sqlite3

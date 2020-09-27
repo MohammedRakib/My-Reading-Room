@@ -31,7 +31,7 @@
         {% for material in materialTeacher %}
             <tr>
                 <td><b>{{ material.name }}</b></td>
-                <td><b>{{ material.classroom }}</b></td>
+                <td><b>{{ material.classroom.name }}.{{ material.classroom.section }}</b></td>
                 <td>
                     <a href="{{ material.readingFile.url }}" class="btn btn-primary btn-sm" target="_blank">
                         View File

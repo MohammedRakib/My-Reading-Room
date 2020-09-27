@@ -11,7 +11,7 @@
       <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
       <script src={% static "create_join_class/js/timeme.js"%}></script>
       <script type="text/javascript">
-          var timeSpentOnPage = 0;
+          var timeSpentOnPage = 0.00;
           var totalTime = 0;
           var user = '{{ username }}';
 	    // Initialize library and start tracking time
@@ -28,14 +28,24 @@
                     success: function (data) {
                         var list = data.value;
                         if(list == -1){
-                            totalTime = totalTime - 5.0;
+                            if (totalTime<5) {
+                                totalTime = 0;
+                            } else {
+                                totalTime = totalTime - 5.0;
+                            }
+                            console.log("Face NOT Recognised! Value: " + list);
+                        } else {
+                            console.log("Face Recognised! Value: " + list);
                         }
-                        console.log("value is: "+ list);
+                        document.getElementById("totalTime").textContent = totalTime.toFixed(2);
                     },
                     error: function (response) {
-
-                        totalTime = totalTime - 5.0;
-                        console.log("time is :"+totalTime);
+                        if (totalTime<5) {
+                                totalTime = 0;
+                        } else {
+                            totalTime = totalTime - 5.0;
+                        }
+                        console.log("No Face Detected!");
                         document.getElementById("totalTime").textContent = totalTime.toFixed(2);
                     }
                 })
@@ -46,7 +56,7 @@
             setInterval(function () {
                 {#timeSpentOnPage = TimeMe.getTimeOnCurrentPageInSeconds();#}
                 {#document.getElementById('timeInSeconds').textContent = timeSpentOnPage.toFixed(2);#}
-                    totalTime = totalTime + 1;
+                    totalTime = totalTime + 1.00;
                     document.getElementById("totalTime").textContent = totalTime.toFixed(2);
             }, 1000);
         };

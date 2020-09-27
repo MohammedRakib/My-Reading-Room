@@ -276,6 +276,7 @@ def facedetect(request):
 
     # Grab a single frame of video
     s, img = video_capture.read()
+    video_capture.release()
     if s:
 
         # Resize frame of video to 1/4 size for faster face recognition processing
@@ -291,11 +292,9 @@ def facedetect(request):
 
         if True in check:
             value = {'value': 1}
-            video_capture.release()
             print(value)
             return JsonResponse(value)
         else:
             value = {'value': -1}
-            video_capture.release()
             print(value)
             return JsonResponse(value)
