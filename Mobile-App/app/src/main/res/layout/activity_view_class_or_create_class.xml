@@ -5,47 +5,44 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".ViewClassOrCreateClassActivity">
 
     <EditText
-        android:id="@+id/login_username_editTextID"
+        android:id="@+id/class_name_EditTextID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
-        android:hint="username"
-        >
-    </EditText>
+        android:hint="class name"></EditText>
     <EditText
-        android:id="@+id/login_password_editTextID"
+        android:id="@+id/class_section_EditTextID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
-        android:hint="password"
-        >
+        android:hint="section number"
+        android:inputType="numberDecimal">
     </EditText>
+    <Button
+        android:id="@+id/create_class_buttonID"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Class"></Button>
 
     <Button
-        android:id="@+id/login_buttonID"
+        android:id="@+id/refreshButtonID"
+        android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
-        android:layout_gravity="center"
+        android:text="Refresh"
         ></Button>
-
     <TextView
+        android:id="@+id/view_create_class_text_viewID"
+        android:layout_margin="10dp"
         android:padding="10dp"
-        android:id="@+id/signUpTextViewID"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/signup_text_view">
+        android:scrollbars="vertical"
+        android:text="Your classes here!!!"
+        >
 
     </TextView>
-    <TextView
-        android:id="@+id/textViewID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center">
 
-    </TextView>
 </LinearLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ViewJoinedClassesActivity">
+
+    <EditText
+        android:id="@+id/classCodeEditTextID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Class Code"
+        android:maxLength="6">
+    </EditText>
+    <Button
+        android:id="@+id/joinClassButtonID"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Join Class"></Button>
+
+    <Button
+        android:id="@+id/join_class_refreshButtonID"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Refresh"
+        ></Button>
+    <TextView
+        android:id="@+id/view_joined_class_text_viewID"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:text="Your classes here!!!"
+        >
+
+    </TextView>
+
+</LinearLayout>

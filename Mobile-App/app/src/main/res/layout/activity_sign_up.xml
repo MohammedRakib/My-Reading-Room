@@ -5,47 +5,44 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".SignUpActivity">
 
     <EditText
-        android:id="@+id/login_username_editTextID"
+        android:id="@+id/signUpActivityUserNameEditTextID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
         android:hint="username"
-        >
-    </EditText>
+        ></EditText>
     <EditText
-        android:id="@+id/login_password_editTextID"
+        android:id="@+id/signUpActivityPassWordOneEditTextID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
         android:hint="password"
-        >
-    </EditText>
-
+        ></EditText>
+    <EditText
+        android:id="@+id/signUpActivityPassWordTwoEditTextID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="confirm password"
+        ></EditText>
     <Button
-        android:id="@+id/login_buttonID"
+        android:layout_gravity="center"
+        android:id="@+id/signUpActivitySignUpButtonID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
-        android:layout_gravity="center"
-        ></Button>
-
+        android:text="Sign Up"></Button>
     <TextView
         android:padding="10dp"
-        android:id="@+id/signUpTextViewID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/LoginInsteadTextViewID"
         android:layout_gravity="center"
-        android:text="@string/signup_text_view">
-
-    </TextView>
-    <TextView
-        android:id="@+id/textViewID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:text="@string/signup_activity_error"></TextView>
+    <TextView
+        android:padding="5dp"
+        android:id="@+id/signUpErrorTextViewID"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></TextView>
 
-    </TextView>
 </LinearLayout>
