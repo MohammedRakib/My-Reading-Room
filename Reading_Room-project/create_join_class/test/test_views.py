@@ -4,6 +4,7 @@ from create_join_class.models import *
 import json
 
 
+""" This class is for unit test of our views function in create_join_class app"""
 class TestViews(TestCase):
 
     # this method is going to run before every test

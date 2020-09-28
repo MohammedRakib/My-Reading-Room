@@ -3,6 +3,7 @@ from django.urls import reverse, resolve
 from create_join_class.views import *
 
 
+""" This class is for unit test of create_join_class app's urls """
 class TestUrls(SimpleTestCase):
     def test_index(self):
         url = reverse('index')  # to get the url of the parameter name

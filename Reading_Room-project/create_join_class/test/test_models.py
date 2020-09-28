@@ -5,6 +5,7 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 import json
 
 
+""" This class is for unit testing of our model classes in create_join_class app's """
 class TestModels(TestCase):
 
     def setUp(self):

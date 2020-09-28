@@ -30,7 +30,7 @@ def index(request):
 
 # This method is for any user to create an account first before doing anything else.
 # It redirects the user to homepage if account is created successfully. Else it prompts the
-# user to reenter his credentials.
+# user to re-enter his credentials.
 def signup_user(request):
     if request.method == "GET":
         return render(request, 'create_join_class/signupuser.html', {'form': UserCreationForm()})

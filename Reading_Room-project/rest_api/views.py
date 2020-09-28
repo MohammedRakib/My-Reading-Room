@@ -9,6 +9,7 @@ import uuid
 from django.db import IntegrityError
 
 
+""" Token Auth and Session Auth API Call"""
 @csrf_exempt
 def login(request):
     if request.method == "POST":
@@ -23,7 +24,7 @@ def login(request):
                 token = Token.objects.create(user=user)
             return JsonResponse({'token': str(token)}, status=200)
 
-
+""" Signup Using API Call"""
 @csrf_exempt
 def signup(request):
     if request.method == "POST":
@@ -38,6 +39,7 @@ def signup(request):
             return JsonResponse({'error': 'Username is already take!'}, status=400)
 
 
+""" User Can Create Class or View Created Class Through API Call"""
 class HomeClassroomCreateClass(generics.ListCreateAPIView):
     serializer_class = ClassRoomSerializer
     permission_classes = [permissions.IsAuthenticated]
@@ -49,6 +51,7 @@ class HomeClassroomCreateClass(generics.ListCreateAPIView):
         serializer.save(teacher=self.request.user, classCode=uuid.uuid4().hex[:6].upper())
 
 
+""" User Can View Joined Class Through API Call """
 class HomeClassroomJoinedClass(generics.ListAPIView):
     serializer_class = ClassRoomJoinedSerializer
     permission_classes = [permissions.IsAuthenticated]
@@ -57,6 +60,7 @@ class HomeClassroomJoinedClass(generics.ListAPIView):
         return ClassRoom.objects.filter(students__in=[self.request.user.id])
 
 
+""" User Can Join Class Through API Call """
 class MakeClassRoomJoinClass(generics.UpdateAPIView):
     serializer_class = JoinAClassSerializer
     permission_classes = [permissions.IsAuthenticated]
@@ -72,6 +76,7 @@ class MakeClassRoomJoinClass(generics.UpdateAPIView):
         serializer.save()
 
 
+""" class MakeClassRoomJoinClass requires a classroom_pk this method will pk """
 @csrf_exempt
 def getAclassroomID(request):
     if request.method == "POST":
@@ -83,6 +88,7 @@ def getAclassroomID(request):
             return JsonResponse({'token': 'No class found with that class code'}, status=201)
 
 
+""" User Can View Reading Material Through API Call """
 class ViewFileAPIView(generics.ListCreateAPIView):
     serializer_class = ReadingMaterialSerializer
     permission_classes = [permissions.IsAuthenticated]
@@ -94,6 +100,7 @@ class ViewFileAPIView(generics.ListCreateAPIView):
         serializer.save(classroom=ClassRoom.objects.get(id=self.kwargs['classroom_id']), uploader=self.request.user)
 
 
+""" User Can View Reading Info Through API Call """
 class ReadingInfoAPIView(generics.ListAPIView):
     serializer_class = ReadingInfoSerializer
     permission_classes = [permissions.IsAuthenticated]
